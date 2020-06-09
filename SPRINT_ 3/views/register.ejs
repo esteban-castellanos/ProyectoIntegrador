@@ -4,34 +4,30 @@
     <%- include('partials/head.ejs')%>
 
 <body>
-    
+
         <header class="headerformulario col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
             <img src="/img/HJ-03.png" alt="" class="logoformulario logo" onclick="window.location = '/index'">
         </header>
         <main class="mainformulario" >
-    
+
             <div class="container row mainformulario ">
                 <h1 class="tituloformulario col-12" >REGISTRARTE</h1>
-    
-
-        <% if (typeof errors != 'undefined') { %>
-            <p style="color: red; font-size: 22px;">Se han encontrado 1 o varios errores:</p>
-            <ul style="color: red">
-                <% for (var i = 0; i < errors.length; i++){ %>
-                <li>
-                    <%= errors[i].msg %>
-                </li>
-                <% } %>
-
-            </ul>
-        <% } %>
 
         <% if (typeof(mensaje) != "undefined") { %>
             <p style="color: green; font-size: 22px;"> <%= mensaje %>  </p>
         <% } %>
-        
+
             <form class= 'formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'action="/user/register" method="POST">
-                
+                <% if (typeof errors != 'undefined') { %>
+                    <p style="color: red; font-size: 22px;">Se han encontrado 1 o varios errores:</p>
+                    <ul style="color: red">
+                        <% for (var i = 0; i < errors.length; i++){ %>
+                        <li>
+                            <%= errors[i].msg %>
+                        </li>
+                        <% } %>
+                    </ul>
+                <% } %>
                 <button class='añadirproducto' type='submir' id="facebook">Iniciar sesión con Facebook</button>
                 <p class="registromail">------------- Ó registrate con tu email -------------</p>
                 <label for="nombre" class="labelform">Nombre</label>
