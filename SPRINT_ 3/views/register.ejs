@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head.ejs')%>
+
+<body>
+    
+        <header class="headerformulario col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4">
+            <img src="/img/HJ-03.png" alt="" class="logoformulario logo" onclick="window.location = '/index'">
+        </header>
+        <main class="mainformulario" >
+    
+            <div class="container row mainformulario ">
+                <h1 class="tituloformulario col-12" >REGISTRARTE</h1>
+    
+
+        <% if (typeof errors != 'undefined') { %>
+            <p style="color: red; font-size: 22px;">Se han encontrado 1 o varios errores:</p>
+            <ul style="color: red">
+                <% for (var i = 0; i < errors.length; i++){ %>
+                <li>
+                    <%= errors[i].msg %>
+                </li>
+                <% } %>
+
+            </ul>
+        <% } %>
+
+        <% if (typeof(mensaje) != "undefined") { %>
+            <p style="color: green; font-size: 22px;"> <%= mensaje %>  </p>
+        <% } %>
+        
+            <form class= 'formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'action="/user/register" method="POST">
+                
+                <button class='añadirproducto' type='submir' id="facebook">Iniciar sesión con Facebook</button>
+                <p class="registromail">------------- Ó registrate con tu email -------------</p>
+                <label for="nombre" class="labelform">Nombre</label>
+                <br>
+                <input type="text" name="nombre" id="nombre">
+                <br><br>
+                <label for="apellido" class="labelform">Apellido</label>
+                <br>
+                <input type="text" name="apellido" id="apellido">
+                <br><br>
+                <label for="email" class="labelform">Email</label>
+                <br>
+                <input type="email" name="email" id="email">
+                <br><br>
+                <label for="password" class="labelform">Contraseña</label>
+                <br>
+                <input type="password" name="password" id="password" required>
+                <br><br>
+                <p class="registromail">Registrándote estás aceptando términos y condiciones. Ver los <span class="terminosycond">Términos y condiciones
+                </span></p>
+                    <button type="submit" id="registrarme">REGISTRARME</button>
+            </form>
+        </div>
+    </main>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

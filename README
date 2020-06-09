@@ -1,0 +1,70 @@
+# grupo_5_healthyjourney-
+Proyecto integrador FullStack
+
+Idea de proyecto Web:
+Venta de productos orgánicos, sin lactosa y sin TACC en el Gran Mendoza.
+
+Funcionalidad de la Web:
+La página trabajará con distintos locales de productos orgánicos, sin TACC y sin lactosa de diferentes localidades de Mendoza, ofreciendolos al consumidor final, en formato de carrito de compra.
+El usuario especificará la localidad donde se encuentra y buscará los productos deseados para su pedido programado. Llenará su carrito de compras y realizará el pago mediante tarjeta de crédito o débito. La página le informará al usuario fecha y rango horario de entrega.
+La página automáticamente contactará a los distintos distribuidores para hacer las respectivas compras y completar el pedido del usuario. Se negociará el pago a los locales a través de cuentas corrientes cada semana.
+Se coordinará la entrega del pedido en el domicilio especificado por el usuario.
+
+¿Qué productos o servicios brindará nuestro sitio?
+Nuestro sitio web brinda el servicio de consolidar el pedido del consumidor de las tiendas de productos orgánicos, sin lactosa y sin TACC, permite el pago de los productos a través de nuestra app y brinda además el servicio de delivery llevando al consumidor los productos de una o más tiendas al mismo tiempo. Por otro lado, ofrece al consumidor información nutricional de cada producto que ofrece.
+
+¿Quién será nuestra audiencia objetivo?
+Consumidores de clase media-alta que buscan un estilo de vida saludable y valoran la accesibilidad y la comodidad. Consumidores celíacos, intolerantes al gluten o a la lactosa o que simplemente deciden no consumir TACC/lactosa por salud. Adolescentes y adultos que llevan un estilo de vida activo, saludable y que consideran la alimentación un factor clave en su rutina diaria.
+
+¿Cómo ajustaremos nuestra oferta a ese público?
+Le daremos la facilidad al usuario para que pueda filtrar a través de distintos filtros, pudiendo también buscar por producto o tienda.
+
+Descripción de los integrantes del equipo:
+
+Esteban Castellanos:
+
+Tengo 30 años, trabajo por la mañana como Administrador de Empresas. Por la tarde trabajo de analista de marketing digital en ComeTogether Agency. Deportes y hobbies: Triathlon - Fotografia. Comentarios: mi notebook es un organo más.
+
+Verónica Sardin:
+
+Tengo 28 años y estudié Administración de Empresas. Despúes estudié un Master en Marketing en Barcelona. Volví y empecé a trabajar en Grupo Peñaflor, en Marketing para Comercio Exterior, ahora puntualmente enfocada en los mercados de Estados Unidos y Canadá. Si bien me encanta el mundo del Marketing, me intrigaba mucho programación.
+Hobbies e intereses: juego al futbol desde hace varios años, amo viajar, meditar y buscar siempre nuevas actividades.
+
+Ana Laura Del Arco
+
+Tengo 30 años y soy Diseñadora Gráfica.
+Trabajo jornada completa hasta las 18.00 h como Analista de Marketing en Grupo Peñaflor.
+Deportes y hobbies: Trekkinng / viajar / aprender cosas nuevas y diferentes.
+
+Fernado Fuster
+
+Tengo 33 años, soy Administrador de Fincas en Bodega Argento SA.
+Deportes y Hobbies: Fútbol, Mountain Bike y montañismo.
+
+Referentes:
+
+-PedidosYa
+
+-Glovo
+
+-Uber Eats
+
+Elegimos estos tres sitios porque, a través del servicio que ofrecen, satisfacen la misma necesidad que nosotros buscaremos satisfacer (facilitar al consumidor encontrar el producto que necesita, pagar a través del sitio y recibirlo en su casa). Si bien nuestra aplicación se enfocará en un nicho de clientes, el formato de la web que desarrollaremos es muy similar al que manejan estas webs.
+
+-Oragn&Co https://organyco.org/
+
+-Cardamomo https://cardamomonatural.com.ar/
+
+-Natureba https://natureba.com.ar/
+
+-De mi campo http://www.demicampo.com.ar/
+
+-DeliCel http://www.delicel.com.ar/
+
+-Kaney https://www.kaney.cl/
+
+
+Elegimos estas webs porque ofrecen los mismos tipos de productos que ofreceremos. Tienen filtros claros, fotos de productos e información sobre los mismos. Además, son webs que ofrecen productos naturales y la estética que poseen va en línea con lo que buscamos para nuestra web.
+
+TRELLO:
+https://trello.com/b/H3BMTQ20/full-stack-proyecto-integrador
