@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Journey</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/styleform.css">
+</head>
+<body>
+    <header class="container">
+        <div class="headerformulario row">
+            <img src="../public/img/logo.colores.jpeg" alt="Logo" class="col-6">
+            <img src="../public/img/logo.frente.jpeg" alt="Logo" class="col-4">
+        </div>
+    </header>
+    <body>
+        <form action="nuevoProducto" class="formulariocentrado mainformulario">
+            <h1 class="tituloformulario">AÑADIR NUEVO PRODUCTO</h1><br>
+            <label for="nombre" class="labelform">Nombre del producto</label><br>
+            <input type="text" name="nombreProduct" id="nombre" required><br><br>
+            <label for="descCorta" class="labelform">Descripción Corta</label><br>
+            <input type="text" name="descCorta" id="descCorta" required><br><br>
+            <label for="descLarga" class="labelform">Descripción Larga</label><br>
+            <p class="letragrisform">Campo optativo</p>
+            <textarea name="descLarga" id="descLarga" cols="30" rows="4"></textarea><br>
+            <label for="precio" class="labelform">Precio</label><br>
+            <input type="number" name="precio" id="precio" required><br><br>
+
+            <label for="tienda" class="labelform">Tienda</label><br>
+            <select name="tienda" id="" required>
+            <option value="" selected disabled hidden>Selecciona una tienda</option>
+            <option value="cardamomo">CARDAMOMO</option>
+            <option value="misticanat">MISTICA NATURAL</option>
+            <option value="natureba">NATUREBA</option>
+            <option value="repartoalegria">REPARTO ALEGRÍA</option>
+            </select><br><br>
+
+            <label for="filtros" class="labelform">Filtros</label><br>
+            <div>
+                <input type="checkbox">
+                <label for="org" class= "letragrisform">Orgánicos</label><br>
+                <input type="checkbox">
+                <label for="s/t" class="letragrisform">Sin Tacc</label><br>
+                <input type="checkbox">
+                <label for="s/l" class="letragrisform">Sin Lactosa</label><br><br>
+            </div>
+            <label for="foto" required class="labelform">Añadir foto</label><br><br>
+
+            <button class="añadirproducto">AÑADIR PRODUCTO</button>
+            <button class="modificarexistente">MODIFICAR PRODUCTO EXISTENTE</button>
+        </form>
+
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    </body>
+
+</html>

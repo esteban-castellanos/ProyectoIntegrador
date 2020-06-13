@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Journey - Producto</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Kreon:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../public/css/style.css">
+    
+</head>
+<body>
+    
+    <header class='container'>
+        <div class='hedcompleta fixed-top' >
+            
+            <div class='row superior'>
+                
+                <div class="menugrande col-3 row" >
+                    <div class="col-12" >
+                        <button type="button" class="btncab" onclick="#">INGRESAR</button>
+                        <button type="button" class="btncab" onclick="window.location = 'register.html'">REGISTRARME</button>
+                        <button type="button" class="btncab">MIS COMPRAS</button>
+                    </div>
+                    
+                </div>
+                <nav class="navbarburguer navbar-expand-lg navbar-light col-3 ">
+                    
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                        <div class="navbar-nav">
+                            
+                            <a class="nav-item nav-link" href="#">INGRESAR</a>
+                            <a class="nav-item nav-link " href="register.html">REGISTRARSE</a>
+                            <a class="nav-item nav-link " href="#">MIS COMPRAS</a>
+                            
+                        </div>
+                    </div>
+                </nav>
+                
+                
+                
+                
+                
+                
+                
+                <div class= 'col-5 '>
+                    <img class="logo" src="../public/img/logo-healthy-journey.png" alt="Logo" href="index.html" onclick="window.location = 'index.html'">
+                </div>
+                <div class="col-4 col-sm-4 col-md-4 col-lg-3 col-xl-3" >
+                    <button type="button" class="btncarrito" onclick="window.location = 'produtCart.html'">CARRITO</button>
+                    
+                </div>
+                
+            </div>
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Buscar por producto o por tienda" aria-label="Recipient's username" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-search lupita"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="ppalcon container">
+    <nav class='row filtros'>
+        <a href="" class='col-4 afiltros'><img src="../public/img/icono_orga.png" alt="" class='imgfiltros'></a>
+        <a href="" class='col-4 afiltros'><img src="../public/img/icono sin tacc" alt="" class='imgfiltros' ></a>
+        <a href="" class='col-4 afiltros'><img src="../public/img/icono_lactosa.png" alt="" class='imgfiltros'></a>
+    </nav> 
+    <div class="row filtros filtropablabras">
+        <p>ORGÁNICOS</p>
+        <p>SIN TACC</p>
+        <p>SIN LACTOSA</p>
+    </div>
+    
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" id="mapnav">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Tienda:Cardamomo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Productos</li>
+        </ol>
+    </nav>
+    
+    <section id="productos" class="container">
+        <article class="row cadaprod1">
+            <div class="col-5 imgart" >
+                <img src="../public/img/TIENDA CARDAMOMO/aceite de coo.jpg" alt="" class="logosproductos">
+            </div>
+            
+            <div class="col-7 contenedorProducto">
+                <div class="row" id="rowClass">
+                    <span class="nombreProducto col-12 ">ACEITE DE COCO</span>
+                    <div class="row" id="rowProducto">
+                        <span class="descripcionProducto col-8"> Aceite de coco Neutro “MK Orgánic” 660cc</span>
+                        <span class="precioPrducto col-4">$300 </span>
+                        <div class="col-12">
+                            <select class="custom-select custom-select-sm" id="selectStock">
+                                <option selected disabled hidden >Si no hay stock...</option>
+                                <option value="1">Sacar de la lista</option>
+                                <option value="2">Distinto tamaño</option>
+                                <option value="3">Marca similar</option>
+                            </select>
+                        </div>
+                        <div class="contadortotal ">
+                            <div class="selectorContador col-6 col-sm-6">
+                                <button class="botonproducto"  id="contadores col-6 col-sm-4" >+</button>
+                                <input type="number" name="cantProductos" id="contadorInput" class="col-2 col-sm-3">
+                                <button class="botonproducto" id="contadores col-6 col-sm-4">-</button>
+                            </div>
+                            <button class="botonproductoQ" id="LoQuiero col-12 col-sm-6">LO QUIERO!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </article>
+        
+    </section>
+</main>
+
+<footer class="container">
+    <div id="divfooter" >
+        <nav class="row">
+            <div class="col-8">
+                <a href="">NOSOTROS  |</a>
+                <a href="">PRIVACIDAD  |</a>
+                <a href="">CONDICIONES</a>
+            </div>
+            <ul class="col-4">
+                <p>SEGUINOS</p>
+                <a href='https://twitter.com'><i class="fab fa-twitter" ></i></a>
+                <a href='https://www.facebook.com'><i class="fab fa-facebook-square"></i></a>
+                <a href='https://www.instagram.com'><i class="fab fa-instagram"></i></i></a>
+            </ul>
+        </nav>
+    </div>
+    
+    <script src="js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
