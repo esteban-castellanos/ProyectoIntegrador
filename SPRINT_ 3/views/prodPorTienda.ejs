@@ -19,87 +19,34 @@
     </nav>
 
     <section class= 'row artiprod '>
-        <article class="row col-12 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 cadaprod1 ">
 
-            <div class='col-4 imgart'><img src="/img/TIENDA CARDAMOMO/espinaca.jpg"alt="espinaca_baby_cardamomo"></div>
-            <div class='col-8 botprod '>
-                <div class= 'row '>
-                    <div class= 'col-12 nombreprod'>
-                        Espinaca
-                    </div>
-                </div>
-                <div class= 'row'>
-                    <div class='col-8 proddescri'><p>Espinaca baby agroecológica 250gr</p></div>
-                    <div class='col-4 precioprod'>$76</div>
-                </div>
-                <div class= 'row'>
-                    <div class='col-12'>
-                        <button type="button" class="btnverprod">LO QUIERO!</button>
-                    </div>
-                </div>
-            </div>
+        <% for (let i = 0; i<productos.length; i++){%>
 
-        </article>
+            <article class="row col-12 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 cadaprod1 ">
 
-        <article class="row col-12 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 cadaprod2 ">
-            <div class='col-4 imgart'><img src="/img/TIENDA CARDAMOMO/granola de autor.jpg"alt="granola_cardamomo"></div>
-            <div class='col-8 botprod'>
-                <div class= 'row '>
-                    <div class= 'col-12 nombreprod'>
-                        Granola
+                <div class='col-4 imgart'>
+                <img src="/img/<%= productos[i].fotoProducto%>"alt="Logo Producto"></div>
+                <div class='col-8 botprod '>
+                    <div class= 'row '>
+                        <div class= 'col-12 nombreprod'>
+                            <%= productos[i].nombreProducto %>
+                        </div>
+                    </div>
+                    <div class= 'row'>
+                        <div class='col-8 proddescri'><p><%= productos[i].descCorta%></p></div>
+                        <div class='col-4 precioprod'><%= productos[i].precio%></div>
+                    </div>
+                    <div class= 'row'>
+                        <div class='col-12'>
+                            <button type="button" class="btnverprod">LO QUIERO!</button>
+                        </div>
                     </div>
                 </div>
-                <div class= 'row'>
-                    <div class='col-8 proddescri'><p>Granola de autor 375gr</p></div>
-                    <div class='col-4 precioprod'>$346</div>
-                </div>
-                <div class="row">
-                    <div class='col-12'>
-                        <button type="button" class="btnverprod">LO QUIERO!</button>
-                    </div>
-                </div>
-            </div>
-        </article>
 
-        <article class="row col-12 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 cadaprod1 ">
-            <div class='col-4 imgart'><img src="/img/TIENDA CARDAMOMO/queso_crema_cardamomo.jpeg "alt="queso_crema_cardamomo"></div>
-            <div class='col-8 botprod '>
-                <div class= 'row '>
-                    <div class= 'col-12 nombreprod'>
-                        Queso Crema
-                    </div>
-                </div>
-                <div class= 'row'>
-                    <div class='col-8 proddescri'><p> Crema de castañas 180gr</p></div>
-                    <div class='col-4 precioprod'>$320</div>
-                </div>
-                <div class= 'row'>
-                    <div class='col-12'>
-                        <button type="button" class="btnverprod">LO QUIERO!</button>
-                    </div>
-                </div>
-            </div>
-        </article>
+            </article>
 
-        <article class="row col-12 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 cadaprod2 ">
-            <div class='col-4 imgart'><img src="/img/TIENDA CARDAMOMO/aceite de coo.jpg"alt="Aceite_coco_cardamomo"></div>
-            <div class='col-8 botprod '>
-                <div class= 'row '>
-                    <div class= 'col-12 nombreprod'>
-                        Aceite de Coco
-                    </div>
-                </div>
-                <div class= 'row'>
-                    <div class='col-8 proddescri'><p>Aceite de coco Neutro “MK Orgánic” 660cc</p></div>
-                    <div class='col-4 precioprod'>$565</div>
-                </div>
-                <div class= 'row'>
-                    <div class='col-12'>
-                        <button type="button" class="btnverprod"> <a href="/productos/:idproducto">LO QUIERO!</a></button>
-                    </div>
-                </div>
-            </div>
-        </article>
+        <%}%>
+
     </section>
 </main>
 

@@ -10,13 +10,12 @@ var storage = multer.diskStorage({
       cb(null, 'tmp/fotoProducto')
     },
     filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      cb(null, file.originalname)
     }
   })
-  var upload = multer({ storage: storage }) 
+  var upload = multer({ storage: storage })
 //FIN LIBRERIA MULTER
 var path = require('path');
-
 
 /* GET LISTADO DE PRODUCTOS */
 router.get('/productos', admController.listadoProductos);

@@ -6,6 +6,6 @@ var indexController = require('../controllers/indexController');
 router.get('/index', indexController.home);
 
 /* GET productos por tienda. */
-router.get('/:idtienda', indexController.productosPorTienda);
+router.get('/productos/:codigo', indexController.productosPorTienda);
 
 module.exports = router;

@@ -181,6 +181,7 @@ const admController = {
         },
 
     crearTienda: function(req, res){
+            console.log(req.files);
 
             let tienda = {
                 codigo: req.body.codigo,
