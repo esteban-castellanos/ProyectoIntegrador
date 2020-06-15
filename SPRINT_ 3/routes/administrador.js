@@ -43,10 +43,16 @@ router.post('/nuevoproducto',upload.any() ,admController.crearProducto);
 router.post('/nuevatienda',upload.any() ,admController.crearTienda);
 
 /* GET EDITAR PRODUCTO. */
-router.get('/edit/:codigo', admController.get_editProducto);
+router.get('/editProducto/:codigo', admController.get_editProducto);
 
 /* PUT EDITAR PRODUCTO. */
-router.put('/actualizar/:codigo', admController.put_editProducto);
+router.put('/actualizarProducto/:codigo', upload.any(), admController.put_editProducto);
+
+/* GET EDITAR PRODUCTO. */
+router.get('/editTienda/:codigo', admController.get_editTienda);
+
+/* PUT EDITAR PRODUCTO. */
+router.put('/actualizarTienda/:codigo', upload.any(), admController.put_editTienda);
 
 /* DELETE ELIMINAR PRODUCTO */
 router.delete('/productos/:codigo', admController.deleteProduct);

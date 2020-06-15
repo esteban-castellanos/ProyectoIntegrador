@@ -113,7 +113,6 @@ const admController = {
         return res.render('productEdit',{producto: producto});
     },
 
-// No está funcionando edit.
     put_editProducto: function (req,res){
         let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
         let productos;
@@ -122,9 +121,8 @@ const admController = {
         } else {
             productos = JSON.parse(archivoProductos);
         }
-//Los datos no están viajando, no sé por qué :(.
-        console.log(productos);
-        console.log (req.body.descCorta);
+
+        //console.log (req.body.descCorta);
 
             productos.map((prod) => { // Modificamos el array de productos
                  if (prod.codigo == req.body.codigo) {
@@ -211,6 +209,51 @@ const admController = {
 
             res.redirect('/adm/tiendas');
         },
+
+    get_editTienda: function(req,res){
+            let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
+            let tiendas;
+            if(archivoTiendas == ""){
+                tiendas =[];
+            } else {
+                tiendas = JSON.parse(archivoTiendas);
+            }
+
+            let tienda = null;
+            tiendas.forEach((tiend, i) => {
+                if (tiend["codigo"] == req.params.codigo) {
+                    tienda = tiend;
+                }
+            });
+
+            return res.render('tiendaEdit', {tienda: tienda});
+        },
+
+    put_editTienda: function (req,res){
+
+            let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
+            let tiendas;
+            if(archivoTiendas == ""){
+                tiendas =[];
+            } else {
+                tiendas = JSON.parse(archivoTiendas);
+            }
+
+            tiendas.map((tiend) => { // Modificamos el array de tiendas
+                     if (tiend.codigo == req.body.codigo) {
+                            tiend.codigo = req.body.codigo,
+                            tiend.nombreTienda = req.body.nombreTienda,
+                            tiend.descLarga = req.body.descLarga,
+                            tiend.fotoTienda = req.files[0].filename
+                     }
+                  });
+
+                  tiendasJSON = JSON.stringify(tiendas);
+                  fs.writeFileSync('data_tiendas.json', tiendasJSON);
+
+                  res.redirect("/adm/tiendas");
+               },
+
     deleteTienda: function(req,res){
             let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
             let tiendas;
