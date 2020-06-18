@@ -298,6 +298,11 @@ div.col-12 p {
     background-color: rgb(125,135,60);
 }
 
+.btnverprod a{
+    text-decoration: none;
+    color: white;
+}
+
 .botprod {
     display: flex;
     flex-direction: column;
@@ -311,10 +316,6 @@ div.col-12 p {
     font-style: oblique;
     background-color: rgba(125, 135, 60, 0.8);
     color: white;
-}
-
-.logosproductos{
-    width: 100%;
 }
 
 .nombreProducto{
@@ -598,6 +599,9 @@ p{
     .descripcionProducto, .precioPrducto{
         font-size: 150%;
     }
+    .descripcionProducto2 {
+        font-size: 80%;
+    }
     .contadortotal{
         display: flex;
         align-items: center;
@@ -628,7 +632,7 @@ p{
         font-size: 21px;
     }
     .imgart img {
-        width: 140%;
+        width: 100%;
     }
     #tiendas{
         justify-content: space-between;

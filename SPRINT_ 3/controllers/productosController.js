@@ -93,6 +93,25 @@ const productosController = {
         res.render("prodPorTienda", {productos: productosSinLactosa})
     },
 
+    detalleProducto: function(req,res){
+        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
+        let productos;
+        if(archivoProductos == ""){
+            productos =[];
+            } else {
+            productos = JSON.parse(archivoProductos);
+        }
+
+        let productoSeleccionado
+        productos.forEach((prod, i) => {
+            if (prod.codigo == req.params.codigo){
+                productoSeleccionado = prod
+                }
+        })
+
+        res.render('productDetail', {producto: productoSeleccionado});
+    },
     }
+
 
     module.exports = productosController

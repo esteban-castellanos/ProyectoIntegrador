@@ -17,4 +17,7 @@ router.get('/sinTacc', productosController.productosSinTacc);
 /* GET productos sin Lactosa */
 router.get('/sinLactosa', productosController.productosSinLactosa);
 
+/* GET detalle del producto */
+router.get('/detalleProducto/:codigo', productosController.detalleProducto);
+
 module.exports = router;

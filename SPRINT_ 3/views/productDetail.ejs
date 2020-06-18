@@ -22,15 +22,16 @@
     <section id="productos" class="container">
         <article class="row cadaprod1">
             <div class="col-5 imgart" >
-                <img src="/img/TIENDA CARDAMOMO/aceite de coo.jpg" alt="" class="logosproductos">
+                <img src="/img/<%=producto.fotoProducto%>" alt="" class="logosproductos">
             </div>
 
             <div class="col-7 contenedorProducto">
                 <div class="row" id="rowClass">
-                    <span class="nombreProducto col-12 ">ACEITE DE COCO</span>
+                    <span class="nombreProducto col-12 "><%=producto.nombreProducto%></span>
                     <div class="row" id="rowProducto">
-                        <span class="descripcionProducto col-8"> Aceite de coco Neutro “MK Orgánic” 660cc</span>
-                        <span class="precioPrducto col-4">$300 </span>
+                        <span class="descripcionProducto col-8"><%=producto.descCorta%></span>
+                        <span class="descripcionProducto2 col-8"><%=producto.descLarga%></span>
+                        <span class="precioPrducto col-4"><%='$' + producto.precio%></span>
                         <div class="col-12">
                             <select class="custom-select custom-select-sm" id="selectStock">
                                 <option selected disabled hidden >Si no hay stock...</option>

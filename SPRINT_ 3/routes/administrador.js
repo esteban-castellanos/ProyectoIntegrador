@@ -47,10 +47,10 @@ router.get('/editProducto/:codigo', admController.get_editProducto);
 /* PUT EDITAR PRODUCTO. */
 router.put('/actualizarProducto/:codigo', upload.any(), admController.put_editProducto);
 
-/* GET EDITAR PRODUCTO. */
+/* GET EDITAR TIENDA. */
 router.get('/editTienda/:codigo', admController.get_editTienda);
 
-/* PUT EDITAR PRODUCTO. */
+/* PUT EDITAR TIENDA. */
 router.put('/actualizarTienda/:codigo', upload.any(), admController.put_editTienda);
 
 /* DELETE ELIMINAR PRODUCTO */
