@@ -7,8 +7,8 @@
     <header class='container'>
         <div class='hedadmin row' >
             <div class="col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3" >
-                <button type="button" class="btnverprod"onclick="window.location = '/adm/nuevoproducto'">AGREGAR PRODUCTO</button>
-                <button type="button" class="btnverprod"onclick="window.location = '/adm/tiendas'">VER LISTADO DE TIENDAS</button>
+                <button type="button" class="btnverprod"onclick="window.location = '/productos/nuevoproducto'">AGREGAR PRODUCTO</button>
+                <button type="button" class="btnverprod"onclick="window.location = '/productos/tiendas'">VER LISTADO DE TIENDAS</button>
 
             </div>
             <div ></div>
@@ -16,7 +16,7 @@
         </div>
 
     </div>
-    <form action="/adm/productos/search" method="GET" class="container row">
+    <form action="/productos/search" method="GET" class="container row">
 
             <input type="search" class="form-control col-11" placeholder="Nombre del producto" aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre" aria-label="search">
 
@@ -59,12 +59,12 @@
              <td class='ocultar'><%=prod.precio%></td>
              <td class='ocultar'><%=prod.tienda%></td>
 
-            <form class="" action="/adm/productos/<%=prod.codigo%>?_method=DELETE" method="post">
+            <form class="" action="/productos/<%=prod.codigo%>?_method=DELETE" method="post">
                 <td><button class="btn btn-outline-secondary" type="submit" name="delete" id="button-addon2"><i class="fas fa-trash" title="Borrar"></i></button></td>
                 </td>
             </form>
 
-            <td><a href="/adm/editProducto/<%=prod.codigo%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
+            <td><a href="/productos/editProducto/<%=prod.codigo%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
 
         </tr>
        <% }); %>

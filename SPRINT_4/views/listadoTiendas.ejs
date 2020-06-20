@@ -7,15 +7,15 @@
     <header class='container'>
         <div class='hedadmin row' >
             <div class="col-6 col-sm-4 col-md-6 col-lg-4 col-xl-3" >
-                <button type="button" class="btnverprod"onclick="window.location = '/adm/nuevatienda'">AGREGAR TIENDA</button>
-                <button type="button" class="btnverprod"onclick="window.location = '/adm/productos'">VER LISTADO DE PRODUCTOS</button>
+                <button type="button" class="btnverprod"onclick="window.location = '/productos/nuevatienda'">AGREGAR TIENDA</button>
+                <button type="button" class="btnverprod"onclick="window.location = '/productos'">VER LISTADO DE PRODUCTOS</button>
             </div>
             <div ></div>
             <img class= 'imgadmin' src="/img/logo_anteojos-08.png " alt="Logo">
         </div>
 
     </div>
-    <form action="/adm/tiendas/search" method="GET" class="container row">
+    <form action="/productos/tiendas/search" method="GET" class="container row">
 
             <input type="search" class="form-control col-11" placeholder="Nombre de la tienda" aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre" aria-label="search">
 
@@ -51,12 +51,12 @@
               <td ><%=tiend.nombreTienda%></td>
               <td class='ocultar'><%=tiend.descLarga.slice(0,25) + "..." %></td>
 
-             <form class="" action="/adm/tiendas/<%=tiend.codigo%>?_method=DELETE" method="post">
+             <form class="" action="/productos/tiendas/<%=tiend.codigo%>?_method=DELETE" method="post">
                  <td><button class="btn btn-outline-secondary" type="submit" name="delete" id="button-addon2"><i class="fas fa-trash" title="Borrar"></i></button></td>
                  </td>
              </form>
 
-             <td><a href="/adm/editTienda/<%=tiend.codigo%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
+             <td><a href="/productos/editTienda/<%=tiend.codigo%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
 
          </tr>
         <% }); %>
