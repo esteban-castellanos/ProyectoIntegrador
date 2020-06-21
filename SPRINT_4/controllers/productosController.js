@@ -281,7 +281,6 @@ const productosController = {
                     if (tiend.nombreTienda.includes(nombreBuscado)) {
                         results.push(tiend);
                     }
-                    console.log(results);
                 });
                 return res.render('tiendaBuscada', {tiendas: results});
             },
