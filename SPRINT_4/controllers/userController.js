@@ -79,7 +79,6 @@ const userController = {
             user = elem;
           }
         })
-        console.log(user);
 
         if (user != null){
             if (bcrypt.compareSync(req.body.password, user.password)) {
@@ -95,7 +94,23 @@ const userController = {
         },
 
     carrito: function (req,res){
-        res.render('productCar')
+
+        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
+        let productos;
+        if(archivoProductos == ""){
+            productos =[];
+            } else {
+            productos = JSON.parse(archivoProductos);
+        }
+        productos.forEach((prod, i) => {
+            if (prod.codigo == req.params.codigo){
+                producto = prod;
+                }
+        });
+
+        console.log(req.params.segundaOpcion);
+
+        res.render('productCar', {producto:producto});
     },
 }
 

@@ -26,14 +26,18 @@
                     <br><span style="color: red; font-size: 16px; margin: 0px; font-weight: bold;"> <%= contraseñainv %>  </span>
                 <% } %>
                 <br><br>
+
+                <label for="recordame" id="recuerdame">Recordame</label>
+                <input type="checkbox" name="recordame" value="recordame">
+
                 <button class="añadirproducto" type="submit">INICIAR SESIÓN</button>
                 <button class='añadirproducto' type='submir' id="facebook">Iniciar sesión con Facebook</button>
                 <p class="registromail">--------------------- O ---------------------</p>
                 <button class="añadirproducto" onclick="window.location = '/user/register'">REGISTRARSE</button>
-                
+
             </form>
         </div>
-        
+
     </main>
         <script src="/js/bootstrap.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

@@ -19,6 +19,6 @@ router.get('/login', userController.login);
 router.post('/login', userController.processLogin);
 
 /* Get Carrito. */
-router.get('/carrito', userController.carrito);
+router.get('/carrito/:codigo', userController.carrito);
 
 module.exports = router;

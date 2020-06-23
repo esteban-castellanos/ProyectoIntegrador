@@ -623,6 +623,7 @@ p{
     }
     .botonproductoQ{
         font-size: 200%;
+        text-decoration: none;
     }
     .imgfiltros {
         width: 40%;
@@ -725,6 +726,12 @@ p{
         margin-bottom: 2%;
         margin-top: 2%;
         }
+
+    #recuerdame {
+        color:rgb(200,120,20);
+        font-family:'Kreon', serif;
+        font-size: 18px;
+    }
 
     /*---- HASTA ACÁ REGISTRARSE -----*/
 

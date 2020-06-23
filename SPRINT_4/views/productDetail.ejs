@@ -32,22 +32,24 @@
                         <span class="descripcionProducto col-8"><%=producto.descCorta%></span>
                         <span class="descripcionProducto2 col-8"><%=producto.descLarga%></span>
                         <span class="precioPrducto col-4"><%='$' + producto.precio%></span>
-                        <div class="col-12">
-                            <select class="custom-select custom-select-sm" id="selectStock">
-                                <option selected disabled hidden >Si no hay stock...</option>
-                                <option value="1">Sacar de la lista</option>
-                                <option value="2">Distinto tamaño</option>
-                                <option value="3">Marca similar</option>
-                            </select>
-                        </div>
-                        <div class="contadortotal ">
-                            <div class="selectorContador col-6 col-sm-6">
-                                <button class="botonproducto"  id="contadores col-6 col-sm-4" >+</button>
-                                <input type="number" name="cantProductos" id="contadorInput" class="col-2 col-sm-3">
-                                <button class="botonproducto" id="contadores col-6 col-sm-4">-</button>
+                        <form action="/user/carrito/<%=producto.codigo%>" method="GET">
+                            <div class="col-12">
+                                <select class="custom-select custom-select-sm" id="selectStock" name="segundaOpcion">
+                                    <option selected disabled hidden >Si no hay stock...</option>
+                                    <option value="sacarLista">Sacar de la lista</option>
+                                    <option value="distitoTam">Distinto tamaño</option>
+                                    <option value="marcaSimil">Marca similar</option>
+                                </select>
                             </div>
-                            <button class="botonproductoQ" id="LoQuiero col-12 col-sm-6">LO QUIERO!</button>
-                        </div>
+                            <div class="contadortotal ">
+                                <div class="selectorContador col-6 col-sm-6">
+                                    <button class="botonproducto"  id="contadores col-6 col-sm-4" >+</button>
+                                    <input type="number" name="cantProductos" id="contadorInput" class="col-2 col-sm-3">
+                                    <button class="botonproducto" id="contadores col-6 col-sm-4">-</button>
+                                </div>
+                                <button type="submit" class="botonproductoQ" id="LoQuiero col-12 col-sm-6"><a href="/user/carrito/<%=producto.codigo%>">LO QUIERO!</a></button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

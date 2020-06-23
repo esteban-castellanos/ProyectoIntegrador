@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var fs =require('fs');
 var methodOverride = require ('method-override');
+var session = require ('express-session');
 
 
 var indexRouter = require('./routes/index');
@@ -23,6 +24,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
+app.use(session({secret: "Secreto del grupo 5"}));
 
 app.use('/index', indexRouter);
 app.use('/productos', productosRouter);

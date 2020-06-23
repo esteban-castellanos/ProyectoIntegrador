@@ -41,11 +41,14 @@
             <label for="tienda" class="labelform">Tienda</label>
             <br>
             <select name="tienda" id="" required>
-            <option value="" selected disabled hidden>Selecciona una tienda</option>
-            <option value="Cardamomo">CARDAMOMO</option>
-            <option value="Mistica Natural">MISTICA NATURAL</option>
-            <option value="Natureba">NATUREBA</option>
-            <option value="Reparto Alegría">REPARTO ALEGRÍA</option>
+
+                <option value="" selected disabled hidden>Selecciona una tienda</option>
+
+            <% for (let i = 0; i < tiendas.length; i++) { %>
+
+            <option value="<%=tiendas[i]%>"><%=tiendas[i]%></option>
+
+            <%}%>
             </select>
             <br><br>
 

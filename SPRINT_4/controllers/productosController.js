@@ -113,8 +113,24 @@ const productosController = {
     },
 
         nuevoProducto: function (req,res){
-            res.render('productAdd');
+
+        let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
+        let tiendas;
+        if(archivoTiendas == ""){
+           tiendas =[];
+        } else {
+            tiendas = JSON.parse(archivoTiendas);
+        }
+
+        nombreTiendas = [];
+            tiendas.forEach((tiend,i) => {
+                nombreTiendas.push(tiend.nombreTienda);
+            })
+        console.log(nombreTiendas);
+
+            res.render('productAdd', {tiendas: nombreTiendas});
         },
+
         crearProducto: function(req, res, next){
 
             let producto = {
@@ -177,7 +193,6 @@ const productosController = {
                 if (prod.nombreProducto.includes(nombreBuscado)) {
                     results.push(prod);
                 }
-                console.log(results);
             });
             return res.render('productoBuscado', {productos: results});
         },
