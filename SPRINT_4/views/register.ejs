@@ -12,11 +12,13 @@
 
             <div class="container row mainformulario ">
                 <h1 class="tituloformulario col-12" >REGISTRARTE</h1>
-
-        <% if (typeof(mensaje) != "undefined") { %>
-            <p style="color: green; font-size: 22px;"> <%= mensaje %>  </p>
-        <% } %>
-
+               
+                
+                
+                <% if (typeof(mensaje) != "undefined") { %>
+                    <p style="color: green; font-size: 22px;"> <%= mensaje %>  </p>
+                <% } %>
+        
             <form class= 'formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'action="/user/register" method="POST">
                 <% if (typeof errors != 'undefined') { %>
                     <p style="color: red; font-size: 22px;">Se han encontrado 1 o varios errores:</p>
@@ -28,6 +30,12 @@
                         <% } %>
                     </ul>
                 <% } %>
+                <% if (typeof(EmailExistente) != "undefined") { %>
+                    <span style="color: red; font-size: 22px;"> <%= EmailExistente %>  </span>
+                    <br>
+                <br>
+                <% } %>
+            
                 <button class='añadirproducto' type='submir' id="facebook">Iniciar sesión con Facebook</button>
                 <p class="registromail">------------- Ó registrate con tu email -------------</p>
                 <label for="nombre" class="labelform">Nombre</label>

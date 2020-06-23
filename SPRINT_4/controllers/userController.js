@@ -26,6 +26,7 @@ const userController = {
 
     createUser: function(req, res){
         let errors = validationResult(req);
+
             if (errors.isEmpty()){
             let usuario = {
             nombre: req.body.nombre,
@@ -42,6 +43,17 @@ const userController = {
         } else {
             usuarios = JSON.parse(archivoUsuario);
         }
+
+        let user = null;
+        usuarios.forEach((elem, i) => {
+          if (elem["email"] == req.body.email) {
+            user = elem;
+          }
+        })
+        if(user != null){
+            EmailExistente = "El Email ya se encuentra registrado, prueba con otro";
+            return res.render("register", {EmailExistente: EmailExistente});
+        }
          //agregamos el usuarios Nuevo
          usuarios.push(usuario);
          //Escribir el archivo
@@ -52,8 +64,7 @@ const userController = {
         mensaje = "El usuario se ha creado correctamente! Haga click en el logo para seguir navegando.";
         return res.render("register",{mensaje: mensaje});
         } else {
-
-        return res.render('register', {errors: errors.errors});
+            return res.render('register', {errors: errors.errors});
         }
     },
 
