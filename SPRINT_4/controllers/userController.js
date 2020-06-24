@@ -41,9 +41,11 @@ const userController = {
         }
         });
 
+        if (user == null){
+
             let errors = validationResult(req);
 
-            if (errors.isEmpty() && user == null){
+            if (errors.isEmpty()){
             let usuario = {
             nombre: req.body.nombre,
             edad: req.body.edad,
@@ -51,32 +53,22 @@ const userController = {
             password: bcrypt.hashSync(req.body.password, 10),
             }
 
-        //1ºLeer el archivo
-            let archivoUsuario=fs.readFileSync('data_usuarios.json', {encoding: 'utf-8'});
-            let usuarios;
-            if(archivoUsuario == ""){
-                usuarios =[];
-            } else {
-                usuarios = JSON.parse(archivoUsuario);
-            }
-
             //agregamos el usuarios Nuevo
             usuarios.push(usuario);
             //Escribir el archivo
             usuariosJSON = JSON.stringify(usuarios);
-
             fs.writeFileSync('data_usuarios.json', usuariosJSON);
-
             mensaje = "El usuario se ha creado correctamente! Haga click en el logo para seguir navegando.";
             return res.render("register",{mensaje: mensaje});
-            } else if (user != null) {
-                EmailExistente = 'El Email ingresado ya se encuentra registrado, por favor intente con otro';
-                res.render("register", {EmailExistente: EmailExistente});
             } else {
-                return res.render('register', {errors: errors.errors});
+            return res.render('register', {errors: errors.errors});
             }
-    },
 
+        } else {
+
+        res.render("register", {errors: [{msg:'El Email ingresado ya se encuentra registrado, por favor intente con otro'}]});
+        }
+    },
 
     //LOGIN DE USUARIOS VISTA
     login: function (req,res){
@@ -102,6 +94,8 @@ const userController = {
 
         if (user != null){
             if (bcrypt.compareSync(req.body.password, user.password)) {
+                req.session.usuarioLogueado = user
+                console.log(req.session.usuarioLogueado);
                 res.redirect ('/index')
             } else {
             let mensaje = "Contraseña Inválida"
@@ -128,9 +122,11 @@ const userController = {
                 }
         });
 
-        console.log(req.params.segundaOpcion);
+        res.render('productCar', {producto:producto, user: req.session.usuarioLogueado});
+    },
 
-        res.render('productCar', {producto:producto});
+    detalleUsuario: function (req,res){
+        res.render('userDetails');
     },
 }
 

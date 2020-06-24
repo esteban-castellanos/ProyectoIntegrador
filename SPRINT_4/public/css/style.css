@@ -40,10 +40,16 @@ div.superior div img {
     border-radius: 6px;
     border: white 1px solid;
     font-family:'Kreon', serif;
-    font-size: 13px ;
+    font-size: 13px;
     padding: 3%;
 }
 
+.usuarioLogueado {
+    color: rgb(200,120,20);
+    font-family:'Kreon', serif;
+    font-size: 15px;
+    text-decoration: none;
+}
 
 /* -------------------------HAMBURGUESA EN GRANDE----------------*/
 

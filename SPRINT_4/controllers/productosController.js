@@ -36,7 +36,7 @@ const productosController = {
                 productosTienda.push(prod);
                 }
         });
-        res.render('prodPorTienda', {productos: productosTienda});
+        res.render('prodPorTienda', {productos: productosTienda, user: req.session.usuarioLogueado});
     },
 
     productosOrganicos: function(req,res){
@@ -55,7 +55,7 @@ const productosController = {
                 }
         });
         console.log(productosOrganicos);
-        res.render("prodPorTienda", {productos: productosOrganicos})
+        res.render("prodPorTienda", {productos: productosOrganicos, user: req.session.usuarioLogueado})
 
     },
 
@@ -73,7 +73,7 @@ const productosController = {
                 productosSinTacc.push(prod);
                 }
         });
-        res.render("prodPorTienda", {productos: productosSinTacc})
+        res.render("prodPorTienda", {productos: productosSinTacc, user: req.session.usuarioLogueado})
     },
 
     productosSinLactosa: function(req,res){
@@ -90,7 +90,7 @@ const productosController = {
                 productosSinLactosa.push(prod);
                 }
         });
-        res.render("prodPorTienda", {productos: productosSinLactosa})
+        res.render("prodPorTienda", {productos: productosSinLactosa, user: req.session.usuarioLogueado})
     },
 
     detalleProducto: function(req,res){
@@ -109,7 +109,7 @@ const productosController = {
                 }
         })
 
-        res.render('productDetail', {producto: productoSeleccionado});
+        res.render('productDetail', {producto: productoSeleccionado, user: req.session.usuarioLogueado});
     },
 
         nuevoProducto: function (req,res){

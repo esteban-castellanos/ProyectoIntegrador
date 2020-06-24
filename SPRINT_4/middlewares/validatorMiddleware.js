@@ -4,7 +4,6 @@ const userController = require ('../controllers/userController');
 
 
 let validatorMiddleware =
-
 [
     check('nombre')
         .isLength({min:1}).withMessage('El campo "nombre" debe estar completo')
@@ -16,7 +15,6 @@ let validatorMiddleware =
         .normalizeEmail(), //Sanitiza el email
     check('password')
         .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
-
   ]
 
   module.exports = validatorMiddleware

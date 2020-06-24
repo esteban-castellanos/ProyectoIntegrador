@@ -15,15 +15,9 @@
 
             <form class= 'formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'action="/user/register" method="POST">
 
-                <% if (typeof(mensaje) != "undefined" && typeof(EmailExistente) == "undefined") { %>
+                <% if (typeof(mensaje) != "undefined") { %>
                     <p style="color: green; font-size: 20px;"> <%= mensaje %>  </p>
                 <% } %>
-
-                <% if (typeof(EmailExistente) != "undefined") { %>
-                    <span style="color: red; font-size: 15px; font-family:'Kreon', serif"> <%= EmailExistente %>  </span>
-                    <br>
-                <br>
-                <% } %> 
 
                 <% if (typeof errors != 'undefined') { %>
                     <p style="color: red; font-size: 15px; font-family:'Kreon', serif">Se han encontrado 1 o varios errores:</p>

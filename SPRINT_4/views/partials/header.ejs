@@ -1,6 +1,15 @@
 <header class='container fixed-top'>
     <div class='hedcompleta' >
 
+        <div>
+            <% if (user) { %>
+
+            <p class="usuarioLogueado"><a href="/user/detalle">¡Bienvenido <%= user.nombre %> !</a></p>
+
+            <% } %>
+
+        </div>
+
         <div class='row superior'>
 
             <div class="menugrande col-3 row" >

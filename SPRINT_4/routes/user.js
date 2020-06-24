@@ -21,4 +21,7 @@ router.post('/login', userController.processLogin);
 /* Get Carrito. */
 router.get('/carrito/:codigo', userController.carrito);
 
+/* Datos del ususario logueado */
+router.get('/detalle', userController.detalleUsuario);
+
 module.exports = router;

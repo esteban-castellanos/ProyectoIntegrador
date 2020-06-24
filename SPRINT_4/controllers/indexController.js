@@ -11,7 +11,7 @@ home: function (req,res){
         tiendas = JSON.parse(archivoTiendas);
     }
 
-    res.render('index', {tiendas:tiendas});
+    res.render('index', {tiendas:tiendas, user: req.session.usuarioLogueado});
 },
 
 search: function (req,res){
@@ -26,14 +26,14 @@ let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'})
 
 let results = [];
     productos.forEach((prod, i) => {
-        if (prod.nombreProducto.includes(req.query.nombre)) {
+        if (prod.nombreProducto.includes(req.query.nombre,)) {
             results.push(prod);
         } else {
         }
         });
 
       if (results !== []){
-        res.render('prodPorTienda', {productos: results});
+        res.render('prodPorTienda', {productos: results, user: req.session.usuarioLogueado});
     }
     },
 
