@@ -25,8 +25,25 @@ const userController = {
     //CREAR USUARIOS
 
     createUser: function(req, res){
-        let errors = validationResult(req);
-            if (errors.isEmpty()){
+
+        let archivoUsuario=fs.readFileSync('data_usuarios.json', {encoding: 'utf-8'});
+        let usuarios;
+        if(archivoUsuario == ""){
+            usuarios =[];
+        } else {
+            usuarios = JSON.parse(archivoUsuario);
+        }
+
+        let user = null;
+        usuarios.forEach((elem, i) => {
+        if (elem["email"] == req.body.email) {
+            user = elem;
+        }
+        });
+
+            let errors = validationResult(req);
+
+            if (errors.isEmpty() && user == null){
             let usuario = {
             nombre: req.body.nombre,
             edad: req.body.edad,
@@ -35,26 +52,29 @@ const userController = {
             }
 
         //1ºLeer el archivo
-        let archivoUsuario=fs.readFileSync('data_usuarios.json', {encoding: 'utf-8'});
-        let usuarios;
-        if(archivoUsuario == ""){
-            usuarios =[];
-        } else {
-            usuarios = JSON.parse(archivoUsuario);
-        }
-         //agregamos el usuarios Nuevo
-         usuarios.push(usuario);
-         //Escribir el archivo
-          usuariosJSON = JSON.stringify(usuarios);
+            let archivoUsuario=fs.readFileSync('data_usuarios.json', {encoding: 'utf-8'});
+            let usuarios;
+            if(archivoUsuario == ""){
+                usuarios =[];
+            } else {
+                usuarios = JSON.parse(archivoUsuario);
+            }
 
-        fs.writeFileSync('data_usuarios.json', usuariosJSON);
+            //agregamos el usuarios Nuevo
+            usuarios.push(usuario);
+            //Escribir el archivo
+            usuariosJSON = JSON.stringify(usuarios);
 
-        mensaje = "El usuario se ha creado correctamente! Haga click en el logo para seguir navegando.";
-        return res.render("register",{mensaje: mensaje});
-        } else {
+            fs.writeFileSync('data_usuarios.json', usuariosJSON);
 
-        return res.render('register', {errors: errors.errors});
-        }
+            mensaje = "El usuario se ha creado correctamente! Haga click en el logo para seguir navegando.";
+            return res.render("register",{mensaje: mensaje});
+            } else if (user != null) {
+                EmailExistente = 'El Email ingresado ya se encuentra registrado, por favor intente con otro';
+                res.render("register", {EmailExistente: EmailExistente});
+            } else {
+                return res.render('register', {errors: errors.errors});
+            }
     },
 
 
