@@ -85,8 +85,6 @@ const userController = {
             usuarios = JSON.parse(archivoUsuario);
         }
 
-        console.log(usuarios);
-
         let user = null;
         usuarios.forEach((elem, i) => {
           if (elem["email"] == req.body.email) {
@@ -97,7 +95,6 @@ const userController = {
         if (user != null){
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 req.session.usuarioLogueado = user
-                console.log(req.session.usuarioLogueado);
 
                 if (req.body.recordame != undefined){
                 //Si esta tildado utilizar una cookie que dure 60".
@@ -108,11 +105,49 @@ const userController = {
             let mensaje = "Contraseña Inválida"
             res.render ('login', {contraseñainv:mensaje});
             }
+
         } else {
+
+            let archivoAdm=fs.readFileSync('data_administradores.json', {encoding: 'utf-8'});
+            let administradores;
+            if(archivoAdm == ""){
+                administradores =[];
+            } else {
+                administradores = JSON.parse(archivoAdm);
+            }
+
+           //console.log(administradores);
+
+            let admin = null;
+            administradores.forEach((elem, i) => {
+              if (elem["email"] == req.body.email) {
+                admin = elem;
+              }
+            })
+
+            //console.log(admin);
+
+            if (admin != null){
+
+                    if (bcrypt.compareSync(req.body.password, admin.password)) {
+                        req.session.usuarioLogueado = admin
+                            if (req.body.recordame != undefined){
+                    //Si esta tildado utilizar una cookie que dure 60".
+                            res.cookie('recordame', admin.email, {maxAge: 600000})
+                        }
+                    res.redirect ('/index')
+                    } else {
+                    let mensaje = "Contraseña Inválida"
+                    res.render ('login', {contraseñainv:mensaje});
+                    }
+
+            } else {
+
             let mensaje = "Mail inválido"
             res.render ('login', {mailinv:mensaje});
+            }
         }
-        },
+    },
 
     carrito: function (req,res){
 

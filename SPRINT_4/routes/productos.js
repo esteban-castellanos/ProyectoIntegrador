@@ -3,6 +3,8 @@ var router = express.Router();
 var productosController = require('../controllers/productosController');
 var multer = require('multer');
 var fs =require('fs');
+var permisoAdmMiddleware = require ("../middlewares/permisoAdmMiddleware");
+
 const {check, validationResult, body} = require ('express-validator');
 //INICIO DISKSTORGE (PARA SUBIR ARCHIVOS)
 var storage = multer.diskStorage({
@@ -37,46 +39,46 @@ router.get('/detalleProducto/:codigo', productosController.detalleProducto);
 
 
 /* GET LISTADO DE PRODUCTOS */
-router.get('/', productosController.listadoProductos);
+router.get('/', permisoAdmMiddleware, productosController.listadoProductos);
 
 /* GET LISTADO DE TIENDAS */
-router.get('/tiendas', productosController.listadoTiendas);
+router.get('/tiendas', permisoAdmMiddleware, productosController.listadoTiendas);
 
 /* SEARCH BY NAME PRODUCTOS. */
-router.get('/search', productosController.get_searchProductos);
+router.get('/search', permisoAdmMiddleware, productosController.get_searchProductos);
 
 /* SEARCH BY NAME TIENDAS. */
-router.get('/tiendas/search', productosController.get_searchTiendas);
+router.get('/tiendas/search', permisoAdmMiddleware, productosController.get_searchTiendas);
 
 /* GET NUEVO PRODUCTO. */
-router.get('/nuevoproducto', productosController.nuevoProducto);
+router.get('/nuevoproducto', permisoAdmMiddleware, productosController.nuevoProducto);
 
 /* GET NUEVA TIENDA. */
-router.get('/nuevatienda', productosController.nuevaTienda);
+router.get('/nuevatienda', permisoAdmMiddleware, productosController.nuevaTienda);
 
 /* POST NUEVO PRODUCTO. */
-router.post('/nuevoproducto',upload.any() ,productosController.crearProducto);
+router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(),productosController.crearProducto);
 
 /* POST NUEVA TIENDA. */
-router.post('/nuevatienda',upload.any() ,productosController.crearTienda);
+router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productosController.crearTienda);
 
 /* GET EDITAR PRODUCTO. */
-router.get('/editProducto/:codigo', productosController.get_editProducto);
+router.get('/editProducto/:codigo', permisoAdmMiddleware, productosController.get_editProducto);
 
 /* PUT EDITAR PRODUCTO. */
-router.put('/actualizarProducto/:codigo', upload.any(), productosController.put_editProducto);
+router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), productosController.put_editProducto);
 
 /* GET EDITAR TIENDA. */
-router.get('/editTienda/:codigo', productosController.get_editTienda);
+router.get('/editTienda/:codigo', permisoAdmMiddleware, productosController.get_editTienda);
 
 /* PUT EDITAR TIENDA. */
-router.put('/actualizarTienda/:codigo', upload.any(), productosController.put_editTienda);
+router.put('/actualizarTienda/:codigo', permisoAdmMiddleware, upload.any(), productosController.put_editTienda);
 
 /* DELETE ELIMINAR PRODUCTO */
-router.delete('/:codigo', productosController.deleteProduct);
+router.delete('/:codigo', permisoAdmMiddleware, productosController.deleteProduct);
 
 /* DELETE ELIMINAR TIENDA */
-router.delete('/tiendas/:codigo', productosController.deleteTienda);
+router.delete('/tiendas/:codigo', permisoAdmMiddleware, productosController.deleteTienda);
 
 
 
