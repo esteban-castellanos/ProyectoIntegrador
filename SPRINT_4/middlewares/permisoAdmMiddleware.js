@@ -24,7 +24,7 @@ function administradorLogueado (req,res,next){
          if(admin != null){
             next();
          } else {
-            res.send('Usted no cuenta con los permisos necesarios para acceder a esta página.')
+            res.render('sinPermisos')
          }
 
       } else {
