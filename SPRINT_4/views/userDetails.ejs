@@ -12,31 +12,19 @@
         </header>
         <main>
             <div class='container row mainformulario'>
-                <h1 class="tituloformulario col-12">EDITAR PERFIL</h1>
-            <form action="/user/detalle" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
-    
-                <br>
-              
-                <label for="nombre" class="labelform">Nombre</label>
-                <br>
-                <input type="text" name="nombre" id="nombre" required value="#">
-                <br>
-                <label for="apellido" class="labelform">Apellido</label>
-                <br>
-                <input type="text" name="apellido" id="apellido" required value="#">
+                <h1 class="tituloformulario col-12">MI PERFIL</h1>
+            <form action="" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="GET">
+
                 <br><br>
-                <label for="email" class="labelform">Email</label>
-                <br>
-                <input type="email" name="email" id="email" required value="#">
+
+                <h2 class="labelform">Nombre: <%=user.nombre %></h2>
                 <br><br>
-                <label for="password" class="labelform">Contraseña</label>
-                <br>
-                <input type="password" name="password" id="password" required>
+                <h2 class="labelform">Apellido: <%=user.apellido %></h2>
                 <br><br>
-                
-                <button class="añadirproducto" type="submit">GUARDAR CAMBIOS</button>
+                <h2 class="labelform">Email: <%= user.email %> </h2>
+
             </form>
-    
+
         </div>
         </main>
             <script src="/js/bootstrap.min.js"></script>

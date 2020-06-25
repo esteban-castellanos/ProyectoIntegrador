@@ -688,6 +688,12 @@ p{
 
     /*---- HASTA ACÁ HEADER FORMULARIOS -----*/
 
+    .datos{
+    color: rgb(200,120,20);
+    font-family: 'kreon', serif;
+    font-size: 20px;
+    }
+
     .mainformulario{
         display: flex;
         flex-wrap: wrap;
@@ -792,7 +798,6 @@ p{
 /* ---------------------------------- LISTADO DE PRODUCTOS ADMINISTRADOR--------------------------*/
 .adelist{
     text-decoration: none;
-    
     font-family:'Kreon', serif;
     border-bottom: 1px rgb(204, 202, 202) solid;
 }

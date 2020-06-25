@@ -48,7 +48,7 @@ const userController = {
             if (errors.isEmpty()){
             let usuario = {
             nombre: req.body.nombre,
-            edad: req.body.edad,
+            apellido: req.body.apellido,
             email: req.body.email,
             password: bcrypt.hashSync(req.body.password, 10),
             }
@@ -84,6 +84,8 @@ const userController = {
         } else {
             usuarios = JSON.parse(archivoUsuario);
         }
+
+        console.log(usuarios);
 
         let user = null;
         usuarios.forEach((elem, i) => {
@@ -126,7 +128,7 @@ const userController = {
     },
 
     detalleUsuario: function (req,res){
-        res.render('userDetails');
+        res.render('userDetails', {user: req.session.usuarioLogueado});
     },
 }
 
