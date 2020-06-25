@@ -840,12 +840,16 @@ p{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: rgb(200,120,20);
 }
 .imgerror {
     width: 80vh;
 }
 
-
+.linkerror{
+    text-decoration: none;
+    color: rgb(200,120,20);
+}
 /* ---------------------------------- TABLA --------------------------*/
 
 
