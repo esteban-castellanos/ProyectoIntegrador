@@ -9,6 +9,11 @@
     cursor: pointer;
 }
 
+.imaghed {
+    padding-left: 10%;
+    padding-right: 0px;
+}
+
 .filtroelegido {
     display: flex;
     background-color: rgba(125, 135, 60, 0.8);
@@ -43,12 +48,23 @@ div.superior div img {
     font-size: 13px;
     padding: 3%;
 }
+.divdelbtncar {
+    padding:0px;
+    margin-top: 2%;
+}
 
 .usuarioLogueado {
+ margin: 0px;
+ padding: 0px;
+ width:100%;
+ text-align: center;
+ 
+}
+.usuarioLogueado a {
     color: rgb(200,120,20);
     font-family:'Kreon', serif;
-    font-size: 15px;
     text-decoration: none;
+ 
 }
 
 /* -------------------------HAMBURGUESA EN GRANDE----------------*/
@@ -146,7 +162,9 @@ a.nav-item.nav-link  {
 .afiltros{
     display: flex;
     justify-content: space-around;
-}
+    margin-top: 28vw;
+    }
+
 
 .imgfiltros {
     width: 90%;
@@ -180,7 +198,7 @@ a.nav-item.nav-link  {
 #tiendas{
     display:flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-left: 0px;
     margin-right: 0px;
 }
@@ -828,14 +846,29 @@ p{
 
 /* ---------------------------------- MEDIA QUERY --------------------------*/
 
- @media (max-width:767px) {
+ @media (min-width:320px) {
    .ocultar{
        display: none;
    }
  }
 
+ @media (min-width: 425px){
+    .afiltros{
+        margin-top: 20vw;
+     
+        }
+    
+} 
 
 @media (min-width: 768px){
+    .afiltros{
+        display: flex;
+        justify-content: space-around;
+        margin-top: 0vw;
+     
+        }
+    
+}
 
     @media (min-width: 992px) {
         .btncarrito {
@@ -846,6 +879,8 @@ p{
         }
         .imgfiltros {
             width: 30%;
+            
+            
         }
         .filtropablabras {
             font-weight: bold;
@@ -872,6 +907,7 @@ p{
         width: 70%;
         margin-left: 15%;
         }
+        
         }
 
     @media (min-width: 1200px) {
@@ -897,5 +933,7 @@ p{
         .menugrande {
             display: flex;
         }
+        .afiltros {
+            margin-top: -7vw;
+        }
     }
-}
