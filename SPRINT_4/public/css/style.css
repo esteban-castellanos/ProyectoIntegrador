@@ -851,7 +851,7 @@ p{
 
 /* ---------------------------------- MEDIA QUERY --------------------------*/
 
- @media (min-width:320px) {
+ @media (max-width:1024px) {
    .ocultar{
        display: none;
    }
@@ -860,19 +860,16 @@ p{
  @media (min-width: 425px){
     .afiltros{
         margin-top: 20vw;
-     
+
         }
-    
-} 
+}
 
 @media (min-width: 768px){
     .afiltros{
         display: flex;
         justify-content: space-around;
         margin-top: 0vw;
-     
         }
-    
 }
 
     @media (min-width: 992px) {
@@ -884,8 +881,7 @@ p{
         }
         .imgfiltros {
             width: 30%;
-            
-            
+
         }
         .filtropablabras {
             font-weight: bold;
@@ -912,7 +908,6 @@ p{
         width: 70%;
         margin-left: 15%;
         }
-        
         }
 
     @media (min-width: 1200px) {

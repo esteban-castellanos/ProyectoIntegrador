@@ -98,6 +98,11 @@ const userController = {
             if (bcrypt.compareSync(req.body.password, user.password)) {
                 req.session.usuarioLogueado = user
                 console.log(req.session.usuarioLogueado);
+
+                if (req.body.recordame != undefined){
+                //Si esta tildado utilizar una cookie que dure 60".
+                res.cookie('recordame', user.email, {maxAge: 600000})
+                }
                 res.redirect ('/index')
             } else {
             let mensaje = "Contraseña Inválida"

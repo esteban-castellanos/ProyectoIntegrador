@@ -112,6 +112,8 @@ const productosController = {
         res.render('productDetail', {producto: productoSeleccionado, user: req.session.usuarioLogueado});
     },
 
+    //Acá empieza la parte del administrador
+
         nuevoProducto: function (req,res){
 
         let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
@@ -174,6 +176,7 @@ const productosController = {
             } else {
                 productos = JSON.parse(archivoProductos);
             }
+            console.log(productos);
             res.render('listadoProductos', {productos: productos});
         },
 
@@ -235,7 +238,19 @@ const productosController = {
                     producto = prod;
                 }
             });
-            return res.render('productEdit',{producto: producto});
+            let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
+            let tiendas;
+            if(archivoTiendas == ""){
+                tiendas =[];
+            } else {
+                tiendas = JSON.parse(archivoTiendas);
+            }
+
+            nombreTiendas = [];
+            tiendas.forEach((tiend,i) => {
+                nombreTiendas.push(tiend.nombreTienda);
+            })
+            return res.render('productEdit',{producto: producto, tiendas:nombreTiendas});
         },
 
         put_editProducto: function (req,res){

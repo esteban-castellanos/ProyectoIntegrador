@@ -42,10 +42,13 @@
             <br>
             <select name="tienda" id="" required>
             <option value="" selected disabled hidden><%=producto.tienda%></option>
-            <option value="Cardamomo">CARDAMOMO</option>
-            <option value="Mistica Natural">MISTICA NATURAL</option>
-            <option value="Natureba">NATUREBA</option>
-            <option value="Reparto Alegría">REPARTO ALEGRÍA</option>
+
+            <% for (let i = 0; i < tiendas.length; i++) { %>
+
+            <option value="<%=tiendas[i]%>"><%=tiendas[i]%></option>
+
+            <%}%>
+
             </select>
             <br><br>
 
