@@ -24,4 +24,7 @@ router.get('/carrito/:codigo', userController.carrito);
 /* Datos del ususario logueado */
 router.get('/detalle', userController.detalleUsuario);
 
+/* CERRAR SESION. */
+router.get('/close', userController.close);
+
 module.exports = router;

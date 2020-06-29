@@ -12,9 +12,6 @@ function administradorLogueado (req,res,next){
             administradores = JSON.parse(archivoAdm);
         }
 
-        console.log(administradores);
-        console.log(req.session.usuarioLogueado);
-
         let admin = null;
         administradores.forEach((elem, i) => {
           if (elem["email"] == req.session.usuarioLogueado.email) {
@@ -24,12 +21,12 @@ function administradorLogueado (req,res,next){
          if(admin != null){
             next();
          } else {
-            res.render('sinPermisos')
+            res.render('not-found');
          }
 
       } else {
 
-   res.send('Necesita loguearse para poder acceder a esta página.')
+   res.render('not-found');
 
    }
 }

@@ -390,7 +390,6 @@ const productosController = {
 
                       tiendasJSON = JSON.stringify(tiendas);
                       fs.writeFileSync('data_tiendas.json', tiendasJSON);
-
                       res.redirect("/productos/tiendas");
                    },
 
@@ -408,7 +407,6 @@ const productosController = {
                         tienda = tiend;
                     }
                 });
-                console.log(tienda);
                 let nuevoArrayTiendas = [];
                 nuevoArrayTiendas = tiendas.filter(tiend => tiend.codigo != tienda.codigo);
                 nuevoArrayTiendasJSON = JSON.stringify(nuevoArrayTiendas);

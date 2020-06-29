@@ -1,14 +1,24 @@
 <header class='container fixed-top'>
     <div class='hedcompleta' >
 
-        
 
         <div class='row superior'>
 
             <div class="menugrande col-3 row" >
                 <div class="col-12" >
+                        <% if (user) { %>
+
+                        <p class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 usuarioLogueado"><a href="/user/detalle">¡Bienvenido <%= user.nombre %>! >> ver perfil </a></p>
+
+                        <button type="button" class="btncab" onclick="window.location = '/user/close'">CERRAR SESIÓN</button>
+
+                        <% } else { %>
+
                     <button type="button" class="btncab" onclick="window.location = '/user/login'">INGRESAR</button>
                     <button type="button" class="btncab" onclick="window.location = '/user/register'">REGISTRARME</button>
+
+                        <% } %>
+
                     <button type="button" class="btncab">MIS COMPRAS</button>
                 </div>
 
@@ -33,20 +43,12 @@
                 <img class="logo" src="/img/logo-healthy-journey.png" alt="Logo" href="/index" onclick="window.location = '/index'">
             </div>
             <div class='row col-12 col-sm-4 col-md-5 col-lg-4 col-xl-4'>
-                <div class='col-12'>
-                <% if (user) { %>
-    
-                <p class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 usuarioLogueado"><a href="/user/detalle">¡Bienvenido <%= user.nombre %>! >> ver perfil </a></p>
-    
-                <% } %>
-    
-           
-            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 divdelbtncar" >
-                <button type="button" class="btncarrito"onclick="window.location = '/user/carrito'">CARRITO</button>
+
+                <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 divdelbtncar" >
+                    <button type="button" class="btncarrito"onclick="window.location = '/user/carrito'">CARRITO</button>
+                </div>
 
             </div>
-            </div>
-        </div>
         <form action="/index/search" method="GET" class="container row">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Buscar por producto" aria-label="Recipient's username" aria-describedby="button-addon2" name="nombre">

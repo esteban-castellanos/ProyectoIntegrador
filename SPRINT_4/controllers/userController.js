@@ -58,6 +58,7 @@ const userController = {
             //Escribir el archivo
             usuariosJSON = JSON.stringify(usuarios);
             fs.writeFileSync('data_usuarios.json', usuariosJSON);
+            req.session.usuarioLogueado = usuario
             mensaje = "El usuario se ha creado correctamente! Haga click en el logo para seguir navegando.";
             return res.render("register",{mensaje: mensaje});
             } else {
@@ -116,8 +117,6 @@ const userController = {
                 administradores = JSON.parse(archivoAdm);
             }
 
-           //console.log(administradores);
-
             let admin = null;
             administradores.forEach((elem, i) => {
               if (elem["email"] == req.body.email) {
@@ -125,7 +124,6 @@ const userController = {
               }
             })
 
-            //console.log(admin);
 
             if (admin != null){
 
@@ -169,6 +167,10 @@ const userController = {
 
     detalleUsuario: function (req,res){
         res.render('userDetails', {user: req.session.usuarioLogueado});
+    },
+    close: function(req,res){
+        req.session.usuarioLogueado = undefined;
+        res.redirect ('/index');
     },
 }
 
