@@ -18,9 +18,8 @@
 
             <br>
             <label for="codigo" class="labelform">Código de Producto: <%=tienda.codigo%></label>
-            <br>
-            <input type="text" name="codigo" id="codigo" required placeholder="<%=tienda.codigo%>">
             <br><br>
+            <input type="text" name="codigo" id="codigo" required placeholder="<%=tienda.codigo%>" hidden>
             <label for="nombre" class="labelform">Nombre de la tienda</label><br>
             <input type="text" name="nombreTienda" id="nombre" required value = "<%=tienda.nombreTienda%>"><br><br>
             <label for="descLarga" class="labelform">Descripción Larga</label>

@@ -17,13 +17,12 @@
 
             <br>
             <label for="codigo" class="labelform">Código de Producto: <%=producto.codigo%></label>
-            <br>
-            <input type="text" name="codigo" id="codigo" required value = "<%=producto.codigo%>">
             <br><br>
+            <input type="text" name="codigo" id="codigo" required value = "<%=producto.codigo%>" hidden>
             <label for="nombre" class="labelform">Nombre del producto</label>
             <br>
             <input type="text" name="nombreProduct" id="nombre" required value = "<%=producto.nombreProducto%>">
-            <br>
+            <br><br>
             <label for="descCorta" class="labelform">Descripción Corta</label>
             <br>
             <input type="text" name="descCorta" id="descCorta" required value="<%=producto.descCorta%>">
