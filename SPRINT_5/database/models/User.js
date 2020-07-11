@@ -2,7 +2,7 @@ const { DataTypes } = require("sequelize/types");
 
 module.exports = (sequelize, DataTypes) => {
 
-    let alias = "user";
+    let alias = "users";
     let cols = {
 
 id: {
@@ -32,11 +32,21 @@ category: {
 }
 
 let config = {
-    tableName: "user",
+    tableName: "users",
     timestamps: false,
 };
 
 const User = sequelize.define(alias, cols, config);
+
+User.associate = function(models){
+    User.belongsToMany(models.users, {
+        as: "compras",
+        through: "users_products",
+        foreignKey: "user_id",
+        otherKey: "product_id",
+        timestamps: false,
+    });
+}
 
 return User;
 

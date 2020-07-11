@@ -1,17 +1,20 @@
-const fs =require('fs');
+const fs = require('fs');
+const db = require('../database/models');
+const { SELECT } = require('sequelize/types/lib/query-types');
+const sequelize = db.sequelize;
 
 const indexController = {
 
 home: function (req,res){
-    let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
-    let tiendas;
-    if(archivoTiendas == ""){
-        tiendas =[];
-        } else {
-        tiendas = JSON.parse(archivoTiendas);
-    }
 
-    res.render('index', {tiendas:tiendas, user: req.session.usuarioLogueado});
+sequelize.query('SELECT * FROM stores')
+    .then(function(resultados){
+
+        let tiendas = resultados[0];
+
+        res.render('index', {tiendas:tiendas, user: req.session.usuarioLogueado});
+    })
+
 },
 
 search: function (req,res){
