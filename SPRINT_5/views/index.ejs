@@ -18,12 +18,12 @@
         <article class="row col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4 cadatienda1">
 
             <div class="col-4">
-                <img src="/img/<%= tiendas[i].fotoTienda %>" alt="Logo Tienda" class="logostiendas">
+                <img src="/img/<%= tiendas[i].image %>" alt="Logo Tienda" class="logostiendas">
             </div>
             <div class="col-8">
-                <h2 class="nombretienda"><%= tiendas[i].nombreTienda %> </h2>
-                <p><%= tiendas[i].descLarga %></p>
-                <button class="botonmain"><a class='aneutra' href="/productos/porTienda/<%=tiendas[i].codigo%>">VER PRODUCTOS</a></button>
+                <h2 class="nombretienda"><%= tiendas[i].name %> </h2>
+                <p><%= tiendas[i].description %></p>
+                <button class="botonmain"><a class='aneutra' href="/productos/porTienda/<%=tiendas[i].id%>">VER PRODUCTOS</a></button>
             </div>
         </article>
 

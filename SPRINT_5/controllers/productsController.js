@@ -1,43 +1,23 @@
 const fs =require('fs');
+let db = require("../database/models");
 
 const productosController = {
 
-    /*detalle: function (req,res){
-        res.render('productDetail');
-    },*/
-
     productosPorTienda: function (req,res){
 
-        let archivoTiendas=fs.readFileSync('data_tiendas.json', {encoding: 'utf-8'});
-        let tiendas;
-        if(archivoTiendas == ""){
-            tiendas =[];
-            } else {
-            tiendas = JSON.parse(archivoTiendas);
-        }
+        db.Tienda.findByPk(req.params.id)
+        /*, {
+            include: [{association: "productos"}]
+        })*/
+            .then (function(tienda){
 
-        tiendas.forEach((tiend, i) => {
-            if (tiend.codigo == req.params.codigo) {
-                tienda = tiend;
-            }
-        });
-
-        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
-        let productos;
-        if(archivoProductos == ""){
-            productos =[];
-            } else {
-            productos = JSON.parse(archivoProductos);
-        }
-
-        let productosTienda = [];
-        productos.forEach((prod, i) => {
-            if (prod.tienda == tienda.nombreTienda){
-                productosTienda.push(prod);
-                }
-        });
-        res.render('prodPorTienda', {productos: productosTienda, user: req.session.usuarioLogueado});
+            return res.render('prodPorTienda', {productos: tienda, user: req.session.usuarioLogueado});
+        })
+            .catch(function(e){
+                console.log("error")
+            });
     },
+
 
     productosOrganicos: function(req,res){
         let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});

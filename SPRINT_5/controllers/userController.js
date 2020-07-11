@@ -2,6 +2,7 @@ const fs = require('fs');
 const {check, validationResult, body} = require ('express-validator');
 const bcrypt = require('bcrypt');
 var path = require('path');
+let db = require("../database/models");
 
 
 const userController = {

@@ -10,7 +10,7 @@ var cookiesMiddleware = require ('./middlewares/cookiesMiddleware');
 
 var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
-var productosRouter = require ('./routes/productos');
+var productsRouter = require ('./routes/products');
 
 var app = express();
 
@@ -28,7 +28,7 @@ app.use(session({secret: "Secreto del grupo 5"}));
 app.use(cookiesMiddleware);
 
 app.use('/index', indexRouter);
-app.use('/productos', productosRouter);
+app.use('/productos', productsRouter);
 app.use('/user', userRouter);
 
 // catch 404 and forward to error handler

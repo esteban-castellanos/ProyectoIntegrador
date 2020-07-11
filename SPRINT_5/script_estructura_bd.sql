@@ -11,7 +11,7 @@ CREATE TABLE `healthy_journey`.`users` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `description` TEXT NULL,
-  `image` VARCHAR(45) NULL,
+  `image` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
   CREATE TABLE `healthy_journey`.`products` (
   `id` INT NOT NULL AUTO_INCREMENT,
