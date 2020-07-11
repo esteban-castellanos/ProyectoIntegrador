@@ -5,72 +5,46 @@ const productosController = {
 
     productosPorTienda: function (req,res){
 
-        db.Tienda.findByPk(req.params.id)
-        /*, {
-            include: [{association: "productos"}]
-        })*/
-            .then (function(tienda){
-
-            return res.render('prodPorTienda', {productos: tienda, user: req.session.usuarioLogueado});
+        db.Tienda.findByPk(req.params.codigo, {
+            include: ["productos"]
         })
-            .catch(function(e){
-                console.log("error")
-            });
+            .then (function(tienda){
+            return res.render('prodPorTienda', {productos: tienda.productos, user: req.session.usuarioLogueado});
+        })
     },
 
-
     productosOrganicos: function(req,res){
-        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
-        let productos;
-        if(archivoProductos == ""){
-            productos =[];
-            } else {
-            productos = JSON.parse(archivoProductos);
-        }
+        db.Categoria.findOne({
+            include: [{association: "productos"}],
+            where: {name:"filtroOrg"}
+        })
 
-        let productosOrganicos = [];
-        productos.forEach((prod, i) => {
-            if (prod.filtroOrg == "on"){
-                productosOrganicos.push(prod);
-                }
+        .then(function(categoria){
+            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
         });
-        console.log(productosOrganicos);
-        res.render("prodPorTienda", {productos: productosOrganicos, user: req.session.usuarioLogueado})
 
     },
 
     productosSinTacc: function(req,res){
-        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
-        let productos;
-        if(archivoProductos == ""){
-            productos =[];
-            } else {
-            productos = JSON.parse(archivoProductos);
-        }
-        let productosSinTacc = [];
-        productos.forEach((prod, i) => {
-            if (prod.filtroSinTacc == "on"){
-                productosSinTacc.push(prod);
-                }
+        db.Categoria.findOne({
+            include: [{association: "productos"}],
+            where: {name:"filtroSinTacc"}
+        })
+
+        .then(function(categoria){
+            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
         });
-        res.render("prodPorTienda", {productos: productosSinTacc, user: req.session.usuarioLogueado})
     },
 
     productosSinLactosa: function(req,res){
-        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
-        let productos;
-        if(archivoProductos == ""){
-            productos =[];
-            } else {
-            productos = JSON.parse(archivoProductos);
-        }
-        let productosSinLactosa = [];
-        productos.forEach((prod, i) => {
-            if (prod.filtrosSinLactosa == "on"){
-                productosSinLactosa.push(prod);
-                }
+        db.Categoria.findOne({
+            include: [{association: "productos"}],
+            where: {name:"filtroSinLactosa"}
+        })
+
+        .then(function(categoria){
+            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
         });
-        res.render("prodPorTienda", {productos: productosSinLactosa, user: req.session.usuarioLogueado})
     },
 
     detalleProducto: function(req,res){
