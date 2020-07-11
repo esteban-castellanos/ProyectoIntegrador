@@ -4,7 +4,7 @@ CREATE TABLE `healthy_journey`.`users` (
   `first_name` VARCHAR(45) NOT NULL,
   `last_name` VARCHAR(45) NOT NULL,
   `email` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
+  `password` TEXT NOT NULL,
   `category` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`));
   CREATE TABLE `healthy_journey`.`stores` (

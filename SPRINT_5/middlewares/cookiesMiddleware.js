@@ -1,25 +1,18 @@
 const fs = require('fs');
+let db = require("../database/models");
 
 
 function cookiesMiddleware(req, res, next){
 	if (req.cookies.recordame != undefined && req.session.usuarioLogueado == undefined) {
 
-        let archivoUsuario=fs.readFileSync('data_usuarios.json', {encoding: 'utf-8'});
-        let usuarios;
-        if(archivoUsuario == ""){
-            usuarios =[];
-        } else {
-            usuarios = JSON.parse(archivoUsuario);
-        }
+      db.Usuario.findOne({
+        where: {email: req.cookies.recordame}
+      })
+        .then(function(usuario){
 
-        let user = null;
-        usuarios.forEach((elem, i) => {
-          if (elem["email"] == req.cookies.recordame) {
-            user = elem;
-          }
+          req.session.usuarioLogueado = usuario
+
         })
-        req.session.usuarioLogueado = user
-        console.log(req.session.usuarioLogueado);
 		}
     next();
 	}

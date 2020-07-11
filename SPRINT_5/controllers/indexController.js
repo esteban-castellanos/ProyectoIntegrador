@@ -18,7 +18,7 @@ search: function (req,res){
     .then(function(productos){
         let results = [];
         productos.forEach((prod, i) => {
-            if (prod.name.includes(req.query.nombre,)) {
+            if (prod.name.includes(req.query.nombre)) {
             results.push(prod);
             }
         });

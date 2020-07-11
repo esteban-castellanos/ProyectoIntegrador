@@ -48,25 +48,13 @@ const productosController = {
     },
 
     detalleProducto: function(req,res){
-        let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
-        let productos;
-        if(archivoProductos == ""){
-            productos =[];
-            } else {
-            productos = JSON.parse(archivoProductos);
-        }
-
-        let productoSeleccionado
-        productos.forEach((prod, i) => {
-            if (prod.codigo == req.params.codigo){
-                productoSeleccionado = prod
-                }
+        db.Producto.findByPk(req.params.codigo)
+        .then(function(producto){
+            res.render('productDetail', {producto: producto, user: req.session.usuarioLogueado});
         })
-
-        res.render('productDetail', {producto: productoSeleccionado, user: req.session.usuarioLogueado});
     },
 
-    //Acá empieza la parte del administrador
+    //Acá empieza la parte en donde sólo tiene acceso el adm.
 
         nuevoProducto: function (req,res){
 
@@ -123,15 +111,12 @@ const productosController = {
         },
 
         listadoProductos: function (req,res){
-            let archivoProductos=fs.readFileSync('data_productos.json', {encoding: 'utf-8'});
-            let productos;
-            if(archivoProductos == ""){
-                productos =[];
-            } else {
-                productos = JSON.parse(archivoProductos);
-            }
-            console.log(productos);
-            res.render('listadoProductos', {productos: productos});
+            db.Producto.findAll({
+                include: ["tienda"],
+            })
+                .then(function(productos){
+                    res.render("listadoProductos", {productos:productos});
+                })
         },
 
         get_searchProductos: function (req,res){

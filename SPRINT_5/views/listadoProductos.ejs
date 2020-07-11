@@ -49,25 +49,29 @@
           </tr>
        </thead>
        <tbody>
-       <% productos.forEach((prod, i) => { %>
+        <% for (let i = 0; i<productos.length; i++) { %>
           <tr class='adelist'>
-             <th class= 'primeracol'  scope="row"><%=i+1%></th>
-             <td ><%=prod.codigo%></td>
-             <td ><%=prod.nombreProducto%></td>
-             <td class='ocultar'><%=prod.descCorta.slice(0,15) + "..."%></td>
-             <td class='ocultar'><%=prod.descLarga.slice(0,25) + "..." %></td>
-             <td class='ocultar'><%=prod.precio%></td>
-             <td class='ocultar'><%=prod.tienda%></td>
+             <th class= 'primeracol' scope="row"><%=i+1%></th>
+             <td ><%= productos[i].id%></td>
+             <td ><%= productos[i].name %></td>
+             <td class='ocultar'><%= productos[i].short_description%></td>
+             <% if (productos[i].long_description != null) { %>
+             <td class='ocultar'><%= productos[i].long_description.slice(0,15) + "..." %></td>
+                <% } else { %>
+             <td class='ocultar'><%= "" %></td>
+                 <% } %>
+             <td class='ocultar'><%= productos[i].price%></td>
+             <td class='ocultar'><%= productos[i].tienda.name%></td>
 
-            <form class="" action="/productos/<%=prod.codigo%>?_method=DELETE" method="post">
+            <form class="" action="/productos/<%=productos[i].id%>?_method=DELETE" method="post">
                 <td><button class="btn btn-outline-secondary" type="submit" name="delete" id="button-addon2"><i class="fas fa-trash" title="Borrar"></i></button></td>
                 </td>
             </form>
 
-            <td><a href="/productos/editProducto/<%=prod.codigo%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
+            <td><a href="/productos/editProducto/<%=productos[i].id%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
 
         </tr>
-       <% }); %>
+        <% } %>
     </tbody>
     </table>
 

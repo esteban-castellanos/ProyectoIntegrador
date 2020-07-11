@@ -22,7 +22,7 @@
             </div>
             <section class="nombre_producto">
                 <div class="col-5" id="producto_reemplazo">
-                    <p class="producto1"> <%=producto.nombreProducto%> </p>
+                    <p class="producto1"> <%=producto.name%> </p>
                     <p id="reemplazo"> NOMBRE REEMPLAZO </p>
                 </div>
                 <div class="cantidad col-2">
@@ -30,7 +30,7 @@
                 </div>
                 <div class=" col-5" id="precio-box">
                     <div id="precio">
-                        <span id="precio-numero"> <%= '$' + producto.precio%> </span>
+                        <span id="precio-numero"> <%= '$' + producto.price%> </span>
                         <div class="editable">
                             <button type="submit" class="btn btn-secondary fas fa-pencil-alt" id="lapiz-carrito">
                             </button>
