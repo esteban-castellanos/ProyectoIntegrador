@@ -9,7 +9,9 @@ home: function (req,res){
     .then(function(tiendas){
         return res.render('index', {tiendas:tiendas, user: req.session.usuarioLogueado});
     })
-
+    .catch(function(e){
+        console.log(e)
+    });
 },
 
 search: function (req,res){
@@ -26,6 +28,9 @@ search: function (req,res){
         res.render('prodPorTienda', {productos: results, user: req.session.usuarioLogueado});
         }
     })
+    .catch(function(e){
+        console.log(e)
+    });
 },
 
 }

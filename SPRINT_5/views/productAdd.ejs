@@ -42,7 +42,7 @@
 
             <% for (let i = 0; i < tiendas.length; i++) { %>
 
-            <option value="<%=tiendas[i]%>"><%=tiendas[i].name%></option>
+            <option value="<%=tiendas[i].name%>"><%=tiendas[i].name%></option>
 
             <%}%>
             </select>
@@ -51,13 +51,13 @@
             <label for="filtros" class="labelform">Filtros</label><br>
             <div>
                 <input type="checkbox" name="org">
-                <label for="org" class= "letragrisform" value="filtroOrg" >Orgánicos</label>
+                <label for="org" class= "letragrisform" value="3" >Orgánico</label>
                 <br>
                 <input type="checkbox" name="sinTacc">
-                <label for="sinTacc" class="letragrisform" value="filtroSinTacc">Sin Tacc</label>
+                <label for="sinTacc" class="letragrisform" value="1">Sin Tacc</label>
                 <br>
                 <input type="checkbox" name="sinLactosa">
-                <label for="sinLactosa" class="letragrisform" value="filtroSinLactosa">Sin Lactosa</label>
+                <label for="sinLactosa" class="letragrisform" value="2">Sin Lactosa</label>
                 <br><br>
             </div>
             <label for="foto" required class="labelform">Añadir foto</label>

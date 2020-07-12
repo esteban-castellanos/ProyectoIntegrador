@@ -10,7 +10,10 @@ const productosController = {
         })
             .then (function(tienda){
             return res.render('prodPorTienda', {productos: tienda.productos, user: req.session.usuarioLogueado});
-        })
+            })
+            .catch(function(e){
+                console.log(e)
+            });
     },
 
     productosOrganicos: function(req,res){
@@ -21,6 +24,9 @@ const productosController = {
 
         .then(function(categoria){
             res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
+        })
+        .catch(function(e){
+            console.log(e)
         });
 
     },
@@ -33,6 +39,9 @@ const productosController = {
 
         .then(function(categoria){
             res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
+        })
+        .catch(function(e){
+            console.log(e)
         });
     },
 
@@ -44,6 +53,9 @@ const productosController = {
 
         .then(function(categoria){
             res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
+        })
+        .catch(function(e){
+            console.log(e)
         });
     },
 
@@ -52,6 +64,9 @@ const productosController = {
         .then(function(producto){
             res.render('productDetail', {producto: producto, user: req.session.usuarioLogueado});
         })
+        .catch(function(e){
+            console.log(e)
+        });
     },
 
     //Acá empieza la parte en donde sólo tiene acceso el adm.
@@ -62,21 +77,30 @@ const productosController = {
                 .then (function(tiendas){
                     res.render('productAdd', {tiendas: tiendas});
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
-            //FALTA
+
         crearProducto: function(req, res){
-            db.Producto.create({
-                name: req.body.nombreProduct,
-                short_description: req.body.descCorta,
-                long_description: req.body.descLarga,
-                price: req.body.precio,
-                image: req.files[0].filename,
-                store_id: req.body.tienda,
-                filtroOrg: req.body.org,
-                filtroSinTacc: req.body.sinTacc,
-                filtrosSinLactosa: req.body.sinLactosa
+            db.Tienda.findOne({
+                where: {name: req.body.tienda}
             })
-                res.redirect('/productos');
+                .then(function(tienda){
+                    console.log(tienda.id);
+                    db.Producto.create({
+                        name: req.body.nombreProduct,
+                        short_description: req.body.descCorta,
+                        long_description: req.body.descLarga,
+                        price: req.body.precio,
+                        image: req.files[0].filename,
+                        store_id: tienda.id,
+                    })
+                    res.redirect('/productos');
+                })
+                .catch(function(e){
+                    console.log(e)
+                })
         },
 
         listadoProductos: function (req,res){
@@ -86,6 +110,9 @@ const productosController = {
                 .then(function(productos){
                     res.render("listadoProductos", {productos:productos});
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
 
         get_searchProductos: function (req,res){
@@ -102,20 +129,25 @@ const productosController = {
                         if (prod.name.includes(nombreBuscado)) {
                             results.push(prod);
                         }
-                    });
+                    })
                     return res.render('listadoProductos', {productos: results});
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
 
-        //FALTA
         deleteProduct: function(req,res){
-            console.log(req.params.codigo);
+
             db.Producto.destroy({
                 where: {id: req.params.codigo}
             })
                 .then(function(){
-                    res.redirect("productos");
+                    res.redirect("/productos");
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
 
         get_editProducto: function(req,res){
@@ -127,30 +159,38 @@ const productosController = {
                 Promise.all([pedidoProducto, pedidoTiendas])
                     .then(function([producto, tiendas]){
                         res.render('productEdit',{producto: producto, tiendas:tiendas});
-
                     })
+                    .catch(function(e){
+                        console.log(e)
+                    });
         },
-
-            //FALTA
 
         put_editProducto: function (req,res){
 
-            db.Producto.update({
-                name: req.body.nombreProduct,
-                short_description: req.body.descCorta,
-                long_description: req.body.descLarga,
-                price: req.body.price,
-                store_id: req.body.tienda,
-                image: req.files[0].filename,
-                filtroOrg = req.body.org,
-                filtroSinTacc = req.body.sinTacc,
-                filtrosSinLactosa = req.body.sinLactosa,
-            }, {
-                where: {
-                id: req.params.codigo
-                }
-            });
-                  res.redirect("/productos");
+                db.Tienda.findOne({
+                    where: {name: req.body.tienda}
+                })
+                    .then(function(tienda){
+
+                        db.Producto.update({
+                            name: req.body.nombreProduct,
+                            short_description: req.body.descCorta,
+                            long_description: req.body.descLarga,
+                            price: req.body.precio,
+                            image: req.files[0].filename,
+                            store_id: tienda.id,
+                        }, {
+                            where: {
+                            id: req.params.codigo
+                        }
+                        })
+                    })
+                    .then(function(){
+                        return res.redirect("/productos")
+                    })
+                    .catch(function(e){
+                    console.log(e)
+                    });
         },
 
         listadoTiendas: function (req,res){
@@ -158,6 +198,9 @@ const productosController = {
                 .then(function(tiendas){
                     res.render('listadoTiendas', {tiendas: tiendas});
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
 
         get_searchTiendas: function (req,res){
@@ -169,9 +212,12 @@ const productosController = {
                         if (tiend.name.includes(nombreBuscado)) {
                             results.push(tiend);
                         }
-                    });
+                    })
                     return res.render('listadoTiendas', {tiendas: results});
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
 
         nuevaTienda: function (req,res){
@@ -184,8 +230,12 @@ const productosController = {
                 description: req.body.descLarga,
                 image: req.files[0].filename
             })
-
+                .then(function(){
                 res.redirect('/productos/tiendas');
+                })
+                .catch(function(e){
+                    console.log(e)
+                });
             },
 
 
@@ -195,6 +245,9 @@ const productosController = {
                 .then(function(tienda){
                     return res.render('tiendaEdit', {tienda: tienda});
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
             },
 
         put_editTienda: function (req,res){
@@ -211,6 +264,9 @@ const productosController = {
                 .then(function(){
                     res.redirect("/productos/tiendas");
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
         },
 
         deleteTienda: function(req,res){
@@ -221,6 +277,9 @@ const productosController = {
                 .then(function(){
                     res.redirect("/productos/tiendas");
                 })
+                .catch(function(e){
+                    console.log(e)
+                });
             },
     }
 

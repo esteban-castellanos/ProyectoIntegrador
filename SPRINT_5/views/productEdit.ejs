@@ -13,7 +13,7 @@
     <main>
         <div class='container row mainformulario'>
             <h1 class="tituloformulario col-12">EDITAR PRODUCTO</h1>
-        <form action="/productos/actualizarProducto/<%=producto.codigo%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
+        <form action="/productos/actualizarProducto/<%=producto.id%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
 
             <br>
             <label for="nombre" class="labelform">Nombre del producto</label>
@@ -41,7 +41,7 @@
 
             <% for (let i = 0; i < tiendas.length; i++) { %>
 
-            <option value="<%=tiendas[i]%>"><%=tiendas[i].name%></option>
+            <option value="<%=tiendas[i].name%>"><%=tiendas[i].name%></option>
 
             <%}%>
 
@@ -50,13 +50,13 @@
 
             <label for="filtros" class="labelform">Filtros</label><br>
             <div>
-                <input type="checkbox" name="org">
-                <label for="org" class= "letragrisform">Orgánicos</label>
+                <input type="checkbox" name="org" value="3">
+                <label for="org" class= "letragrisform">Orgánico</label>
                 <br>
-                <input type="checkbox" name="sinTacc">
+                <input type="checkbox" name="sinTacc" value="1">
                 <label for="sinTacc" class="letragrisform">Sin Tacc</label>
                 <br>
-                <input type="checkbox" name="sinLactosa">
+                <input type="checkbox" name="sinLactosa" value="2">
                 <label for="sinLactosa" class="letragrisform">Sin Lactosa</label>
                 <br><br>
             </div>

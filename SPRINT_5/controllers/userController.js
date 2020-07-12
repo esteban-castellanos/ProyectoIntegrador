@@ -54,6 +54,9 @@ const userController = {
                 //Si el usuario ya está registrado.
             res.render("register", {errors: [{msg:'El Email ingresado ya se encuentra registrado, por favor intente con otro'}]});
             }
+        })
+        .catch(function(e){
+            console.log(e)
         });
     },
 
@@ -89,7 +92,10 @@ const userController = {
                     let mensaje = "Mail inválido"
                     res.render ('login', {mailinv:mensaje});
                 }
-            });
+            })
+        .catch(function(e){
+            console.log(e)
+        });
     },
 
     carrito: function (req,res){
@@ -100,6 +106,9 @@ const userController = {
                 res.render('productCar', {producto:producto, user: req.session.usuarioLogueado});
 
             })
+            .catch(function(e){
+                console.log(e)
+            });
     },
 
     detalleUsuario: function (req,res){

@@ -44,37 +44,37 @@ ALTER TABLE `healthy_journey`.`products_categories`
 ADD CONSTRAINT `fk_products_id`
   FOREIGN KEY (`product_id`)
   REFERENCES `healthy_journey`.`products` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
   ALTER TABLE `healthy_journey`.`products_categories` 
 ;
 ALTER TABLE `healthy_journey`.`products_categories` 
 ADD CONSTRAINT `kf_category_id`
   FOREIGN KEY (`category_id`)
   REFERENCES `healthy_journey`.`categories` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
   ALTER TABLE `healthy_journey`.`users_products` 
 ;
 ALTER TABLE `healthy_journey`.`users_products` 
 ADD CONSTRAINT `fk_user_id`
   FOREIGN KEY (`user_id`)
   REFERENCES `healthy_journey`.`users` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
   ALTER TABLE `healthy_journey`.`users_products` 
 ;
 ALTER TABLE `healthy_journey`.`users_products` 
 ADD CONSTRAINT `fk_product_id`
   FOREIGN KEY (`product_id`)
   REFERENCES `healthy_journey`.`products` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
   ALTER TABLE `healthy_journey`.`products` 
 ;
 ALTER TABLE `healthy_journey`.`products` 
 ADD CONSTRAINT `fk_products_stores`
   FOREIGN KEY (`store_id`)
   REFERENCES `healthy_journey`.`stores` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+  ON DELETE CASCADE
+  ON UPDATE CASCADE;
