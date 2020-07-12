@@ -44,22 +44,26 @@
           </tr>
        </thead>
        <tbody>
-        <% tiendas.forEach((tiend, i) => { %>
+        <% for (let i = 0; i<tiendas.length; i++) { %>
            <tr class='adelist'>
               <th class= 'primeracol'  scope="row"><%=i+1%></th>
-              <td ><%=tiend.codigo%></td>
-              <td ><%=tiend.nombreTienda%></td>
-              <td class='ocultar'><%=tiend.descLarga.slice(0,25) + "..." %></td>
+              <td ><%=tiendas[i].id%></td>
+              <td ><%=tiendas[i].name%></td>
+                <% if (tiendas[i].description != null) { %>
+                <td class='ocultar'><%= tiendas[i].description.slice(0,25) + "..." %></td>
+                   <% } else { %>
+                <td class='ocultar'><%= "" %></td>
+                <% } %>
 
-             <form class="" action="/productos/tiendas/<%=tiend.codigo%>?_method=DELETE" method="post">
+             <form class="" action="/productos/tiendas/<%=tiendas[i].id%>?_method=DELETE" method="post">
                  <td><button class="btn btn-outline-secondary" type="submit" name="delete" id="button-addon2"><i class="fas fa-trash" title="Borrar"></i></button></td>
                  </td>
              </form>
 
-             <td><a href="/productos/editTienda/<%=tiend.codigo%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
+             <td><a href="/productos/editTienda/<%=tiendas[i].id%>"> <button class="btn btn-outline-secondary" type="button" id="button-addon2"><i class="fas fa-pen"></i></button></a></td>
 
          </tr>
-        <% }); %>
+        <% } %>
         </tbody>
     </table>
 

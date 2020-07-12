@@ -14,19 +14,17 @@
         <main>
             <div class='container row mainformulario'>
                 <h1 class="tituloformulario col-12">EDITAR TIENDA</h1>
-            <form action="/productos/actualizarTienda/<%=tienda.codigo%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
+            <form action="/productos/actualizarTienda/<%=tienda.id%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
 
             <br>
-            <label for="codigo" class="labelform">Código de Producto: <%=tienda.codigo%></label>
-            <br><br>
-            <input type="text" name="codigo" id="codigo" required placeholder="<%=tienda.codigo%>" hidden>
             <label for="nombre" class="labelform">Nombre de la tienda</label><br>
-            <input type="text" name="nombreTienda" id="nombre" required value = "<%=tienda.nombreTienda%>"><br><br>
+            <input type="text" name="nombreTienda" id="nombre" required value = "<%=tienda.name%>">
+            <br><br>
             <label for="descLarga" class="labelform">Descripción Larga</label>
             <br>
             <p class="letragrisform">Campo optativo</p>
-            <textarea name="descLarga" id="descLarga" cols="30" rows="4" placeholder="<%=tienda.descLarga%>"></textarea>
-            <br>
+            <textarea name="descLarga" id="descLarga" cols="30" rows="4" placeholder="<%=tienda.description%>"></textarea>
+            <br><br>
             <label for="foto" required class="labelform">Añadir foto</label>
             <input type="file" name="fotoTienda">
             <br><br>

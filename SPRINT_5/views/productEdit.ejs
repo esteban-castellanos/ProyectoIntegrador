@@ -16,35 +16,32 @@
         <form action="/productos/actualizarProducto/<%=producto.codigo%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
 
             <br>
-            <label for="codigo" class="labelform">Código de Producto: <%=producto.codigo%></label>
-            <br><br>
-            <input type="text" name="codigo" id="codigo" required value = "<%=producto.codigo%>" hidden>
             <label for="nombre" class="labelform">Nombre del producto</label>
             <br>
-            <input type="text" name="nombreProduct" id="nombre" required value = "<%=producto.nombreProducto%>">
+            <input type="text" name="nombreProduct" id="nombre" required value = "<%=producto.name%>">
             <br><br>
             <label for="descCorta" class="labelform">Descripción Corta</label>
             <br>
-            <input type="text" name="descCorta" id="descCorta" required value="<%=producto.descCorta%>">
+            <input type="text" name="descCorta" id="descCorta" required value="<%=producto.short_description%>">
             <br><br>
             <label for="descLarga" class="labelform">Descripción Larga</label>
             <br>
             <p class="letragrisform">Campo optativo</p>
-            <textarea name="descLarga" id="descLarga" cols="30" rows="4" placeholder="<%=producto.descLarga%>"></textarea>
+            <textarea name="descLarga" id="descLarga" cols="30" rows="4" placeholder="<%=producto.long_description%>"></textarea>
             <br>
             <label for="precio" class="labelform">Precio</label>
             <br>
-            <input type="number" name="precio" id="precio" required value="<%=producto.precio%>">
+            <input type="number" name="precio" id="precio" required value="<%=producto.price%>">
             <br><br>
 
             <label for="tienda" class="labelform">Tienda</label>
             <br>
             <select name="tienda" id="" required>
-            <option value="" selected disabled hidden><%=producto.tienda%></option>
+            <option value="" selected disabled hidden><%=producto.tienda.name%></option>
 
             <% for (let i = 0; i < tiendas.length; i++) { %>
 
-            <option value="<%=tiendas[i]%>"><%=tiendas[i]%></option>
+            <option value="<%=tiendas[i]%>"><%=tiendas[i].name%></option>
 
             <%}%>
 
