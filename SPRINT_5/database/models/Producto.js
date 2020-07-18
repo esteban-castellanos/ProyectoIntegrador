@@ -3,6 +3,10 @@ module.exports = function (sequelize, dataTypes){
     let alias = "Producto";
 
     let cols = {
+        codigo: {
+            type: dataTypes.INTEGER,
+            allowNull: false
+        },
         id: {
             type: dataTypes.INTEGER,
             autoIncrement: true,

@@ -16,6 +16,11 @@
         <form action="/productos/actualizarProducto/<%=producto.id%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
 
             <br>
+            <label for="codigoProduct" class="labelform">Código del producto</label>
+            <br>
+            <input type="text" name="codigoProduct" id="codigo" required value="<%=producto.codigo%>">
+            <br><br>
+            <br>
             <label for="nombre" class="labelform">Nombre del producto</label>
             <br>
             <input type="text" name="nombreProduct" id="nombre" required value = "<%=producto.name%>">

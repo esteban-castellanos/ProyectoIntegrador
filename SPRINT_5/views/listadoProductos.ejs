@@ -40,7 +40,7 @@
        <thead>
           <tr >
              <th class='primeracol' scope="col">#</th>
-             <th scope="col">ID</th>
+             <th scope="col">Código</th>
              <th scope="col">Nombre</th>
              <th class='ocultar'scope="col">Descripción</th>
              <th class='ocultar'scope="col">Descripción 2</th>
@@ -52,7 +52,7 @@
         <% for (let i = 0; i<productos.length; i++) { %>
           <tr class='adelist'>
              <th class= 'primeracol' scope="row"><%=i+1%></th>
-             <td ><%= productos[i].id%></td>
+             <td ><%= productos[i].codigo%></td>
              <td ><%= productos[i].name %></td>
              <td class='ocultar'><%= productos[i].short_description%></td>
              <% if (productos[i].long_description != null) { %>

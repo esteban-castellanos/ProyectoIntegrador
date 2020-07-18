@@ -87,8 +87,8 @@ const productosController = {
                 where: {name: req.body.tienda}
             })
                 .then(function(tienda){
-                    console.log(tienda.id);
                     db.Producto.create({
+                        codigo: req.body.codigoProduct,
                         name: req.body.nombreProduct,
                         short_description: req.body.descCorta,
                         long_description: req.body.descLarga,
@@ -96,11 +96,68 @@ const productosController = {
                         image: req.files[0].filename,
                         store_id: tienda.id,
                     })
-                    res.redirect('/productos');
-                })
+                });
+                    db.Producto.findOne({
+                        where: {codigo:req.body.codigoProduct}
+                    })
+                    .then(function(producto){
+                        console.log(producto);
+                    })
+                /*
+                .then(function(){
+                    if (req.body.org != undefined){
+                        console.log("Holaaaaa")
+                        let pedidoProducto = db.Producto.findOne({
+                            where: {codigo: req.body.codigoProduct}
+                        })
+                        let pedidoCategoria = db.Categoria.findOne({
+                            where: {name: "filtroOrg"}
+                        })
+                    Promise.all([pedidoProducto, pedidoCategoria])
+                        .then(function([producto, categoria]){
+                            console.log(producto)
+                            console.log(categoria)
+                            db.ProductosCategorias.create({
+                                product_id: producto.id,
+                                category_id:categoria.id
+                            })
+                        })
+                    };
+                    if (req.body.sinTacc != undefined){
+                        let pedidoProducto = db.Producto.findOne({
+                            where: {codigo: req.body.codigoProduct}
+                        })
+                        let pedidoCategoria = db.Categoria.findOne({
+                            where: {name: "filtroSinTacc"}
+                        })
+                        Promise.all([pedidoProducto, pedidoCategoria])
+                        .then(function([producto, categoria]){
+                            db.ProductosCategorias.create({
+                                product_id: producto.id,
+                                category_id:categoria.id
+                        })
+                        })
+                    };
+                    if (req.body.sinLactosa != undefined){
+                        let pedidoProducto = db.Producto.findOne({
+                            where: {codigo: req.body.codigoProduct}
+                        })
+                        let pedidoCategoria = db.Categoria.findOne({
+                            where: {name: "filtroSinLactosa"}
+                        })
+                        Promise.all([pedidoProducto, pedidoCategoria])
+                        .then(function([producto, categoria]){
+                            db.ProductosCategorias.create({
+                                product_id: producto.id,
+                                category_id:categoria.id
+                        })
+                        })
+                    };
+                })*/
                 .catch(function(e){
                     console.log(e)
                 })
+            res.redirect('/productos');
         },
 
         listadoProductos: function (req,res){
@@ -173,6 +230,7 @@ const productosController = {
                     .then(function(tienda){
 
                         db.Producto.update({
+                            codigo: req.body.codigoProduct,
                             name: req.body.nombreProduct,
                             short_description: req.body.descCorta,
                             long_description: req.body.descLarga,
