@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head.ejs')%>
+
+<body>
+
+    <%- include('partials/header.ejs')%>
+
+<main class="ppalcon container">
+
+    <%- include('partials/filtros.ejs')%>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" id="mapnav">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item"><a href="#">Tienda:Cardamomo</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Productos</li>
+        </ol>
+    </nav>
+
+    <section id="productos" class="container">
+        <article class="row cadaprod1">
+            <div class="col-5 imgart" >
+                <img src="/img/<%=producto.image%>" alt="" class="logosproductos">
+            </div>
+
+            <div class="col-7 contenedorProducto">
+                <div class="row" id="rowClass">
+                    <span class="nombreProducto col-12 "><%=producto.name%></span>
+                    <div class="row" id="rowProducto">
+                        <span class="descripcionProducto col-8"><%=producto.short_description%></span>
+                        <span class="descripcionProducto2 col-8"><%=producto.long_description%></span>
+                        <span class="precioPrducto col-4"><%='$' + producto.price%></span>
+                        <form action="/user/carrito/<%=producto.id%>" method="GET">
+                            <div class="col-12">
+                                <select class="custom-select custom-select-sm" id="selectStock" name="segundaOpcion">
+                                    <option selected disabled hidden >Si no hay stock...</option>
+                                    <option value="sacarLista">Sacar de la lista</option>
+                                    <option value="distitoTam">Distinto tamaño</option>
+                                    <option value="marcaSimil">Marca similar</option>
+                                </select>
+                            </div>
+                            <div class="contadortotal ">
+                                <div class="selectorContador col-6 col-sm-6">
+                                    <button class="botonproducto"  id="contadores col-6 col-sm-4" >+</button>
+                                    <input type="number" name="cantProductos" id="contadorInput" class="col-2 col-sm-3">
+                                    <button class="botonproducto" id="contadores col-6 col-sm-4">-</button>
+                                </div>
+                                <button type="submit" class="botonproductoQ" id="LoQuiero col-12 col-sm-6"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </article>
+    </section>
+</main>
+
+<%- include('partials/footer.ejs')%>
+
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

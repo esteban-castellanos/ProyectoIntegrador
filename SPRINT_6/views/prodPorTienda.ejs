@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('partials/head.ejs')%>
+
+<body>
+
+    <%- include('partials/header.ejs')%>
+
+<main class="ppalcon container">
+
+    <%- include('partials/filtros.ejs')%>
+
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb" id="mapnav">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Tienda: CARDAMOMO</li>
+        </ol>
+    </nav>
+
+    <section class= 'row artiprod '>
+
+        <% for (let i = 0; i<productos.length; i++){%>
+
+            <article class="row col-12 col-12 col-sm-12 col-md-4 col-lg-3 col-xl-3 cadaprod1 ">
+
+                <div class='col-4 imgart'>
+                <img src="/img/<%= productos[i].image%>"alt="Logo Producto"></div>
+                <div class='col-8 botprod '>
+                    <div class= 'row '>
+                        <div class= 'col-12 nombreprod'>
+                            <%= productos[i].name %>
+                        </div>
+                    </div>
+                    <div class= 'row'>
+                        <div class='col-8 proddescri'><p><%= productos[i].short_description%></p></div>
+                        <div class='col-4 precioprod'><%= "$" + productos[i].price%></div>
+                    </div>
+                    <div class= 'row'>
+                        <div class='col-12'>
+                            <button type="button" class="btnverprod"> <a href="/productos/detalleProducto/<%= productos[i].id%>">LO QUIERO!</a></button>
+                        </div>
+                    </div>
+                </div>
+
+            </article>
+
+        <%}%>
+
+    </section>
+</main>
+
+<%- include('partials/footer.ejs')%>
+
+<script src="/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>
