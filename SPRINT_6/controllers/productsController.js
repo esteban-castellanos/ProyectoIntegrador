@@ -1,4 +1,6 @@
 const fs =require('fs');
+const {check, validationResult, body} = require ('express-validator');
+var path = require('path');
 let db = require("../database/models");
 
 const productosController = {
@@ -87,15 +89,21 @@ const productosController = {
                 where: {name: req.body.tienda}
             })
                 .then(function(tienda){
-                    db.Producto.create({
-                        code: req.body.codigoProduct,
-                        name: req.body.nombreProduct,
-                        short_description: req.body.descCorta,
-                        long_description: req.body.descLarga,
-                        price: req.body.precio,
-                        image: req.files[0].filename,
-                        store_id: tienda.id,
-                    })
+                    let errors = validationResult(req);
+                    console.log(errors);
+                    if (errors.isEmpty()){
+                        db.Producto.create({
+                            code: req.body.codigoProduct,
+                            name: req.body.nombreProduct,
+                            short_description: req.body.descCorta,
+                            long_description: req.body.descLarga,
+                            price: req.body.precio,
+                            image: req.files[0].filename,
+                            store_id: tienda.id,
+                        })
+                    } else {
+                        return res.render('productAdd', {errors: errors.errors});
+                    }
                 });
                     db.Producto.findOne({
                         where: {code:req.body.codigoProduct}

@@ -1,15 +1,13 @@
 const {check, validationResult, body} = require('express-validator');
-const fs = require('fs');
-const userController = require ('../controllers/userController');
 
 
-let validatorMiddleware =
+let validatorUserMiddleware =
 [
     check('nombre')
-        .isLength({min:1}).withMessage('El campo "nombre" debe estar completo')
+        .isLength({min:2}).withMessage('El campo "nombre" debe estar completo y tener al menos 2 caracteres')
         .trim(), //Eliminamos los espacios en blanco laterales
     check('apellido')
-        .isLength({min:1}).withMessage('El campo "apellido" debe estar completo'),
+        .isLength({min:2}).withMessage('El campo "apellido" debe estar completo y tener al menos 2 caracteres'),
     check('email')
         .isEmail().withMessage('Debe escribir un email válido')
         .normalizeEmail(), //Sanitiza el email
@@ -17,4 +15,4 @@ let validatorMiddleware =
         .isLength({min:8}).withMessage('La contraseña debe tener al menos 8 caracteres'),
   ]
 
-  module.exports = validatorMiddleware
+  module.exports = validatorUserMiddleware

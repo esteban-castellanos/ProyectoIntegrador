@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 var productsController = require('../controllers/productsController');
 var multer = require('multer');
-var fs =require('fs');
 var permisoAdmMiddleware = require ("../middlewares/permisoAdmMiddleware");
+let validatorProductMiddleware = require ('../middlewares/validatorProductMiddlaware');
+
+
 
 const {check, validationResult, body} = require ('express-validator');
 //INICIO DISKSTORGE (PARA SUBIR ARCHIVOS)
@@ -37,7 +39,6 @@ router.get('/detalleProducto/:codigo', productsController.detalleProducto);
 /* DESDE ACA LO DE ROUTES--> ADMINISTRADOR.JS */
 
 
-
 /* GET LISTADO DE PRODUCTOS */
 router.get('/', permisoAdmMiddleware, productsController.listadoProductos);
 
@@ -57,7 +58,7 @@ router.get('/nuevoproducto', permisoAdmMiddleware, productsController.nuevoProdu
 router.get('/nuevatienda', permisoAdmMiddleware, productsController.nuevaTienda);
 
 /* POST NUEVO PRODUCTO. */
-router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(),productsController.crearProducto);
+router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(), validatorProductMiddleware, productsController.crearProducto);
 
 /* POST NUEVA TIENDA. */
 router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productsController.crearTienda);
@@ -66,7 +67,7 @@ router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productsControll
 router.get('/editProducto/:codigo', permisoAdmMiddleware, productsController.get_editProducto);
 
 /* PUT EDITAR PRODUCTO. */
-router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), productsController.put_editProducto);
+router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), validatorProductMiddleware, productsController.put_editProducto);
 
 /* GET EDITAR TIENDA. */
 router.get('/editTienda/:codigo', permisoAdmMiddleware, productsController.get_editTienda);

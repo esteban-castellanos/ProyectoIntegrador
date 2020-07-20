@@ -3,14 +3,14 @@ var router = express.Router();
 var userController = require('../controllers/userController');
 const path = require ('path');
 const {check, validationResult, body} = require ('express-validator');
-let validatorMiddleware = require ('../middlewares/validatorMiddleware');
+let validatorUserMiddleware = require ('../middlewares/validatorUserMiddleware');
 
 
 /* Get Register. */
 router.get('/register', userController.register);
 
 /* Post Register. */
-router.post('/register', validatorMiddleware, userController.createUser);
+router.post('/register', validatorUserMiddleware, userController.createUser);
 
 /* Get Login. */
 router.get('/login', userController.login);
