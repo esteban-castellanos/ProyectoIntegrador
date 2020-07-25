@@ -13,68 +13,74 @@
     <main>
         <div class='container row mainformulario'>
             <h1 class="tituloformulario col-12">EDITAR PRODUCTO</h1>
-        <form action="/productos/actualizarProducto/<%=producto.id%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data">
+        <form action="/productos/actualizarProducto/<%=producto.id%>?_method=PUT" class="formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4" method="POST" enctype="multipart/form-data" id="formulario">
 
             <br>
             <label for="codigoProduct" class="labelform">Código del producto</label>
             <br>
-            <input type="text" name="codigoProduct" id="codigo" required value="<%=producto.codigo%>">
+            <input type="text" name="codigoProduct" id="codigo" class="form-control" required value="<%=producto.codigo%>">
+            <div class="codigo invalid-feedback"></div>
             <br><br>
             <br>
             <label for="nombre" class="labelform">Nombre del producto</label>
             <br>
-            <input type="text" name="nombreProduct" id="nombre" required value = "<%=producto.name%>">
+            <input type="text" name="nombreProduct" class="form-control" id="nombre" required value = "<%=producto.name%>">
+            <div class="nombre invalid-feedback"></div>
             <br><br>
             <label for="descCorta" class="labelform">Descripción Corta</label>
             <br>
-            <input type="text" name="descCorta" id="descCorta" required value="<%=producto.short_description%>">
+            <input type="text" name="descCorta" class="form-control" id="descCorta" required value="<%=producto.short_description%>">
+            <div class="descripcion invalid-feedback"></div>
             <br><br>
             <label for="descLarga" class="labelform">Descripción Larga</label>
             <br>
             <p class="letragrisform">Campo optativo</p>
-            <textarea name="descLarga" id="descLarga" cols="30" rows="4" placeholder="<%=producto.long_description%>"></textarea>
+            <textarea name="descLarga" id="descLarga" cols="45" rows="4" placeholder="<%=producto.long_description%>"></textarea>
             <br>
             <label for="precio" class="labelform">Precio</label>
             <br>
-            <input type="number" name="precio" id="precio" required value="<%=producto.price%>">
+            <input type="number" name="precio" id="precio" required value="<%=producto.price%>" class="form-control">
+            <div class="precio invalid-feedback"></div>
             <br><br>
 
             <label for="tienda" class="labelform">Tienda</label>
             <br>
-            <select name="tienda" id="" required>
-            <option value="" selected disabled hidden><%=producto.tienda.name%></option>
+            <select name="tienda" id="tiendas" required class="form-control">
+                <option value="" selected disabled hidden><%=producto.tienda.name%></option>
 
             <% for (let i = 0; i < tiendas.length; i++) { %>
 
-            <option value="<%=tiendas[i].name%>"><%=tiendas[i].name%></option>
+                <option value="<%=tiendas[i].name%>"><%=tiendas[i].name%></option>
 
             <%}%>
 
             </select>
             <br><br>
 
-            <label for="filtros" class="labelform">Filtros</label><br>
+            <label for="filtros" class="labelform" id="filtros">Filtros</label><br>
+            <div class="filtros invalid-feedback"></div>
             <div>
-                <input type="checkbox" name="org" value="3">
+                <input type="checkbox" name="org" value="3" id="org">
                 <label for="org" class= "letragrisform">Orgánico</label>
                 <br>
-                <input type="checkbox" name="sinTacc" value="1">
+                <input type="checkbox" name="sinTacc" value="1" id="sinTacc">
                 <label for="sinTacc" class="letragrisform">Sin Tacc</label>
                 <br>
-                <input type="checkbox" name="sinLactosa" value="2">
+                <input type="checkbox" name="sinLactosa" value="2" id="sinLactosa">
                 <label for="sinLactosa" class="letragrisform">Sin Lactosa</label>
                 <br><br>
             </div>
             <label for="foto" required class="labelform">Añadir foto</label>
             <input type="file" name="fotoProducto">
             <br><br>
-            <button class="añadirproducto" type="submit">GUARDAR CAMBIOS</button>
+            <button type="submit" class="añadirproducto" type="submit">GUARDAR CAMBIOS</button>
         </form>
 
     </div>
     </main>
-        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/productoValidator.js"></script>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="/js/bootstrap.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     </body>

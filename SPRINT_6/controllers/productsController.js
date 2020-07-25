@@ -92,7 +92,7 @@ const productosController = {
                     let errors = validationResult(req);
                     console.log(errors);
                     if (errors.isEmpty()){
-                        db.Producto.create({
+                        let nuevoProducto = db.Producto.create({
                             code: req.body.codigoProduct,
                             name: req.body.nombreProduct,
                             short_description: req.body.descCorta,

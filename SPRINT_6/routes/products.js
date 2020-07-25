@@ -58,7 +58,7 @@ router.get('/nuevoproducto', permisoAdmMiddleware, productsController.nuevoProdu
 router.get('/nuevatienda', permisoAdmMiddleware, productsController.nuevaTienda);
 
 /* POST NUEVO PRODUCTO. */
-router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(), validatorProductMiddleware, productsController.crearProducto);
+router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(), productsController.crearProducto);
 
 /* POST NUEVA TIENDA. */
 router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productsController.crearTienda);
@@ -67,7 +67,7 @@ router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productsControll
 router.get('/editProducto/:codigo', permisoAdmMiddleware, productsController.get_editProducto);
 
 /* PUT EDITAR PRODUCTO. */
-router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), validatorProductMiddleware, productsController.put_editProducto);
+router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), productsController.put_editProducto);
 
 /* GET EDITAR TIENDA. */
 router.get('/editTienda/:codigo', permisoAdmMiddleware, productsController.get_editTienda);
