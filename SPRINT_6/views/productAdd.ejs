@@ -55,10 +55,12 @@
 
             <%}%>
             </select>
+            <div class="tiendas invalid-feedback"></div>
             <br><br>
 
             <label for="filtros" class="labelform" id="filtros">Filtros</label><br>
             <div class="filtros invalid-feedback"></div>
+            <br>
             <div>
                 <input type="checkbox" name="org">
                 <label for="org" class= "letragrisform" value="3" id="org">Orgánico</label>
@@ -71,7 +73,8 @@
                 <br><br>
             </div>
             <label for="foto" required class="labelform">Añadir foto</label>
-            <input type="file" name="fotoProducto">
+            <input type="file" name="fotoProducto" id="file" class="form-control" required>
+            <div class="file invalid-feedback"></div>
             <br><br>
 
             <button type="submit" class="añadirproducto">AÑADIR PRODUCTO</button>

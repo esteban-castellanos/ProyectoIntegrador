@@ -1,5 +1,5 @@
 let nombre = document.getElementById("nombre");
-let imagen = document.getElementById("file");
+let file = document.getElementById("file");
 let formulario = document.getElementById("formulario");
 
 
@@ -30,6 +30,15 @@ formulario.addEventListener("submit", function(e){
         document.querySelector('.nombre.invalid-feedback').innerHTML = '<li> El nombre debe tener al menos 2 caracteres </li>';
         errores.push("El nombre de la tienda debe tener al menos 2 caracteres");
         }
+
+    if (!file.value.includes("jpg") && !file.value.includes("jpeg") && !file.value.includes("png") && !file.value.includes("gif")){
+        file.classList.add("is-invalid");
+        document.querySelector('.file.invalid-feedback').innerHTML = '<li>La imagen debe tener un formato válido</li>';
+        errores.push("La imagen debe tener un formato válido")
+    } else {
+        document.querySelector('.file.invalid-feedback').innerHTML = ""
+        file.classList.remove("is-invalid");
+    }
 
     if (errores.length > 0){
     e.preventDefault();

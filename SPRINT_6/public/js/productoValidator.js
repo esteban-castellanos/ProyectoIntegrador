@@ -6,6 +6,7 @@ let tiendas = document.getElementById("tiendas");
 let org = document.getElementById("org");
 let sinTacc = document.getElementById("sinTacc");
 let sinLactosa = document.getElementById("sinLactosa");
+let file = document.getElementById("file");
 let formulario = document.getElementById("formulario");
 
 let errores = [];
@@ -34,7 +35,7 @@ nombre.addEventListener("blur", function(){
 descripcion.addEventListener("blur", function(){
         if (descripcion.value.length < 15){
             descripcion.classList.add("is-invalid");
-            document.querySelector('.descripcion.invalid-feedback').innerHTML = '<li> La descripción debe tener al menos 5 caracteres </li>';
+            document.querySelector('.descripcion.invalid-feedback').innerHTML = '<li> La descripción debe tener al menos 15 caracteres </li>';
         } else {
             document.querySelector('.descripcion.invalid-feedback').innerHTML = ""
             descripcion.classList.remove("is-invalid");
@@ -46,14 +47,16 @@ precio.addEventListener("blur", function(){
         document.querySelector('.precio.invalid-feedback').innerHTML = '<li>El precio debe ser un número</li>';
         } else {
         document.querySelector('.precio.invalid-feedback').innerHTML = ""
-        precio.classList.remove("is-invalid"); 
+        precio.classList.remove("is-invalid");
         }
 });
 tiendas.addEventListener("blur", function(){
     if (tiendas.value == ""){
         tiendas.classList.add("is-invalid");
+        document.querySelector('.tiendas.invalid-feedback').innerHTML = '<li>Debe seleccionar una tienda</li>';
         } else {
         tiendas.classList.remove("is-invalid");
+        document.querySelector('.tiendas.invalid-feedback').innerHTML = ""
     }
 });
 
@@ -81,7 +84,7 @@ formulario.addEventListener("submit", function(e){
 
         if (descripcion.value.length < 15){
             descripcion.classList.add("is-invalid");
-            document.querySelector('.descripcion.invalid-feedback').innerHTML = '<li> La descripción debe tener al menos 5 caracteres </li>';
+            document.querySelector('.descripcion.invalid-feedback').innerHTML = '<li> La descripción debe tener al menos 15 caracteres </li>';
             errores.push("La descripción debe tener al menos 15 caracteres");
         }
         //Pendiente. Que lea el valor que trae y que pase cuando se selecciona algún filtro
@@ -94,8 +97,18 @@ formulario.addEventListener("submit", function(e){
             precio.classList.add("is-invalid");
             document.querySelector('.precio.invalid-feedback').innerHTML = '<li>El precio debe ser un número</li>';
             errores.push("El precio debe ser un número")
-            }
+        }
 
+        if (!file.value.includes("jpg") && !file.value.includes("jpeg") && !file.value.includes("png") && !file.value.includes("gif")){
+            file.classList.add("is-invalid");
+            document.querySelector('.file.invalid-feedback').innerHTML = '<li>La imagen debe tener un formato válido</li>';
+            errores.push("La imagen debe tener un formato válido")
+        } else {
+            document.querySelector('.file.invalid-feedback').innerHTML = ""
+            file.classList.remove("is-invalid");
+        }
+
+        console.log(file.value);
         console.log(errores);
 
         if (errores.length > 0){
