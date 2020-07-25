@@ -251,6 +251,11 @@ a.nav-item.nav-link  {
 
 /* ---------------------------------- SECCIÓN DE PRODUCTOS --------------------------*/
 
+.busqueda {
+font-size: 130%;
+font-family:'Kreon', serif;
+}
+
 div.col-12 p {
     margin-bottom: 0px;
     padding-top: 2%;

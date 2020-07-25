@@ -20,12 +20,12 @@ search: function (req,res){
     .then(function(productos){
         let results = [];
         productos.forEach((prod, i) => {
-            if (prod.name.includes(req.query.nombre)) {
+            if (prod.name.toLowerCase().includes(req.query.nombre.toLowerCase().trim()) || prod.short_description.toLowerCase().includes(req.query.nombre.toLowerCase().trim())) {
             results.push(prod);
             }
         });
         if (results !== []){
-        res.render('prodPorTienda', {productos: results, user: req.session.usuarioLogueado});
+        res.render('prodPorTienda', {productos: results, user: req.session.usuarioLogueado, search: req.query.nombre});
         }
     })
     .catch(function(e){

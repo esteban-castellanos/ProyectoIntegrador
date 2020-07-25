@@ -11,12 +11,16 @@
 
     <%- include('partials/filtros.ejs')%>
 
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb" id="mapnav">
-            <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Tienda: CARDAMOMO</li>
-        </ol>
-    </nav>
+    <% if(typeof(search) != 'undefined'){ %>
+    <h2 class="busqueda">Resultados de la búsqueda: <%= search %></h2>
+    <%} else {%>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb" id="mapnav">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Tienda: CARDAMOMO</li>
+            </ol>
+        </nav>
+    <%}%>
 
     <section class= 'row artiprod '>
 

@@ -187,11 +187,10 @@ const productosController = {
                 include: ["tienda"],
             })
                 .then(function(productos){
-
                     let nombreBuscado =  req.query.nombre;
                     let results = [];
                     productos.forEach((prod, i) => {
-                        if (prod.name.includes(nombreBuscado)) {
+                        if (prod.name.toLowerCase().includes(nombreBuscado.toLowerCase().trim()) || prod.short_description.toLowerCase().includes(nombreBuscado.toLowerCase().trim())) {
                             results.push(prod);
                         }
                     })
@@ -275,7 +274,7 @@ const productosController = {
                     let nombreBuscado =  req.query.nombre;
                     let results = [];
                     tiendas.forEach((tiend, i) => {
-                        if (tiend.name.includes(nombreBuscado)) {
+                        if (tiend.name.toLowerCase().includes(nombreBuscado.toLowerCase().trim()) || tiend.description.toLowerCase().includes(nombreBuscado.toLowerCase().trim())) {
                             results.push(tiend);
                         }
                     })
