@@ -3,7 +3,7 @@ let nombre = document.getElementById("nombre");
 let descripcion = document.getElementById("descCorta");
 let precio = document.getElementById("precio");
 let tiendas = document.getElementById("tiendas");
-let org = document.getElementById("org");
+let orgC = document.getElementById("org");
 let sinTacc = document.getElementById("sinTacc");
 let sinLactosa = document.getElementById("sinLactosa");
 let file = document.getElementById("file");
@@ -61,6 +61,7 @@ tiendas.addEventListener("blur", function(){
 });
 
 formulario.addEventListener("submit", function(e){
+
         if (isNaN(codigo.value)){
             codigo.classList.add("is-invalid");
             document.querySelector('.codigo.invalid-feedback').innerHTML = '<li>El código debe ser un número</li>';
@@ -87,11 +88,12 @@ formulario.addEventListener("submit", function(e){
             document.querySelector('.descripcion.invalid-feedback').innerHTML = '<li> La descripción debe tener al menos 15 caracteres </li>';
             errores.push("La descripción debe tener al menos 15 caracteres");
         }
-        //Pendiente. Que lea el valor que trae y que pase cuando se selecciona algún filtro
-        /*if (org.value == undefined && sinTacc.value == undefined && sinLactosa.value == undefined){
+
+        if (org.checked == false && sinTacc.checked == false && sinLactosa.checked == false){
+            document.getElementById('filtros').classList.add("is-invalid");
             document.querySelector('.filtros.invalid-feedback').innerHTML = '<li>Debe seleccionar uno o más filtros</li>';
             errores.push("Debe seleccionar uno o más filtros");
-        }*/
+        }
 
         if (isNaN(precio.value)){
             precio.classList.add("is-invalid");

@@ -129,7 +129,6 @@ const productosController = {
 
                     console.log(errors);
                     if (errors.isEmpty()){
-                        console.log("llego");
                             db.Producto.create({
                             code: req.body.codigoProduct,
                             name: req.body.nombreProduct,
