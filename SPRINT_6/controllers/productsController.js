@@ -236,7 +236,8 @@ const productosController = {
                     where: {name: req.body.tienda}
                 })
                     .then(function(tienda){
-
+                        let errors = validationResult(req);
+                        if (errors.isEmpty()){
                         db.Producto.update({
                             codigo: req.body.codigoProduct,
                             name: req.body.nombreProduct,
@@ -250,6 +251,7 @@ const productosController = {
                             id: req.params.codigo
                         }
                         })
+                    }
                     })
                     .then(function(){
                         return res.redirect("/productos")

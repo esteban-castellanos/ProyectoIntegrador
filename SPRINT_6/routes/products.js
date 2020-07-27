@@ -66,7 +66,7 @@ router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productsControll
 router.get('/editProducto/:codigo', permisoAdmMiddleware, productsController.get_editProducto);
 
 /* PUT EDITAR PRODUCTO. */
-router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), productsController.put_editProducto);
+router.put('/actualizarProducto/:codigo', permisoAdmMiddleware, upload.any(), validatorProductMiddleware, productsController.put_editProducto);
 
 /* GET EDITAR TIENDA. */
 router.get('/editTienda/:codigo', permisoAdmMiddleware, productsController.get_editTienda);
