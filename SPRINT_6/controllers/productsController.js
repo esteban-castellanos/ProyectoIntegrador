@@ -90,9 +90,10 @@ const productosController = {
             })
                 .then(function(tienda){
                     let errors = validationResult(req);
+                    console.log(path.extname(req.files[0].originalname));
                     console.log(errors);
                     if (errors.isEmpty()){
-                        let nuevoProducto = db.Producto.create({
+                            db.Producto.create({
                             code: req.body.codigoProduct,
                             name: req.body.nombreProduct,
                             short_description: req.body.descCorta,

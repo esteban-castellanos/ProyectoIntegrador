@@ -23,6 +23,7 @@ const userController = {
                 usuarioExistente = elem;
             }
             });
+
             if (usuarioExistente == null){ // Validamos que el usuario no exista en nuestra base de datos.
 
                 let errors = validationResult(req);

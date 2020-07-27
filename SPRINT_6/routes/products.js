@@ -4,10 +4,9 @@ var productsController = require('../controllers/productsController');
 var multer = require('multer');
 var permisoAdmMiddleware = require ("../middlewares/permisoAdmMiddleware");
 let validatorProductMiddleware = require ('../middlewares/validatorProductMiddlaware');
-
-
-
 const {check, validationResult, body} = require ('express-validator');
+
+
 //INICIO DISKSTORGE (PARA SUBIR ARCHIVOS)
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -58,7 +57,7 @@ router.get('/nuevoproducto', permisoAdmMiddleware, productsController.nuevoProdu
 router.get('/nuevatienda', permisoAdmMiddleware, productsController.nuevaTienda);
 
 /* POST NUEVO PRODUCTO. */
-router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(), productsController.crearProducto);
+router.post('/nuevoproducto', permisoAdmMiddleware, upload.any(), validatorProductMiddleware, productsController.crearProducto);
 
 /* POST NUEVA TIENDA. */
 router.post('/nuevatienda', permisoAdmMiddleware, upload.any() ,productsController.crearTienda);

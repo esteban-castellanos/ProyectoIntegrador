@@ -88,10 +88,10 @@ formulario.addEventListener("submit", function(e){
             errores.push("La descripción debe tener al menos 15 caracteres");
         }
         //Pendiente. Que lea el valor que trae y que pase cuando se selecciona algún filtro
-        if (org.value == undefined && sinTacc.value == undefined && sinLactosa.value == undefined){
+        /*if (org.value == undefined && sinTacc.value == undefined && sinLactosa.value == undefined){
             document.querySelector('.filtros.invalid-feedback').innerHTML = '<li>Debe seleccionar uno o más filtros</li>';
             errores.push("Debe seleccionar uno o más filtros");
-        }
+        }*/
 
         if (isNaN(precio.value)){
             precio.classList.add("is-invalid");
