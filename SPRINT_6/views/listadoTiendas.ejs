@@ -55,7 +55,7 @@
                 <td class='ocultar'><%= "" %></td>
                 <% } %>
 
-             <form class="" action="/productos/tiendas/<%=tiendas[i].id%>?_method=DELETE" method="post">
+             <form class="click-delete" action="/productos/tiendas/<%=tiendas[i].id%>?_method=DELETE" method="post">
                  <td><button class="btn btn-outline-secondary" type="submit" name="delete" id="button-addon2"><i class="fas fa-trash" title="Borrar"></i></button></td>
                  </td>
              </form>
@@ -71,6 +71,7 @@
 
 <%- include('partials/footer.ejs')%>
 
+<script src='/js/confirmDeleteFront.js'></script>
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="/js/bootstrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
