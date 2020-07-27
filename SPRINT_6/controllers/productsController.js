@@ -135,7 +135,7 @@ const productosController = {
                             short_description: req.body.descCorta,
                             long_description: req.body.descLarga,
                             price: req.body.precio,
-                            image: req.files[0].filename,
+                            //image: req.files[0].filename,
                             store_id: tienda.id,
                         })
                             .then(function(){
