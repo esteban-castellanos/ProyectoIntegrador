@@ -108,9 +108,6 @@ formulario.addEventListener("submit", function(e){
             file.classList.remove("is-invalid");
         }
 
-        console.log(file.value);
-        console.log(errores);
-
         if (errores.length > 0){
             e.preventDefault();
             errores = [];

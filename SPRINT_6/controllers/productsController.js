@@ -89,10 +89,47 @@ const productosController = {
                 where: {name: req.body.tienda}
             })
                 .then(function(tienda){
-                    let errors = validationResult(req);
-                    console.log(path.extname(req.files[0].originalname));
+                    let errors = validationResult(req); // check if exist validation errors
+                    if (req.files.length > 0) { // si se subió una imagen de perfil
+
+                        let extension = path.extname(req.files[0].originalname)
+                        let validado = false;
+                        switch(extension){ // validamos la extensión
+                        case '.jpg':
+                            validado = true;
+                            break;
+                        case '.jpeg':
+                            validado = true;
+                            break;
+                        case '.png':
+                            validado = true;
+                            break;
+                        default:
+                            validado = false;
+                    }
+                    console.log(validado);
+                    if (validado == false) {
+                        let nuevoError = { // creamos un error
+                           value: '',
+                           msg: 'Debe subir una imagen de perfil con extensión válida (jpg, jpeg o png).',
+                           param: 'avatar',
+                           location: 'files'
+                        }
+                        errors.errors.push(nuevoError); // lo agregamos a la lista de errores
+                        }
+                    } else {
+                        let nuevoError = {
+                            value: '',
+                            msg: 'Es obligatorio subir una imagen de perfil (jpg, jpeg o png).',
+                            param: 'avatar',
+                            location: 'files'
+                         }
+                         errors.errors.push(nuevoError);
+                    }
+
                     console.log(errors);
                     if (errors.isEmpty()){
+                        console.log("llego");
                             db.Producto.create({
                             code: req.body.codigoProduct,
                             name: req.body.nombreProduct,
@@ -102,15 +139,21 @@ const productosController = {
                             image: req.files[0].filename,
                             store_id: tienda.id,
                         })
+                            .then(function(){
+                                res.redirect('/productos');
+                            })
                     } else {
-                        return res.render('productAdd', {errors: errors.errors});
-                    }
+                        console.log("llego hasta acá");
+                        db.Tienda.findAll()
+                        .then (function(tiendas){
+                        res.render('productAdd', {errors: errors.errors, tiendas: tiendas});
+                    })
+                }
                 });
                     db.Producto.findOne({
                         where: {code:req.body.codigoProduct}
                     })
                     .then(function(producto){
-                        console.log(producto);
                     })
                 /*
                 .then(function(){
@@ -166,7 +209,6 @@ const productosController = {
                 .catch(function(e){
                     console.log(e)
                 })
-            res.redirect('/productos');
         },
 
         listadoProductos: function (req,res){
@@ -232,33 +274,78 @@ const productosController = {
 
         put_editProducto: function (req,res,next){
 
-                db.Tienda.findOne({
-                    where: {name: req.body.tienda}
-                })
-                    .then(function(tienda){
                         let errors = validationResult(req);
-                        if (errors.isEmpty()){
-                        db.Producto.update({
-                            codigo: req.body.codigoProduct,
-                            name: req.body.nombreProduct,
-                            short_description: req.body.descCorta,
-                            long_description: req.body.descLarga,
-                            price: req.body.precio,
-                            image: req.files[0].filename,
-                            store_id: tienda.id,
-                        }, {
-                            where: {
-                            id: req.params.codigo
+                        if (req.files.length > 0) { // si se subió una imagen de perfil
+                            let extension = path.extname(req.files[0].originalname)
+                            let validado = false;
+                            switch(extension){ // validamos la extensión
+                            case '.jpg':
+                                validado = true;
+                                break;
+                            case '.jpeg':
+                                validado = true;
+                                break;
+                            case '.png':
+                                validado = true;
+                                break;
+                            default:
+                                validado = false;
                         }
-                        })
-                    }
-                    })
-                    .then(function(){
-                        return res.redirect("/productos")
-                    })
-                    .catch(function(e){
-                    console.log(e)
-                    });
+                        if (validado == false) {
+                            let nuevoError = { // creamos un error
+                               value: '',
+                               msg: 'Debe subir una imagen de perfil con extensión válida (jpg, jpeg o png).',
+                               param: 'avatar',
+                               location: 'files'
+                            }
+                            errors.errors.push(nuevoError); // lo agregamos a la lista de errores
+                            }
+                        } else {
+                            let nuevoError = {
+                                value: '',
+                                msg: 'Es obligatorio subir una imagen de perfil (jpg, jpeg o png).',
+                                param: 'avatar',
+                                location: 'files'
+                             }
+                             errors.errors.push(nuevoError);
+                        }
+
+                        if (errors.isEmpty()){
+                            db.Tienda.findOne({
+                                where: {name: req.body.tienda}
+                            })
+                            .then(function(tienda){
+                                db.Producto.update({
+                                codigo: req.body.codigoProduct,
+                                name: req.body.nombreProduct,
+                                short_description: req.body.descCorta,
+                                long_description: req.body.descLarga,
+                                price: req.body.precio,
+                                image: req.files[0].filename,
+                                store_id: tienda.id,
+                            }, {
+                                where: {
+                                    id: req.params.codigo
+                                }
+                            })
+                                .then(function(){
+                                    res.redirect("/productos")
+                                })
+                            })
+
+                        } else {
+                            let pedidoProducto = db.Producto.findByPk(req.params.codigo,{
+                                include: ["tienda"]
+                            })
+                            let pedidoTiendas = db.Tienda.findAll();
+                            Promise.all([pedidoProducto, pedidoTiendas])
+                                .then(function([producto, tiendas]){
+                                    res.render('productEdit',{errors: errors.errors, producto: producto, tiendas:tiendas});
+                                })
+                                .catch(function(e){
+                                    console.log(e)
+                                });
+                        }
         },
 
         listadoTiendas: function (req,res){

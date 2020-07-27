@@ -11,16 +11,6 @@ let validatorProductMiddleware =
         .isLength({min:15}).withMessage('El campo "Descripción corta" debe estar completo y tener al menos 15 caracteres.'),
     check('precio')
         .isLength({min:1}).withMessage('El campo "Precio" debe estar completo'),
-        //Falta corregir esta validación.
-    /*body("fotoProducto").custom(function(req,file){
-        var ext = path.extname(file.originalname);
-        console.log(ext);
-        if(ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg'){
-            return false
-        } else{
-            return true
-        }
-        }).withMessage('Debe subir una imagen válida.')*/
 ]
 
   module.exports = validatorProductMiddleware
