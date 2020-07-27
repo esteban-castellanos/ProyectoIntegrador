@@ -44,7 +44,7 @@ formulario.addEventListener("submit", function(e){
     e.preventDefault();
     errores = [];
     } else {
-        let confirmar = confirm("Está seguro de que desea editar este ítem?")
+        let confirmar = confirm("¿Está seguro de que desea agregar/editar este ítem?")
         if (confirmar != true){
             e.preventDefault();
         }

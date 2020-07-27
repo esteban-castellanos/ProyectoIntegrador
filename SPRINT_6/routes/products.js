@@ -17,6 +17,7 @@ var storage = multer.diskStorage({
     }
   })
   var upload = multer({ storage: storage })
+
 //FIN LIBRERIA MULTER
 var path = require('path');
 

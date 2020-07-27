@@ -12,14 +12,15 @@ let validatorProductMiddleware =
     check('precio')
         .isLength({min:1}).withMessage('El campo "Precio" debe estar completo'),
         //Falta corregir esta validación.
-    body("fotoProducto").custom(function(req){
-        var ext = path.extname(req.files[0].originalname);
+    /*body("fotoProducto").custom(function(req,file){
+        var ext = path.extname(file.originalname);
+        console.log(ext);
         if(ext !== '.png' && ext !== '.jpg' && ext !== '.jpeg'){
             return false
         } else{
             return true
         }
-        }).withMessage('Debe subir una imagen válida.')
+        }).withMessage('Debe subir una imagen válida.')*/
 ]
 
   module.exports = validatorProductMiddleware

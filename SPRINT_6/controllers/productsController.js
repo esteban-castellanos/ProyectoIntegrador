@@ -84,7 +84,7 @@ const productosController = {
                 });
         },
 
-        crearProducto: function(req, res){
+        crearProducto: function(req, res, next){
             db.Tienda.findOne({
                 where: {name: req.body.tienda}
             })
@@ -230,7 +230,7 @@ const productosController = {
                     });
         },
 
-        put_editProducto: function (req,res){
+        put_editProducto: function (req,res,next){
 
                 db.Tienda.findOne({
                     where: {name: req.body.tienda}
