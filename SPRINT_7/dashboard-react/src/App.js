@@ -20,21 +20,19 @@ function App() {
         <link href="https://fonts.googleapis.com/css2?family=Yanone+Kaffeesatz:wght@300;400;600&display=swap" rel="stylesheet"/>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
       </head>
-      <body>
-        <header id='header'>
+      <body className="body">
+        <header>
           <Header/>
         </header>
-        <main>
+        <main className="row" id="main">
           <Navbar/>
-          <section>
-              <article>
+          <section className="section col-10 row">
                 <Totales/>
-              </article>
-              <article>
+              <article className="col-12 row articulo">
                 <UltimosProductos/>
                 <Tiendas/>
               </article>
-              <article>
+              <article className="col-12 row articulo">
                 <Categorias/>
                 <ProductosMasVendidos/>
                 <TiendasMasVendidas/>

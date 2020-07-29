@@ -2,9 +2,24 @@ import React from 'react';
 
 function Totales (){
     return(
-<div>
-    <p>Hola</p>
-</div>
+<article className="col-12 row articulo">
+    <div className='col-2 totales'>
+        <h2>TOTAL DE PRODUCTOS</h2>
+        <p>3000</p>
+    </div>
+    <div className='col-2 totales'>
+        <h2>TOTAL DE TIENDAS</h2>
+        <p>40</p>
+    </div>
+    <div className='col-2 totales'>
+        <h2>TOTAL DE USUARIOS</h2>
+        <p>200</p>
+    </div>
+    <div className='col-2 totales'>
+        <h2>TOTAL DE VENTAS($)</h2>
+        <p>$500.000</p>
+    </div>
+</article>
     )
 }
 
