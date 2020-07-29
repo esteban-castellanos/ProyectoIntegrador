@@ -4,11 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var methodOverride = require ('method-override');
-var session = require ('express-session');
-var cookiesMiddleware = require ('./middlewares/cookiesMiddleware');
 
 
-var indexRouter = require('./routes/index');
 var userRouter = require('./routes/user');
 var productsRouter = require ('./routes/products');
 
@@ -24,12 +21,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
-app.use(session({secret: "Secreto del grupo 5"}));
-app.use(cookiesMiddleware);
 
-app.use('/index', indexRouter);
-app.use('/productos', productsRouter);
-app.use('/user', userRouter);
+app.use('/api/productos', productsRouter);
+app.use('/api/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req,res,next){
