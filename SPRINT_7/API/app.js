@@ -22,12 +22,12 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
-app.use('/api/productos', productsRouter);
+app.use('/api/products', productsRouter);
 app.use('/api/users', userRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req,res,next){
-  res.status(404).render('not-found')
+  res.send('not-found')
   });
 
 // error handler
@@ -38,7 +38,7 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('not-found');
+  res.send('not-found');
 });
 
 module.exports = app;
