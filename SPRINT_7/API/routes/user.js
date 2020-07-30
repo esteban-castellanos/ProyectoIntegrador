@@ -6,7 +6,7 @@ var userController = require('../controllers/userController');
 router.get('/', userController.listadoUsuarios);
 
 /* Datos del ususario logueado */
-router.get('/:idUsuario', userController.detalleUsuario);
+router.get('/:id', userController.detalleUsuario);
 
 
 module.exports = router;

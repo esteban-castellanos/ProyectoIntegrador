@@ -9,8 +9,8 @@ const userController = {
 
     listadoUsuarios: function(req, res){
 //Acá falta eliminar password y category y agregar url de cada usuario.
-        db.Usuario.findAll()
-        .then(function(usuarios){
+         db.Usuario.findAll({attributes: ['id','first_name', 'last_name', 'email']})
+            .then(function(usuarios){
             for(let i = 0; i < usuarios.lengt; i++){
                 usuarios[i].setDataValue("detail", "api/users/" + usuarios[i].id)
             }
@@ -22,7 +22,7 @@ const userController = {
     },
 
     detalleUsuario: function(req,res) {
-        db.Usuario.findByPk(req.params.id)
+        db.Usuario.findByPk(req.params.id, {attributes: ['id','first_name', 'last_name', 'email']})
             .then(function(usuario){
             res.status(200).json({estado: "OK", item_category, item_id: usuario.id, item: usuario})
             })

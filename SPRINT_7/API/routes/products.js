@@ -7,7 +7,7 @@ var productsController = require('../controllers/productsController');
 router.get('/', productsController.listadoProductos);
 
 /* GET detalle del producto */
-router.get('/:idProducto', productsController.detalleProducto);
+router.get('/:id', productsController.detalleProducto);
 
 /* GET LISTADO DE TIENDAS */
 //router.get('/tiendas', productsController.listadoTiendas);
