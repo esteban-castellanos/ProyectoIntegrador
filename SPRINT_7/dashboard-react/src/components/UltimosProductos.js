@@ -5,10 +5,10 @@ class UltimosProductos extends Component {
         return(
             <div className='medio'>
                 <h2>Últimos productos agregados</h2>
-                <table class='col-12'>
+                <table className='col-12'>
                     <thead>
                         <tr >
-                            <th class='primeracol' scope="col">Últimos productos agregados</th>
+                            <th className='primeracol' scope="col">Últimos productos agregados</th>
                             <th scope="col">Precio</th>
                             <th scope="col">Tienda</th>
                         </tr>

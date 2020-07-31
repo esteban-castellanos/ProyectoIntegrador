@@ -5,10 +5,10 @@ class ProductosMasVendidos extends Component {
         return(
             <div className='ultimos'>
                 <h2>PRODUCTOS MÁS VENDIDOS</h2>
-                <table class='col-12'>
+                <table className='col-12'>
                     <thead>
                         <tr>
-                            <th class='primeracol' scope="col">Producto</th>
+                            <th className='primeracol' scope="col">Producto</th>
                             <th scope="col">Cantidad</th>
                         </tr>
                     </thead>

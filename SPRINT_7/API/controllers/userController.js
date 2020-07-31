@@ -15,7 +15,7 @@ const userController = {
                 usuarios[i].setDataValue("detail", "http://localhost:3000/api/users/" + usuarios[i].id)
             }
 
-            res.status(200).json({link: 'http://localhost:3000/api/users', estado: 'OK', item_category, item_count: usuarios.length, items: usuarios})
+            res.status(200).json({link: 'http://localhost:3030/api/users', estado: 'OK', item_category, item_count: usuarios.length, items: usuarios})
         })
         .catch(function(e){
             console.log(e)
@@ -25,7 +25,7 @@ const userController = {
     detalleUsuario: function(req,res) {
         db.Usuario.findByPk(req.params.id, {attributes: ['id','first_name', 'last_name', 'email']})
             .then(function(usuario){
-            res.status(200).json({link: 'http://localhost:3000/api/users/'+usuario.id, estado: "OK", item_category, item_id: usuario.id, item: usuario})
+            res.status(200).json({link: 'http://localhost:3030/api/users/'+usuario.id, estado: "OK", item_category, item_id: usuario.id, item: usuario})
             })
     }
 }

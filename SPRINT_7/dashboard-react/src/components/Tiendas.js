@@ -5,10 +5,10 @@ class Tiendas extends Component {
         return(
             <div className='medio'>
                 <h2>Información de tiendas</h2>
-                <table class='col-12'>
+                <table className='col-12'>
                     <thead>
                         <tr >
-                            <th class='primeracol' scope="col">Tiendas</th>
+                            <th className='primeracol' scope="col">Tiendas</th>
                             <th scope="col">Cantidad de Productos</th>
                             <th scope="col">$ Promedio</th>
                         </tr>

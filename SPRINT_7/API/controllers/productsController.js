@@ -16,7 +16,7 @@ const productsController = {
 
                 let respuesta = {
                     meta: {
-                        link: 'http://localhost:3000/api/products',
+                        link: 'http://localhost:3030/api/products',
                         estado: "OK",
                         item_category: item_category,
                         item_count: productos.length
@@ -40,7 +40,7 @@ const productsController = {
                 .then(function(producto){
                     let respuesta = {
                         meta: {
-                            link: `http://localhost:3000/api/products/{req.params.id}`,
+                            link: `http://localhost:3030/api/products/{req.params.id}`,
                             estado: "OK",
                             item_category: item_category,
                         },
