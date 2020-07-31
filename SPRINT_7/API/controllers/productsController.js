@@ -6,13 +6,26 @@ const item_category = "Productos";
 const productsController = {
 
     listadoProductos: function (req,res){
-        console.log('estoy aca');
         db.Producto.findAll({
             include: ["tienda"],
         })
-        //Hay que agregar un objeto literal con una propiedad por categporía con el total de productos.
             .then(function(productos){
-                res.status(200).json({link: 'http://localhost:3000/api/products',estado: 'OK', item_category, item_count: productos.length, items: productos})
+                for(let i = 0; i < productos.length; i++){
+                productos[i].setDataValue("detail", "http://localhost:3000/api/users/" + productos[i].id)
+            }
+
+                let respuesta = {
+                    meta: {
+                        link: 'http://localhost:3000/api/products',
+                        estado: "OK",
+                        item_category: item_category,
+                        item_count: productos.length
+                    },
+                    data: {
+                        productos
+                    }
+                }
+                res.status(200).json(respuesta);
             })
             .catch(function(e){
                 console.log(e)
@@ -20,14 +33,22 @@ const productsController = {
     },
 
     detalleProducto: function(req,res){
-            let pedidoProducto = db.Producto.findByPk(req.params.id,{
+            db.Producto.findByPk(req.params.id,{
                 include: ["tienda"]
             })
-            let pedidoTiendas = db.Tienda.findAll();
 
-            Promise.all([pedidoProducto, pedidoTiendas])
-                .then(function([producto, tiendas]){
-                    res.status(200).json({link: 'http://localhost:3000/api/products'+producto.id, estado: 'OK', item_category, items: producto})
+                .then(function(producto){
+                    let respuesta = {
+                        meta: {
+                            link: `http://localhost:3000/api/products/{req.params.id}`,
+                            estado: "OK",
+                            item_category: item_category,
+                        },
+                        data: {
+                            producto
+                        }
+                    }
+                    res.status(200).json(respuesta)
                 })
                 .catch(function(e){
                     console.log(e)
