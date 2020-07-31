@@ -18,12 +18,11 @@ class Totales extends Component {
 
     totalProductos = (data) => {
         console.log(data);
-        /*
         this.setState(
         {
             totalProductos: data.meta.item_count
         }
-        )*/
+        )
     }
 
     componentDidMount(){
