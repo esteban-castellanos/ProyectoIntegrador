@@ -10,8 +10,9 @@ const productsController = {
         db.Producto.findAll({
             include: ["tienda"],
         })
+        //Hay que agregar un objeto literal con una propiedad por categporía con el total de productos.
             .then(function(productos){
-                res.status(200).json({estado: 'OK', item_category, item_count: productos.length, items: productos})
+                res.status(200).json({link: 'http://localhost:3000/api/products',estado: 'OK', item_category, item_count: productos.length, items: productos})
             })
             .catch(function(e){
                 console.log(e)
@@ -26,7 +27,7 @@ const productsController = {
 
             Promise.all([pedidoProducto, pedidoTiendas])
                 .then(function([producto, tiendas]){
-                    res.status(200).json({estado: 'OK', item_category, items: producto})
+                    res.status(200).json({link: 'http://localhost:3000/api/products'+producto.id, estado: 'OK', item_category, items: producto})
                 })
                 .catch(function(e){
                     console.log(e)
