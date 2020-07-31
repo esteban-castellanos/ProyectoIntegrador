@@ -2,7 +2,7 @@ import React from 'react';
 
 function Tiendas (){
     return(
-<div className='col-5 medio'>
+<div className='medio'>
 <h2>Información de tiendas</h2>
 <table class='col-12'>
        <thead>

@@ -21,12 +21,12 @@ function App() {
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"/>
       </head>
       <body className="body">
-        <header>
+        <header className="row" >
           <Header/>
         </header>
         <main className="row" id="main">
           <Navbar/>
-          <section className="section col-10 row">
+          <section className="seccion col-10 row">
                 <Totales/>
               <article className="col-12 row articulo">
                 <UltimosProductos/>

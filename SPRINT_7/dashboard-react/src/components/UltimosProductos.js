@@ -2,7 +2,7 @@ import React from 'react';
 
 function UltimosProductos (){
     return(
-<div className='col-5 medio'>
+<div className='medio'>
 <h2>Últimos productos agregados</h2>
 <table class='col-12'>
        <thead>

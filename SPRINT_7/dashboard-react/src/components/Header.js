@@ -2,9 +2,10 @@ import React from 'react';
 
 function Header (){
 return(
-    <div id='header'>
+    <div id='header' className="col-12">
         <img className='logoPrincipal' src="/images/logo-healthy-journey.png" alt="Logo"/>
-        <img className='avatar' src="/images/logo_anteojos-08.png" alt="Usuario"/>
+        <p className='col-9'>Ricardo Fort</p>
+        <img className='avatar' src="/images/palta_dash.png" alt="Usuario"/>
     </div>
 )
 }

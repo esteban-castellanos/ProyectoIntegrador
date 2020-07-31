@@ -2,7 +2,7 @@ import React from 'react';
 
 function TiendasMasVendidas (){
     return(
-<div className='col-3 ultimos'>
+<div className='ultimos'>
 <h2>TIENDAS QUE MÁS FACTURAN</h2>
     <table class='col-12'>
        <thead>
