@@ -5,7 +5,9 @@ class Totales extends Component {
     constructor(props){
         super(props);
         this.state = {
-            totalProductos: ""
+            totalProductos: "",
+            totalTiendas: "",
+            totalUsuarios: ""
         }
     }
 
@@ -17,26 +19,52 @@ class Totales extends Component {
     }
 
     totalProductos = (data) => {
-        console.log(data);
         this.setState(
         {
-            totalProductos: data.meta.item_count
-        }
-        )
+            totalProductos: data.meta.item_count,
+        })
+    }
+
+    totalTiendas = (data) => {
+        this.setState(
+        {
+            totalTiendas: data.meta.item_count
+        })
+    }
+
+    totalUsuarios = (data) => {
+        this.setState(
+        {
+            totalUsuarios: data.item_count
+        })
     }
 
     componentDidMount(){
         console.log("Me estoy componiendo");
         this.apiCall("http://localhost:3030/api/products", this.totalProductos)
+        this.apiCall("http://localhost:3030/api/stores", this.totalTiendas)
+        this.apiCall("http://localhost:3030/api/users", this.totalUsuarios)
     }
 
     render () {
         console.log("Me estoy renderizando");
         let contenido;
-        if(this.state.totalProductos == "") {
+        if(this.state.totalProductos === "") {
             contenido = <p>Cargando datos..</p>
         } else {
             contenido = <p>{this.state.totalProductos}</p>
+        }
+        let contenidoTiendas;
+        if(this.state.totalTiendas === "") {
+            contenidoTiendas = <p>Cargando datos..</p>
+        } else {
+            contenidoTiendas = <p>{this.state.totalTiendas}</p>
+        }
+        let contenidoUsuarios;
+        if(this.state.totalUsuarios === "") {
+            contenidoUsuarios = <p>Cargando datos..</p>
+        } else {
+            contenidoUsuarios = <p>{this.state.totalUsuarios}</p>
         }
 
         return(
@@ -47,11 +75,11 @@ class Totales extends Component {
                 </div>
                 <div className='totales'>
                     <h2>TOTAL DE TIENDAS</h2>
-                    <p>40</p>
+                    {contenidoTiendas}
                 </div>
                 <div className='totales'>
                     <h2>TOTAL DE USUARIOS</h2>
-                    <p>200</p>
+                    {contenidoUsuarios}
                 </div>
                 <div className='totales'>
                     <h2>TOTAL DE VENTAS($)</h2>
