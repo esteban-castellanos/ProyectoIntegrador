@@ -9,10 +9,4 @@ router.get('/', productsController.listadoProductos);
 /* GET detalle del producto */
 router.get('/:id', productsController.detalleProducto);
 
-/* GET LISTADO DE TIENDAS */
-//router.get('/tiendas', productsController.listadoTiendas);
-
-/* GET LISTADO DE CATEGORIAS */
-//router.get('/categorias', productsController.categorias);
-
 module.exports = router;

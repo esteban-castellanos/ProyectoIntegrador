@@ -54,6 +54,7 @@ const productsController = {
                     console.log(e)
                 });
     },
+
 /*
     productosPorTienda: function (req,res){
 
