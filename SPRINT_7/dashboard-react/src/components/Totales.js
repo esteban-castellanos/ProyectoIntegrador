@@ -35,19 +35,17 @@ class Totales extends Component {
     totalUsuarios = (data) => {
         this.setState(
         {
-            totalUsuarios: data.item_count
+            totalUsuarios: data.meta.item_count
         })
     }
 
     componentDidMount(){
-        console.log("Me estoy componiendo");
         this.apiCall("http://localhost:3030/api/products", this.totalProductos)
         this.apiCall("http://localhost:3030/api/stores", this.totalTiendas)
         this.apiCall("http://localhost:3030/api/users", this.totalUsuarios)
     }
 
     render () {
-        console.log("Me estoy renderizando");
         let contenido;
         if(this.state.totalProductos === "") {
             contenido = <p>Cargando datos..</p>
@@ -83,7 +81,7 @@ class Totales extends Component {
                 </div>
                 <div className='totales'>
                     <h2>TOTAL DE VENTAS($)</h2>
-                    <p>$500.000</p>
+                    <p>$95.000</p>
                 </div>
             </article>
         )

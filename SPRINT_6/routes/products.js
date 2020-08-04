@@ -3,8 +3,7 @@ var router = express.Router();
 var productsController = require('../controllers/productsController');
 var multer = require('multer');
 var permisoAdmMiddleware = require ("../middlewares/permisoAdmMiddleware");
-let validatorProductMiddleware = require ('../middlewares/validatorProductMiddlaware');
-const {check, validationResult, body} = require ('express-validator');
+let validatorProductMiddleware = require ('../middlewares/validatorProductMiddleware');
 
 
 //INICIO DISKSTORGE (PARA SUBIR ARCHIVOS)

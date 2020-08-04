@@ -43,6 +43,7 @@ const productsController = {
                             link: `http://localhost:3030/api/products/{req.params.id}`,
                             estado: "OK",
                             item_category: item_category,
+                            item_id: producto.id
                         },
                         data: {
                             producto
