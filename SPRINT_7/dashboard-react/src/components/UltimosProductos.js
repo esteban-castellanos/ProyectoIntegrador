@@ -9,13 +9,6 @@ class UltimosProductos extends Component {
         }
     }
 
-    apiCall(url, consecuencia) {
-        fetch(url)
-            .then( response => response.json())
-            .then(data => consecuencia(data))
-            .catch(error => console.log(error))
-    }
-
     componentDidMount(){
         fetch("http://localhost:3030/api/products")
             .then( response => response.json())
