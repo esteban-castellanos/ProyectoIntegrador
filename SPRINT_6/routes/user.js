@@ -18,8 +18,11 @@ router.get('/login', userController.login);
 /* Post Login. */
 router.post('/login', userController.processLogin);
 
+/* Add a Carrito. */
+router.get('/carrito/:codigo', userController.carritoAdd);
+
 /* Get Carrito. */
-router.get('/carrito/:codigo', userController.carrito);
+router.get('/carrito', userController.carrito);
 
 /* Datos del ususario logueado */
 router.get('/detalle', userController.detalleUsuario);

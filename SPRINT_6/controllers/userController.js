@@ -100,16 +100,25 @@ const userController = {
     },
 
     carrito: function (req,res){
+            res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado});
+    },
 
-        db.Producto.findByPk(req.params.codigo)
-            .then(function(producto){
+    carritoAdd: function (req,res){
 
-                res.render('productCar', {producto:producto, user: req.session.usuarioLogueado});
-
-            })
-            .catch(function(e){
-                console.log(e)
-            });
+                db.Producto.findByPk(req.params.codigo)
+                .then(function(producto){
+                    if (req.session.productoCarrito == undefined){
+                        req.session.productoCarrito = []
+                        req.session.productoCarrito.push(producto)
+                    } else {
+                        req.session.productoCarrito.push(producto)
+                    }
+                    console.log(req.session.productoCarrito)
+                    res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado});
+                })
+                .catch(function(e){
+                    console.log(e)
+                });
     },
 
     detalleUsuario: function (req,res){

@@ -20,37 +20,20 @@
                     <h3 class="col 10" id="compras-titulo">MI COMPRA</h3>
                 </div>
             </div>
+
+            <% if (productos) { %>
+                <% for (let i = 0; i<productos.length; i++ ){ %>
             <section class="nombre_producto">
                 <div class="col-5" id="producto_reemplazo">
-                    <p class="producto1"> <%=producto.name%> </p>
-                    <p id="reemplazo"> NOMBRE REEMPLAZO </p>
+                    <p class="producto1"><%= productos[i].name %></p>
+                    <p id="reemplazo"> Reemplazo </p>
                 </div>
                 <div class="cantidad col-2">
                     <button class="badge badge-white" id="cantidad-numero" > 02 </button>
                 </div>
                 <div class=" col-5" id="precio-box">
                     <div id="precio">
-                        <span id="precio-numero"> <%= '$' + producto.price%> </span>
-                        <div class="editable">
-                            <button type="submit" class="btn btn-secondary fas fa-pencil-alt" id="lapiz-carrito">
-                            </button>
-                            <button type="submit" class="btn btn-outline-secondary fas fa-trash-alt" id="eliminar">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="nombre_producto">
-                <div class="col-5" id="producto_reemplazo">
-                    <p class="producto1">NOMBRE PRODCUCTO 2 </p>
-                    <p id="reemplazo"> NOMBRE REEMPLAZO </p>
-                </div>
-                <div class="cantidad col-2">
-                    <button class="badge badge-white" id="cantidad-numero" > 02 </button>
-                </div>
-                <div class=" col-5" id="precio-box">
-                    <div id="precio">
-                        <span id="precio-numero"> $ 00.000,00</span>
+                        <span id="precio-numero"> <%= productos[i].price %></span>
                         <div class="editable">
                             <button type="submit" class="btn btn-outline-secondary fas fa-pencil-alt" id="lapiz-carrito">
                             </button>
@@ -60,46 +43,11 @@
                     </div>
                 </div>
             </section>
-            <section class="nombre_producto">
-                <div class="col-5" id="producto_reemplazo">
-                    <p class="producto1">NOMBRE PRODCUCTO 3 </p>
-                    <p id="reemplazo"> NOMBRE REEMPLAZO </p>
-                </div>
-                <div class="cantidad col-2">
-                    <button class="badge badge-white" id="cantidad-numero" > 02 </button>
-                </div>
-                <div class=" col-5" id="precio-box">
-                    <div id="precio">
-                        <span id="precio-numero"> $ 00.000,00</span>
-                        <div class="editable">
-                            <button type="submit" class="btn btn-outline-secondary fas fa-pencil-alt" id="lapiz-carrito">
-                            </button>
-                            <button type="submit" class="btn btn-outline-secondary fas fa-trash-alt " id="eliminar">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <section class="nombre_producto">
-                <div class="col-5" id="producto_reemplazo">
-                    <p class="producto1">NOMBRE PRODCUCTO 4 </p>
-                    <p id="reemplazo"> NOMBRE REEMPLAZO </p>
-                </div>
-                <div class="cantidad col-2">
-                    <button class="badge badge-white" id="cantidad-numero" > 02 </button>
-                </div>
-                <div class=" col-5" id="precio-box">
-                    <div id="precio">
-                        <span id="precio-numero"> $ 00.000,00</span>
-                        <div class="editable">
-                            <button type="submit" class="btn btn-outline-secondary fas fa-pencil-alt" id="lapiz-carrito">
-                            </button>
-                            <button type="submit" class="btn btn-outline-secondary fas fa-trash-alt " id="eliminar">
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </section>
+                    <% } %>
+                <% } else { %>
+                    <h3 class="col 10" id="compras-titulo">Su carrito está vaío</h3>
+                <% } %>
+
             <section id="carrito_total_compra">
                 <div class="col-12" id="pago-detalle">
                     <div class="col-6" id="pago-item">
