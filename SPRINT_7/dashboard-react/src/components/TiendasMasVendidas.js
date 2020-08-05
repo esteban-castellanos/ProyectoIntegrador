@@ -14,8 +14,16 @@ class TiendasMasVendidas extends Component {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>NAtureba</td>
+                            <td>Natureba</td>
                             <td>$40.000</td>
+                        </tr>
+                        <tr>
+                            <td>Mística Natural</td>
+                            <td>$28.000</td>
+                        </tr>
+                        <tr>
+                            <td>Cardamomo</td>
+                            <td>$15.000</td>
                         </tr>
                     </tbody>
                 </table>

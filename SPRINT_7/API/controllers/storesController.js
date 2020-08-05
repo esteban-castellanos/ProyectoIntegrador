@@ -1,21 +1,24 @@
 const fs =require('fs');
 var path = require('path');
 let db = require("../database/models");
-const item_category = "Tiendas";
+const item_tiendas = "Tiendas";
 
 const storesController = {
 
 listadoTiendas: function (req,res){
-    db.Tienda.findAll()
+    db.Tienda.findAll({
+        include: [{association: "productos"}],
+    })
         .then(function(tiendas){
+            console.log(tiendas);
             for(let i = 0; i < tiendas.length; i++){
-                tiendas[i].setDataValue("detail", "http://localhost:3000/api/users/" + tiendas[i].id)
+                tiendas[i].setDataValue("detail", "http://localhost:3030/api/users/" + tiendas[i].id)
             }
             let respuesta = {
                 meta: {
                     link: 'http//localhost:3030/api/products/tiendas',
                     estado: "OK",
-                    item_category: item_category,
+                    item_tiendas: item_tiendas,
                     item_count: tiendas.length
                 },
                 data: {

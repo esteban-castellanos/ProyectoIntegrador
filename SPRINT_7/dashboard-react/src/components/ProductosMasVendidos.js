@@ -15,7 +15,15 @@ class ProductosMasVendidos extends Component {
                     <tbody>
                         <tr>
                             <td>Leche de coco</td>
-                            <td>40</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>Yogur natural</td>
+                            <td>9</td>
+                        </tr>
+                        <tr>
+                            <td>Queso sin Lactosa</td>
+                            <td>7</td>
                         </tr>
                     </tbody>
                 </table>

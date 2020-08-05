@@ -11,7 +11,7 @@ const userController = {
          db.Usuario.findAll({attributes: ['id','first_name', 'last_name', 'email']})
             .then(function(usuarios){
             for(let i = 0; i < usuarios.length; i++){
-                usuarios[i].setDataValue("detail", "http://localhost:3000/api/users/" + usuarios[i].id)
+                usuarios[i].setDataValue("detail", "http://localhost:3030/api/users/" + usuarios[i].id)
             }
 
             let respuesta = {
