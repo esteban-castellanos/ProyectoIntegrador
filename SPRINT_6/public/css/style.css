@@ -878,14 +878,12 @@ p{
             display: none;
         }
         span.precioPrducto {
-       
             font-size: 100%;
           }
 
           .ppalcon {
             margin-top:32vw ;
         }
-    
 }
 
 @media (min-width: 768px){
@@ -902,13 +900,11 @@ p{
         margin-top:30vw ;
     }
     p.nombreProducto{
-     
+
         font-size: 200%;
-       
     }
 
     span.precioPrducto {
-       
         font-size: 200%;
       }
     .afiltros{
@@ -937,7 +933,6 @@ p{
             font-weight: bold;
             font-size: 23px;
         }
-       
 
         nav.navbarburguer {
             display: none;

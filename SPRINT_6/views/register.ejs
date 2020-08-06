@@ -15,8 +15,8 @@
 
             <form class= 'formulariocentrado col-12 col-sm-12 col-md-6 col-lg-4 col-xl-4'action="/user/register" method="POST" id="formulario">
 
-                <% if (typeof(mensaje) != "undefined") { %>
-                    <p style="color: green; font-size: 20px;"> <%= mensaje %>  </p>
+                <% if (typeof(mensajeRegistroOK) != "undefined") { %>
+                    <p style="color: green; font-size: 20px;"> <%= mensajeRegistroOK %>  </p>
                 <% } %>
 
                 <% if (typeof errors != 'undefined') { %>

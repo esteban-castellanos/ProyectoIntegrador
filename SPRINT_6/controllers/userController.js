@@ -47,7 +47,7 @@ const userController = {
                     category: "user"
                     });
                 mensaje = "El usuario se ha creado correctamente! Haga click en el logo para seguir navegando.";
-                return res.render("register",{mensaje: mensaje});
+                return res.render("register",{mensajeRegistroOK: mensaje});
                 } else {
                 return res.render('register', {errors: errors.errors});
                 }

@@ -113,7 +113,6 @@ const productosController = {
                         default:
                             validado = false;
                     }
-                    console.log(validado);
                     if (validado == false) {
                         let nuevoError = { // creamos un error
                            value: '',
@@ -122,7 +121,7 @@ const productosController = {
                            location: 'files'
                         }
                         errors.errors.push(nuevoError); // lo agregamos a la lista de errores
-                        }
+                            }
                     } else {
                         let nuevoError = {
                             value: '',
@@ -132,8 +131,7 @@ const productosController = {
                          }
                          errors.errors.push(nuevoError);
                     }
-
-                    console.log(errors);
+                    console.log("hola")
                     if (errors.isEmpty()){
                             db.Producto.create({
                             code: req.body.codigoProduct,
@@ -141,7 +139,7 @@ const productosController = {
                             short_description: req.body.descCorta,
                             long_description: req.body.descLarga,
                             price: req.body.precio,
-                            //image: req.files[0].filename,
+                            image: req.files[0].filename,
                             store_id: tienda.id,
                         })
                             .then(function(){

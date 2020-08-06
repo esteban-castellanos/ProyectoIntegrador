@@ -32,7 +32,7 @@
                         <p class="descripcionProducto col-8"><%=producto.short_description%></p>
                         <span class="precioPrducto col-4"><%='$' + producto.price%></span>
                         <p class="descripcionProducto2 col-12"><%=producto.long_description%></p>
-                        
+
                         <form action="/user/carrito/<%=producto.id%>" method="GET">
                             <div class="alter col-12">
                                 <select class="custom-select custom-select-sm" id="selectStock" name="segundaOpcion">
@@ -48,7 +48,6 @@
                                       <button type="button" class="selectorContador btn btn-default">-</button>
                                       <input type="text" class="impcont col-1" placeholder="1" name="cantidad">
                                      <button type="button" class="selectorContador btn btn-default">+</button>
-                                    
                                     </div>
                                 <button type="submit" class="botonproductoQ" id="LoQuiero"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
                             </div>
