@@ -142,9 +142,7 @@ a.nav-item.nav-link  {
     border: white 1px solid;
 }
 
-.ppalcon {
-    margin-top:35vw ;
-}
+
 
 
 /* ---------------------------------- FILTROS --------------------------*/
@@ -308,9 +306,7 @@ div.col-12 p {
     justify-content: space-around;
 }
 
-.imgart img {
-    width: 100%;
-}
+
 
 .btnverprod {
     width: 100%;
@@ -344,22 +340,35 @@ div.col-12 p {
     color: white;
 }
 
-.nombreProducto{
+p.nombreProducto{
     font-family:'Kreon', serif;
-    font-size: 100%;
-    height: 10%;
+    font-size: 150%;
     padding: 0px;
     flex-wrap: wrap;
+    margin: 0PX;
 }
 .contenedorProducto{
     display: flex;
     flex-wrap: wrap;
-    padding: 5px;
+   
 }
 
-.descripcionProducto {
+p.descripcionProducto {
     font-family:'Kreon', serif;
-    font-size: 70%;
+    font-size: 100%;
+    width: 100%;
+    line-height: 132%
+}
+p.descripcionProducto2 {
+    text-align: justify;
+}
+
+span.precioPrducto {
+    font-weight: bold;
+    font-size: 200%;
+    margin: 0px;
+    text-align: right;
+
 }
 
 .opcionStock{
@@ -368,6 +377,9 @@ div.col-12 p {
 }
 #selectStock{
     font-size: 8px;
+}
+div.alter {
+    padding: 0%;
 }
 
 .contadortotal{
@@ -378,8 +390,18 @@ div.col-12 p {
     margin-left: 0px;
     margin-right: 0px;
 }
+.impcont {
+    border: none;
+    background-color: #fff;
+}
+button.selectorContador {
+    border: white 1px solid;
+}
 .selectorContador{
-    padding: 0;
+    font-style: oblique;
+    background-color: rgba(125, 135, 60, 0.8);
+    color: white;
+ padding: 0;
     margin-left: 0;
     margin-right: 0;
     display: flex;
@@ -399,10 +421,14 @@ div.col-12 p {
     color: white;
     background-color: rgb(125,135,60);
     border-radius: 6px;
-    font-family:'Kreon', serif;
-    font-size: 13px;
+    font-family:'Kreon', serif;  
     text-decoration: none;
     border: white 1px solid;
+}
+
+.botonproductoQ a{
+    color: white;
+   text-decoration: none;
 }
 
 #rowClass{
@@ -591,49 +617,12 @@ p{
 
 }
 
-
-/* ---------------------------------- MEDIA QUERY --------------------------*/
-
-
-@media (min-width: 320px) {
-    .btncarrito {
-        font-size: 12px;
-    }
-    .filtropablabras {
-        font-weight: bold;
-        font-size: 21px;
-    }
-    .imgfiltros {
-        width: 40%;
-    }
-    .menugrande {
-        display: none;
-    }
-}
-
-@media (min-width: 768px) {
-    .btncarrito {
-        font-size: 14px;
-    }
-    .navbar-toggle {
-        width:70%;
-    }
-
-    .nombreProducto{
-        font-size: 250%;
-    }
-    .descripcionProducto, .precioPrducto{
-        font-size: 150%;
-    }
-    .descripcionProducto2 {
-        font-size: 80%;
-    }
     .contadortotal{
         display: flex;
         align-items: center;
     }
     .selectorContador{
-        height: 50%;
+
         display: flex;
         align-content: flex-end;
 
@@ -648,7 +637,7 @@ p{
         text-align: center;
     }
     .botonproductoQ{
-        font-size: 200%;
+
         text-decoration: none;
     }
     .imgfiltros {
@@ -673,7 +662,7 @@ p{
     .ppalcon {
         margin-top:25vw ;
     }
-}
+
 
    /*---- ACÁ EMPIEZAN LOS FORMULARIOS -----*/
 
@@ -860,6 +849,23 @@ p{
  
 
  @media (min-width: 300px){
+    .imgart {
+        width: 100%;
+    }
+    .btncarrito {
+        font-size: 12px;
+    }
+    .filtropablabras {
+        font-weight: bold;
+        font-size: 21px;
+    }
+    .imgfiltros {
+        width: 40%;
+    }
+    .menugrande {
+        display: none;
+    }
+
     .afiltros{
         margin-top: 20vw;
 
@@ -867,13 +873,52 @@ p{
  .menugrande.col-3.row {
             display: none;
         }
+ p.descripcionProducto2 {
+
+            display: none;
+        }
+        span.precioPrducto {
+       
+            font-size: 100%;
+          }
+
+          .ppalcon {
+            margin-top:32vw ;
+        }
+    
 }
 
 @media (min-width: 768px){
+
+    .btncarrito {
+        font-size: 14px;
+    }
+    .navbar-toggle {
+        width:70%;
+    }
+
+
+    .ppalcon {
+        margin-top:30vw ;
+    }
+    p.nombreProducto{
+     
+        font-size: 200%;
+       
+    }
+
+    span.precioPrducto {
+       
+        font-size: 200%;
+      }
     .afiltros{
         display: flex;
         justify-content: space-around;
         margin-top: 0vw;
+        }
+        p.descripcionProducto2 {
+
+            display: inline;
         }
 }
 
@@ -892,9 +937,7 @@ p{
             font-weight: bold;
             font-size: 23px;
         }
-        .imgart img {
-            width: 140%;
-        }
+       
 
         nav.navbarburguer {
             display: none;
@@ -942,3 +985,4 @@ p{
             margin-top: -7vw;
         }
     }
+

@@ -21,19 +21,20 @@
 
     <section id="productos" class="container">
         <article class="row cadaprod1">
-            <div class="col-5 imgart" >
-                <img src="/img/<%=producto.image%>" alt="" class="logosproductos">
+            <div class="col-5" >
+                <img src="/img/<%=producto.image%>" alt="" class=" imgart">
             </div>
 
             <div class="col-7 contenedorProducto">
                 <div class="row" id="rowClass">
-                    <span class="nombreProducto col-12 "><%=producto.name%></span>
+                    <p class="nombreProducto col-12 "><%=producto.name%></p>
                     <div class="row" id="rowProducto">
-                        <span class="descripcionProducto col-8"><%=producto.short_description%></span>
-                        <span class="descripcionProducto2 col-8"><%=producto.long_description%></span>
+                        <p class="descripcionProducto col-8"><%=producto.short_description%></p>
                         <span class="precioPrducto col-4"><%='$' + producto.price%></span>
+                        <p class="descripcionProducto2 col-12"><%=producto.long_description%></p>
+                        
                         <form action="/user/carrito/<%=producto.id%>" method="GET">
-                            <div class="col-12">
+                            <div class="alter col-12">
                                 <select class="custom-select custom-select-sm" id="selectStock" name="segundaOpcion">
                                     <option selected disabled hidden >Si no hay stock...</option>
                                     <option value="sacarLista">Sacar de la lista</option>
@@ -42,12 +43,14 @@
                                 </select>
                             </div>
                             <div class="contadortotal ">
-                                <div class="selectorContador col-6 col-sm-6">
-                                    <button class="botonproducto"  id="contadores col-6 col-sm-4" >+</button>
-                                    <input type="number" name="cantProductos" id="contadorInput" class="col-2 col-sm-3">
-                                    <button class="botonproducto" id="contadores col-6 col-sm-4">-</button>
-                                </div>
-                                <button type="submit" class="botonproductoQ" id="LoQuiero col-12 col-sm-6"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
+                                <div class="btn-toolbar" role="toolbar">
+                                    <div class="btn-group">
+                                      <button type="button" class="selectorContador btn btn-default">-</button>
+                                      <input type="text" class="impcont col-1" placeholder="1" name="cantidad">
+                                     <button type="button" class="selectorContador btn btn-default">+</button>
+                                    
+                                    </div>
+                                <button type="submit" class="botonproductoQ" id="LoQuiero"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
                             </div>
                         </form>
                     </div>
