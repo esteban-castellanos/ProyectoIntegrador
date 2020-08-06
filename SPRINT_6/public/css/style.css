@@ -58,13 +58,11 @@ div.superior div img {
  padding: 0px;
  width:100%;
  text-align: center;
- 
 }
 .usuarioLogueado a {
     color: rgb(200,120,20);
     font-family:'Kreon', serif;
     text-decoration: none;
- 
 }
 
 /* -------------------------HAMBURGUESA EN GRANDE----------------*/
@@ -73,7 +71,6 @@ div.superior div img {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    
 }
 
 .btncab {
