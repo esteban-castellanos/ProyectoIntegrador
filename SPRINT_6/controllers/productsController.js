@@ -11,7 +11,7 @@ const productosController = {
             include: ["productos"]
         })
             .then (function(tienda){
-            return res.render('prodPorTienda', {productos: tienda.productos, user: req.session.usuarioLogueado});
+            return res.render('prodPorTienda', {productos: tienda.productos, user: req.session.usuarioLogueado, mensaje: tienda.name});
             })
             .catch(function(e){
                 console.log(e)
@@ -25,7 +25,8 @@ const productosController = {
         })
 
         .then(function(categoria){
-            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
+            mensaje = "Productos Orgánicos"
+            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado, mensaje: mensaje})
         })
         .catch(function(e){
             console.log(e)
@@ -40,7 +41,8 @@ const productosController = {
         })
 
         .then(function(categoria){
-            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
+            mensaje = "Productos sin TACC"
+            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado, mensaje: mensaje})
         })
         .catch(function(e){
             console.log(e)
@@ -54,7 +56,8 @@ const productosController = {
         })
 
         .then(function(categoria){
-            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado})
+            mensaje = "Productos sin lactosa"
+            res.render("prodPorTienda", {productos: categoria.productos, user: req.session.usuarioLogueado, mensaje: mensaje})
         })
         .catch(function(e){
             console.log(e)
@@ -62,8 +65,11 @@ const productosController = {
     },
 
     detalleProducto: function(req,res){
-        db.Producto.findByPk(req.params.codigo)
+        db.Producto.findByPk(req.params.codigo, {
+        include: [{association: "tienda"}]
+        })
         .then(function(producto){
+            console.log(producto);
             res.render('productDetail', {producto: producto, user: req.session.usuarioLogueado});
         })
         .catch(function(e){
