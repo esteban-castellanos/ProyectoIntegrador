@@ -860,16 +860,15 @@ p{
 
 /* ---------------------------------- MEDIA QUERY --------------------------*/
 
- @media (max-width:1024px) {
-   .ocultar{
-       display: none;
-   }
- }
+ 
 
- @media (min-width: 425px){
+ @media (min-width: 300px){
     .afiltros{
         margin-top: 20vw;
 
+        }
+ .menugrande.col-3.row {
+            display: none;
         }
 }
 
@@ -903,7 +902,7 @@ p{
         nav.navbarburguer {
             display: none;
         }
-        .menugrande {
+        .menugrande.col-3.row  {
             display: flex;
         }
     }
