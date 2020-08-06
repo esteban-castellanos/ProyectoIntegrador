@@ -22,6 +22,16 @@
                 <h2 class="labelform">Apellido: <%=user.last_name %></h2>
                 <br><br>
                 <h2 class="labelform">Email: <%= user.email %> </h2>
+                <br><br>
+
+                <% if (user.category == 'adm') { %>
+
+                <h2 class="labelform">Categoría: Administrador</h2>
+                <br>
+
+                <button type="button" class="añadirproducto" onclick="window.location = '/productos'">Acceder a sección de administrador</button>
+
+                <%}%>
 
             </form>
 
