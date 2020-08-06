@@ -27,7 +27,7 @@ app.use(methodOverride('_method'));
 app.use(session({secret: "Secreto del grupo 5"}));
 app.use(cookiesMiddleware);
 
-app.use('/index', indexRouter);
+app.use('/', indexRouter);
 app.use('/productos', productsRouter);
 app.use('/user', userRouter);
 

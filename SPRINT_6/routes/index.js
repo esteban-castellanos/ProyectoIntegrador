@@ -6,6 +6,6 @@ var indexController = require('../controllers/indexController');
 router.get('/', indexController.home);
 
 /* SEARCH por producto o tienda. */
-router.get('/search', indexController.search);
+router.get('/index/search', indexController.search);
 
 module.exports = router;

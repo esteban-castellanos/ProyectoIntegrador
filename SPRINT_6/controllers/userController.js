@@ -84,7 +84,7 @@ const userController = {
                     //Si esta tildado utilizar una cookie que dure 60".
                     res.cookie('recordame', usuario.email, {maxAge: 600000})
                     }
-                    res.redirect ('/index')
+                    res.redirect ('/')
                 } else {
                     let mensaje = "Contraseña Inválida"
                     res.render ('login', {contraseñainv:mensaje});
@@ -126,7 +126,7 @@ const userController = {
     },
     close: function(req,res){
         req.session.usuarioLogueado = undefined;
-        res.redirect ('/index');
+        res.redirect ('/');
     },
 }
 
