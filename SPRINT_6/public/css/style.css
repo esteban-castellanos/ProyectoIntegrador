@@ -193,7 +193,7 @@ a.nav-item.nav-link  {
 #tiendas{
     display:flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-between;
     margin-left: 0px;
     margin-right: 0px;
 }
@@ -259,12 +259,21 @@ div.col-12 p {
     color: white;
     letter-spacing: 1px;
 }
+section.row.artiprod {
+    margin-left: 0px;
+}
+
+section.row.artiprod article {
+    margin-left: 0px;
+}
 
 .artiprod {
     display:flex;
-    justify-content: space-around;
-    margin:2%
-}
+    justify-content: space-between;
+    padding: 2%;
+
+    }
+
 
 .cadaprod1 {
     padding: 1%;
@@ -650,12 +659,8 @@ p{
     .imgart img {
         width: 100%;
     }
-    #tiendas{
-        justify-content: space-between;
-    }
-    .artiprod{
-        justify-content: space-between;
-    }
+
+    
     .menugrande {
         display: none;
     }
@@ -832,9 +837,10 @@ p{
     flex-wrap: wrap;
     justify-content: center;
     color: rgb(200,120,20);
+    text-align: center;
 }
 .imgerror {
-    width: 80vh;
+    width: 80vw;
 }
 
 .linkerror{
