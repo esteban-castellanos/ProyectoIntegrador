@@ -23,14 +23,26 @@
                 </div>
 
             </div>
+
             <nav class="navbarburguer navbar-expand-lg navbar-light col-1">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler btnham" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav">
-                        <a class="nav-item nav-link"  onclick="window.location = '/user/login'">INGRESAR</a>
-                        <a class="nav-item nav-link " onclick="window.location = '/user/register'">REGISTRARSE</a>
+                        <% if (user) { %>
+
+                           
+                            <a class="nav-item nav-link " onclick="window.location = '/user/close'">CERRAR SESIÓN</a> 
+                            
+    
+                            <% } else { %>
+    
+                                <a class="nav-item nav-link"  onclick="window.location = '/user/login'">INGRESAR</a>
+                                <a class="nav-item nav-link " onclick="window.location = '/user/register'">REGISTRARSE</a>
+    
+                            <% } %>
+                       
                         <a class="nav-item nav-link " href="#">MIS COMPRAS</a>
                     </div>
                 </div>
@@ -39,6 +51,7 @@
             <div class= 'col-5 imaghed '>
                 <img class="logo" src="/img/logo-healthy-journey.png" alt="Logo" href="/" onclick="window.location = '/'">
             </div>
+
             <div class='row col-12 col-sm-4 col-md-5 col-lg-4 col-xl-4'>
 
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 divdelbtncar" >

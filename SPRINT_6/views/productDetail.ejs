@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    
 
     <%- include('partials/head.ejs')%>
 
@@ -21,40 +22,50 @@
 
     <section id="productos" class="container">
         <article class="row cadaprod1">
-            <div class="col-5" >
-                <img src="/img/<%=producto.image%>" alt="" class=" imgart">
+           <div class='row col-12' >
+            <div class="col-5 contimg" >
+                <img src="/img/<%=producto.image%>" alt="" class="imgart">
             </div>
-
-            <div class="col-7 contenedorProducto">
+            <div class="col-7 continfo">
                 <div class="row" id="rowClass">
                     <p class="nombreProducto col-12 "><%=producto.name%></p>
-                    <div class="row" id="rowProducto">
-                        <p class="descripcionProducto col-8"><%=producto.short_description%></p>
+                     <p class="descripcionProducto col-8"><%=producto.short_description%></p>
                         <span class="precioPrducto col-4"><%='$' + producto.price%></span>
                         <p class="descripcionProducto2 col-12"><%=producto.long_description%></p>
-
-                        <form action="/user/carrito/<%=producto.id%>" method="GET">
-                            <div class="alter col-12">
-                                <select class="custom-select custom-select-sm" id="selectStock" name="segundaOpcion">
-                                    <option selected disabled hidden >Si no hay stock...</option>
-                                    <option value="sacarLista">Sacar de la lista</option>
-                                    <option value="distitoTam">Distinto tamaño</option>
-                                    <option value="marcaSimil">Marca similar</option>
-                                </select>
-                            </div>
-                            <div class="contadortotal ">
-                                <div class="btn-toolbar" role="toolbar">
-                                    <div class="btn-group">
-                                      <button type="button" class="selectorContador btn btn-default">-</button>
-                                      <input type="text" class="impcont col-1" placeholder="1" name="cantidad">
-                                     <button type="button" class="selectorContador btn btn-default">+</button>
-                                    </div>
-                                <button type="submit" class="botonproductoQ" id="LoQuiero"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
-                            </div>
-                        </form>
                     </div>
+                        
+                   
                 </div>
             </div>
+        
+            <form action="/user/carrito/<%=producto.id%>" method="GET" class='col-12'>
+                <div class="alter col-12">
+                    <select class="custom-select custom-select-sm" name="segundaOpcion">
+                        <option selected disabled hidden >Si no hay stock...</option>
+                        <option value="sacarLista">Sacar de la lista</option>
+                        <option value="distitoTam">Distinto tamaño</option>
+                        <option value="marcaSimil">Marca similar</option>
+                    </select>
+                </div>
+                <div class="contadortotal row ">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 input-group">
+                   
+                        <button type="button" class="selectorContador quantity-left-minus btn btn-number"  data-type="minus" data-field="">
+                        -
+                        </button>
+                  
+                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="10" min="1" max="100">
+                  
+                        <button type="button" class="selectorContador quantity-right-plus btn btn-number" data-type="plus" data-field="">
+                    +
+                        </button>
+                 
+                </div>
+                                  
+                    <button type="submit" class="col-6 col-sm-6 col-md-3 col-lg-4 col-xl-3 botonproductoQ" id="LoQuiero"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
+                </div>
+           
+            </form>
         </article>
     </section>
 </main>

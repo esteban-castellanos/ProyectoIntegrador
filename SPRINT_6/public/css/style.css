@@ -73,6 +73,12 @@ div.superior div img {
     align-items: center;
 }
 
+
+button.btnham {
+    background-color: rgb(200,120,20);
+    border: white 1px solid;
+}
+
 .btncab {
     width: 100%;
     background-color: rgb(200,120,20);
@@ -198,7 +204,8 @@ a.nav-item.nav-link  {
     margin-right: 0px;
 }
 
-.cadatienda1{
+article.cadatienda1{
+    margin-left: 0px;
     padding: 2%;
     border-radius: 6px;
     margin-bottom: 2%;
@@ -251,14 +258,7 @@ font-size: 130%;
 font-family:'Kreon', serif;
 }
 
-div.col-12 p {
-    margin-bottom: 0px;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    font-family:'Kreon', serif;
-    color: white;
-    letter-spacing: 1px;
-}
+
 section.row.artiprod {
     margin-left: 0px;
 }
@@ -307,7 +307,7 @@ section.row.artiprod article {
     padding: 0;
 }
 
-.imgart {
+img.imgart {
     display: flex;
     align-items: center;
     background-color: #fff;
@@ -361,12 +361,21 @@ p.nombreProducto{
     flex-wrap: wrap;
    
 }
+.contimg {
+    justify-content: center;
+    display: inline-flex;
+}
+
+div.continfo {
+    padding: 0%;
+}
 
 p.descripcionProducto {
     font-family:'Kreon', serif;
     font-size: 100%;
     width: 100%;
-    line-height: 132%
+    line-height: 100%;
+    padding:0px
 }
 p.descripcionProducto2 {
     text-align: justify;
@@ -377,6 +386,7 @@ span.precioPrducto {
     font-size: 200%;
     margin: 0px;
     text-align: right;
+    font-family:'Kreon', serif;
 
 }
 
@@ -384,11 +394,10 @@ span.precioPrducto {
     font-size: 10px;
     margin-left: 0px;
 }
-#selectStock{
-    font-size: 8px;
-}
+
 div.alter {
     padding: 0%;
+    margin-top: 2%;
 }
 
 .contadortotal{
@@ -399,12 +408,10 @@ div.alter {
     margin-left: 0px;
     margin-right: 0px;
 }
-.impcont {
-    border: none;
-    background-color: #fff;
-}
+
 button.selectorContador {
     border: white 1px solid;
+    font-weight: bold;
 }
 .selectorContador{
     font-style: oblique;
@@ -637,10 +644,7 @@ p{
 
     }
 
-    #selectStock{
-        font-size: large;
-    }
-
+    
     .botonproducto{
         font-size: 150%;
         text-align: center;
@@ -900,6 +904,10 @@ p{
     .navbar-toggle {
         width:70%;
     }
+   .imgart {
+        width:80%;
+    }
+    
 
 
     .ppalcon {
@@ -925,6 +933,10 @@ p{
 }
 
     @media (min-width: 992px) {
+
+        .imgart {
+            width: 60%;
+        }
         .btncarrito {
             font-size: 16px;
         }
