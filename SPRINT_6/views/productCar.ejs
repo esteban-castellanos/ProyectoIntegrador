@@ -26,14 +26,20 @@
             <section class="nombre_producto">
                 <div class="col-5" id="producto_reemplazo">
                     <p class="producto1"><%= productos[i].name %></p>
-                    <p id="reemplazo"> Reemplazo </p>
+                    <p id="reemplazo"> <%= productos[i].opcion %> </p>
                 </div>
                 <div class="cantidad col-2">
-                    <button class="badge badge-white" id="cantidad-numero" > 02 </button>
+                    <button type="button" class="selectorContador quantity-left-minus btn btn-number restar"  data-type="minus" data-field="">
+                        -
+                        </button>
+                    <input type="number" id="quantity" name="quantity" class="form-control input-number" required value="<%= productos[i].quantity %>" min="1" max="100">
+                        <button type="button" class="selectorContador quantity-right-plus btn btn-number sumar" data-type="plus" data-field="">
+                        +
+                        </button>
                 </div>
                 <div class=" col-5" id="precio-box">
                     <div id="precio">
-                        <span id="precio-numero"> <%= productos[i].price %></span>
+                        <span id="precio-numero"> $ <%= productos[i].price %></span>
                         <div class="editable">
                             <button type="submit" class="btn btn-outline-secondary fas fa-pencil-alt" id="lapiz-carrito">
                             </button>
@@ -73,6 +79,7 @@
 </main>
   <%- include('partials/footer.ejs')%>
 
+    <script src='/js/pedidoFinal.js'></script>
     <script src="/js/bootstrap.min.js"></script>
 </body>
 

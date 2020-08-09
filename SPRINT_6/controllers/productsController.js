@@ -69,7 +69,6 @@ const productosController = {
         include: [{association: "tienda"}]
         })
         .then(function(producto){
-            console.log(producto);
             res.render('productDetail', {producto: producto, user: req.session.usuarioLogueado});
         })
         .catch(function(e){
@@ -131,7 +130,7 @@ const productosController = {
                          }
                          errors.errors.push(nuevoError);
                     }
-                    console.log("hola")
+
                     if (errors.isEmpty()){
                             db.Producto.create({
                             code: req.body.codigoProduct,

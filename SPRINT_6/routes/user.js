@@ -19,7 +19,7 @@ router.get('/login', userController.login);
 router.post('/login', userController.processLogin);
 
 /* Add a Carrito. */
-router.get('/carrito/:codigo', userController.carritoAdd);
+router.post('/carrito', userController.carritoAdd);
 
 /* Get Carrito. */
 router.get('/carrito', userController.carrito);

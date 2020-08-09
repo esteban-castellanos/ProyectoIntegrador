@@ -104,21 +104,41 @@ const userController = {
     },
 
     carritoAdd: function (req,res){
+        console.log(req.body.id)
+        db.Producto.findByPk(req.body.id)
+        .then(function(producto){
+            let opcion;
+            switch (req.body.segundaOpcion) {
+                case "eliminar":
+                    opcion = "Eliminar producto"
+                    break;
+                case "distintoTam":
+                    opcion = "Producto de distinto tamaño"
+                    break;
+                case "marcaSim":
+                    opcion = "Marca similar"
+            }
 
-                db.Producto.findByPk(req.params.codigo)
-                .then(function(producto){
-                    if (req.session.productoCarrito == undefined){
-                        req.session.productoCarrito = []
-                        req.session.productoCarrito.push(producto)
-                    } else {
-                        req.session.productoCarrito.push(producto)
-                    }
-                    console.log(req.session.productoCarrito)
-                    res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado});
-                })
-                .catch(function(e){
-                    console.log(e)
-                });
+            let productoSeleccionado = {
+                quantity: req.body.quantity,
+                opcion: opcion,
+                price: producto.price,
+                name: producto.name,
+                }
+
+                if (req.session.productoCarrito == undefined){
+                    req.session.productoCarrito = []
+                    req.session.productoCarrito.push(productoSeleccionado)
+                } else {
+                    req.session.productoCarrito.push(productoSeleccionado)
+                }
+
+                res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado});
+
+        })
+        .catch(function(e){
+            console.log(e)
+        });
     },
 
     detalleUsuario: function (req,res){

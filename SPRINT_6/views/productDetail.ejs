@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-    
 
     <%- include('partials/head.ejs')%>
 
@@ -33,38 +32,35 @@
                         <span class="precioPrducto col-4"><%='$' + producto.price%></span>
                         <p class="descripcionProducto2 col-12"><%=producto.long_description%></p>
                     </div>
-                        
-                   
                 </div>
             </div>
-        
-            <form action="/user/carrito/<%=producto.id%>" method="GET" class='col-12'>
+
+            <form action="/user/carrito" method="POST" class='col-12' id="formulario">
                 <div class="alter col-12">
-                    <select class="custom-select custom-select-sm" name="segundaOpcion">
-                        <option selected disabled hidden >Si no hay stock...</option>
-                        <option value="sacarLista">Sacar de la lista</option>
-                        <option value="distitoTam">Distinto tamaño</option>
-                        <option value="marcaSimil">Marca similar</option>
+                    <select class="custom-select custom-select-sm" name="segundaOpcion" id="opcion" class="form-control">
+                        <option selected disabled hidden>Si no hay stock... </option>
+                        <option value="eliminar">Eliminar</option>
+                        <option value="distintoTam">Distinto tamaño</option>
+                        <option value="marcaSim">Marca similar</option>
                     </select>
+                    <div class="opcion invalid-feedback"></div>
+                    <input type="number" name="id" value="<%=producto.id%>" style="display: none">
                 </div>
                 <div class="contadortotal row ">
-                <div class="col-6 col-sm-6 col-md-4 col-lg-3 col-xl-3 input-group">
-                   
-                        <button type="button" class="selectorContador quantity-left-minus btn btn-number"  data-type="minus" data-field="">
+                <div class="col-6 col-sm-6 col-md-4 col-lg-2 col-xl-2 input-group">
+
+                        <button type="button" class="selectorContador quantity-left-minus btn btn-number"  data-type="minus" data-field="" id="restar">
                         -
                         </button>
-                  
-                    <input type="text" id="quantity" name="quantity" class="form-control input-number" value="10" min="1" max="100">
-                  
-                        <button type="button" class="selectorContador quantity-right-plus btn btn-number" data-type="plus" data-field="">
-                    +
+
+                    <input type="number" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+
+                        <button type="button" class="selectorContador quantity-right-plus btn btn-number" data-type="plus" data-field="" id="sumar">
+                        +
                         </button>
-                 
                 </div>
-                                  
-                    <button type="submit" class="col-6 col-sm-6 col-md-3 col-lg-4 col-xl-3 botonproductoQ" id="LoQuiero"><a href="/user/carrito/<%=producto.id%>">LO QUIERO!</a></button>
+                    <button type="submit" class="col-6 col-sm-6 col-md-3 col-lg-4 col-xl-3 botonproductoQ" id="LoQuiero">LO QUIERO!</button>
                 </div>
-           
             </form>
         </article>
     </section>
@@ -73,6 +69,7 @@
 <%- include('partials/footer.ejs')%>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src='/js/quantity.js'></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
