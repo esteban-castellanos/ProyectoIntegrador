@@ -100,11 +100,18 @@ const userController = {
     },
 
     carrito: function (req,res){
-            res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado});
+
+        let sumaTotal = 0;
+        if (req.session.usuarioLogueado){
+        for (let i= 0; i< req.session.productoCarrito.length; i++){
+            sumaTotal = sumaTotal + req.session.productoCarrito[i].price
+            }
+        }
+        console.log(sumaTotal)
+        res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado, sumaTotal: sumaTotal});
     },
 
     carritoAdd: function (req,res){
-        console.log(req.body.id)
         db.Producto.findByPk(req.body.id)
         .then(function(producto){
             let opcion;
@@ -133,7 +140,12 @@ const userController = {
                     req.session.productoCarrito.push(productoSeleccionado)
                 }
 
-                res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado});
+                let sumaTotal = 0;
+                for (let i= 0; i< req.session.productoCarrito.length; i++){
+                    sumaTotal = sumaTotal + req.session.productoCarrito[i].price
+                }
+
+                res.render('productCar', {productos:req.session.productoCarrito, user: req.session.usuarioLogueado, sumaTotal: sumaTotal});
 
         })
         .catch(function(e){

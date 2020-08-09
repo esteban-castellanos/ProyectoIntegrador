@@ -92,6 +92,11 @@ ul {
   padding: 0px;
 }
 
+.listado a {
+  text-decoration: none;
+  color: white;
+}
+
 article.articulo{
   display:'flex';
   justify-content: space-between;

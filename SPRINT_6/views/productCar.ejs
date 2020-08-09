@@ -62,7 +62,12 @@
                         <p class="pago-total">TOTAL</p>
                     </div>
                     <div class=" pago-box col-6" id="precio">
+
+                    <% if(sumaTotal !== 0){ %>
+                        <span id="precio-numero"> $<%=sumaTotal%></span>
+                    <% } else { %>
                         <span id="precio-numero"> $ 00.000,00</span>
+                    <% } %>
                         <span id="precio-numero"> $ 00.000,00</span>
                         <span id="precio-numero"> $ 00.000,00</span>
                     </div>
