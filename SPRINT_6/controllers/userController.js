@@ -102,7 +102,7 @@ const userController = {
     carrito: function (req,res){
 
         let sumaTotal = 0;
-        if (req.session.usuarioLogueado){
+        if (req.session.productoCarrito){
         for (let i= 0; i< req.session.productoCarrito.length; i++){
             sumaTotal = sumaTotal + req.session.productoCarrito[i].price
             }

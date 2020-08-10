@@ -1,17 +1,17 @@
 let sumar = document.querySelectorAll(".sumar");
 let restar = document.querySelectorAll(".restar");
-let quantity = document.getElementById("quantity");
+let quantity = document.querySelectorAll(".quantity");
 
 window.addEventListener('load', function(){
 
-    for (const botonSuma of sumar){
-        botonSuma.addEventListener("click", function(){
-            quantity.value++
+    for (let i = 0; i< sumar.length; i++) {
+        sumar[i].addEventListener("click", function(){
+                quantity[i].value++
         })
     }
-    for (const botonResta of restar){
-        botonResta.addEventListener("click", function(){
-            quantity.value--
+    for (let i = 0; i< restar.length; i++) {
+        restar[i].addEventListener("click", function(){
+                quantity[i].value--
         })
     }
 
